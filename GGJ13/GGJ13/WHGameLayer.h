@@ -28,5 +28,6 @@
 
 -(void)touchBouton:(int)boutonNb;
 -(void)newLevel:(int)gameBPM;
+-(void)restoreBouton:(int)btn;
 
 @end

@@ -49,12 +49,12 @@
 		CCLayer *bgLayer = [CCLayer node];
 		CGSize s = [CCDirector sharedDirector].winSize;		
 		// init du background
-		CCSprite *bgpic = [CCSprite spriteWithFile:@"fondpapier.png"];
+		CCSprite *bgpic = [CCSprite spriteWithFile:@"fond-jeu.png"];
 		bgpic.position = ccp(bgpic.position.x + s.width/2.0, bgpic.position.y+s.height/2.0);
 		//bgpic.opacity = 160;
-		bgpic.color = ccc3(160, 160, 160);
+		//bgpic.color = ccc3(160, 160, 160);
 		[bgLayer addChild:bgpic];
-		// [self addChild:bgLayer z:-10];
+		[self addChild:bgLayer z:-10];
 
 		
 		
