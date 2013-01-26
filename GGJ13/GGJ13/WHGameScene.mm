@@ -63,7 +63,7 @@
 		[self ziqueUpdate:5];
 		[self.gameLayer newLevel:currentZique];
 		//[gameLayer setAudioManager:audioManager];
-		// [self schedule:@selector(simulateBPM:) interval:10];
+		 [self schedule:@selector(simulateBPM:) interval:10];
 		
 		// add layer as a child to scene
 		//[self addChild: pauseLayer z:-15 tag:3];
@@ -155,17 +155,19 @@
 }
 
 -(int) ziqueWithBPM:(int) bpm {
-	if (bpm< 92) {
+	if (bpm< 80) {
 		return 0;
-	} else if (bpm < 124){
+	} else if (bpm < 105){
 		return 1;
-	} else if (bpm < 156) {
+	} else if (bpm < 135) {
 		return 2;
-	} else if (bpm < 188) {
+	} else if (bpm < 158) {
 		return 3;
-	} else {
+	} else if (bpm < 176) {
 		return 4;
-	}
+	} else {
+        return 5;
+    }
 }
 
 -(void) updateMusicBPM {

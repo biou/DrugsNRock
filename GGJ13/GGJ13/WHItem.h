@@ -12,12 +12,25 @@
 typedef enum
 {
     ItemTypeNormal,
-    ItemTypeExtasy
+    ItemTypeGHB,
+    ItemTypeLSD,
+    ItemTypeHero,
+    ItemTypeCanna,
+    ItemTypeTramadol,
+    ItemTypeAlcool,
+    ItemTypeOpium,
+    ItemTypeCocaine,
+    ItemTypeCafe,
+    ItemTypeChampi,
+    ItemTypeMeth,
+    ItemTypeExta
 } ItemType;
 
 @interface WHItem : CCSprite {
     
 }
+
+@property ItemType type;
 
 -(id) initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect;
 
