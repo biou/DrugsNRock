@@ -21,6 +21,8 @@
 }
 
 @property (strong) WHPartition *partition;
+@property (strong) WHPartition *recPartition;
+@property (strong) NSDate *dateInit;
 @property (strong) NSMutableArray *activeItems;
 @property (strong) NSMutableArray *boutons;
 

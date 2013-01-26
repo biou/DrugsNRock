@@ -37,6 +37,10 @@
             } else {
                 [self.gameLayer touchBouton:3];
             }
+        } else if (location.y > 300) {
+            NSLog(@"### Sauvegarde de la partition ###");
+            [self.gameLayer.recPartition saveData];
+            
         }
     }
 }
