@@ -99,7 +99,7 @@
 {
     _elapsedTime+=dt;
     while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp] - 4.9f) {
-        NSLog(@"New Item");
+        // NSLog(@"New Item");
         [self newItem:ItemTypeNormal atLane:[self.partition itemLane]];
         [self.partition goToNextItem];
     }
@@ -107,7 +107,7 @@
 
 if ([self.activeItems count]>0){
     WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
-    if(item.position.y >HIT_Y-3 && item.position.y <HIT_Y+3) {
+    if(item.position.y >HIT_Y-2 && item.position.y <HIT_Y+2) {
         NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
     }
 }
@@ -130,7 +130,7 @@ if ([self.activeItems count]>0){
 
 -(void)itemMoveFinished:(id)target
 {
-    NSLog(@"Fin de move… Suppr. de l’item");
+    // NSLog(@"Fin de move… Suppr. de l’item");
     CCNode *node = (CCNode *)[self.activeItems objectAtIndex:0];
     [self.activeItems removeObjectAtIndex:0];
     [self removeChild:node cleanup:YES];
