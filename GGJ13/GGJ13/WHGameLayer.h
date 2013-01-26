@@ -27,5 +27,6 @@
 @property (strong) NSMutableArray *boutons;
 
 -(void)touchBouton:(int)boutonNb;
+-(void)newLevel:(int)gameBPM;
 
 @end

@@ -187,4 +187,8 @@ if ([self.activeItems count]>0){
 #endif
 }
 
+-(void)newLevel:(int)gameBPM {
+	NSLog(@"newLevel: %d", gameBPM);
+}
+
 @end

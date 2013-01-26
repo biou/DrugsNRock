@@ -28,7 +28,7 @@
 		//controlLayer = [JNPControlLayer node];
 		//[controlLayer assignGameLayer:gameLayer];
 
-		
+		gameBPM = 70;
 		
 		//[gameLayer setGameScene:self];
 		//[controlLayer setGameScene:self];
@@ -53,8 +53,9 @@
 		
 		
 		[self ziqueUpdate:0];
+		[self.gameLayer newLevel:gameBPM];
 		//[gameLayer setAudioManager:audioManager];
-		//[self schedule:@selector(plop:) interval:5];
+		[self schedule:@selector(simulateBPM:) interval:10];
 		
 		// add layer as a child to scene
 		//[self addChild: pauseLayer z:-15 tag:3];
@@ -121,6 +122,7 @@
 }
 
 -(void) ziqueUpdate:(int) zique {
+	currentZique = zique;
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
 	[audioManager stopBGM];
 	[self unschedule:@selector(bgmUpdate:)]; // synchroniser
@@ -136,6 +138,30 @@
 		[self schedule:@selector(bgmUpdate:) interval:[[bob objectForKey:@"loopLen"] floatValue]];
 	}
 	musicBPM = [[bob objectForKey:@"bpm"] intValue];
+}
+
+-(void) simulateBPM:(ccTime) dt {
+	gameBPM+=10;
+	NSLog(@"simulate new BPM: %d", gameBPM);
+	[self updateMusicBPM];
+}
+
+-(int) ziqueWithBPM:(int) bpm {
+	if (bpm< 150) {
+		return 0;
+	} else {
+		return 1;
+	}
+}
+
+-(void) updateMusicBPM {
+	int newZique = [self ziqueWithBPM:gameBPM];
+	if (newZique != currentZique) {
+			NSLog(@"changeZique %d", newZique);
+		[self ziqueUpdate:newZique];
+		[self.gameLayer newLevel:gameBPM];
+	}
+	
 }
 
 
