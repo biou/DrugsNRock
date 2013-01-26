@@ -123,7 +123,7 @@ if ([self.activeItems count]>0){
     [self.activeItems addObject:itemSprite];
     
     // Create the actions
-    id actionMove = [CCMoveTo actionWithDuration:6.0f position:ccp(itemSprite.position.x, -50)];
+    id actionMove = [CCMoveTo actionWithDuration:7.0f-_currentMusicBPM position:ccp(itemSprite.position.x, -50)];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
     [itemSprite runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
 }
