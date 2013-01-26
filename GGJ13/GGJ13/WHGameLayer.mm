@@ -25,6 +25,7 @@
 {
     float _elapsedTime;
     int _currentMusicBPM;
+    BOOL flip;
 }
 
 
@@ -118,10 +119,18 @@ if ([self.activeItems count]>0){
 -(void) newItem:(ItemType)itemType atLane: (int)itemLane
 {
     WHItem *itemSprite = [WHItem spriteWithSpriteFrameName:@"neutre.png"];
+    WHItem *specialItemSprite = [WHItem randomSpecialItem];
+    
     CGSize winsize = [[CCDirector sharedDirector] winSize];
     itemSprite.position = ccp(40.0f+80*(itemLane), winsize.height + 50);
     [self addChild:itemSprite];
     [self.activeItems addObject:itemSprite];
+    
+    itemLane += flip?1:-1;
+    flip=!flip;
+    specialItemSprite.position = ccp(40.0f+80*(itemLane%4), winsize.height + 50);
+    [self addChild:specialItemSprite];
+    [self.activeItems addObject:specialItemSprite];
     
     // Create the actions
     id actionMove = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(itemSprite.position.x, -50)];
