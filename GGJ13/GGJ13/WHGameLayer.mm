@@ -24,6 +24,7 @@
 @implementation WHGameLayer
 {
     float _elapsedTime;
+    int _currentMusicBPM;
 }
 
 
@@ -98,7 +99,7 @@
 -(void) tick: (ccTime) dt
 {
     _elapsedTime+=dt;
-    while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp]) {
+    while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp] - 4.9f) {
         NSLog(@"New Item");
         [self newItem:ItemTypeNormal atLane:[self.partition itemLane]];
         [self.partition goToNextItem];
@@ -107,9 +108,8 @@
 
 if ([self.activeItems count]>0){
     WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
-
-    if(item.position.y >HIT_Y-1 && item.position.y <HIT_Y+1) {
-        NSLog(@"First point -- y:%f temps:%f",item.position.y,_elapsedTime);
+    if(item.position.y >HIT_Y-3 && item.position.y <HIT_Y+3) {
+        NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
     }
 }
 }
