@@ -49,7 +49,7 @@
         self.activeItems = [NSMutableArray new];
         
 		// initialisation de textures
-		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"SpriteSheet.plist"];
+		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spritesheet.plist"];
         
         // Layer de contrôle
         WHControlLayer *ctrl = [WHControlLayer node];
@@ -71,22 +71,23 @@
         [self schedule: @selector(tick:) interval:1.0/30.0];
         
         // Boutons de jeu
-        CCSprite *bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+		self.boutons = [NSMutableArray arrayWithCapacity:4];
+        CCSprite *bouton = [CCSprite spriteWithSpriteFrameName:@"bouton-off.png"];
         bouton.position = ccp(40, 60);
         [self addChild:bouton];
         [self.boutons addObject:bouton];
         
-        bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+        bouton = [CCSprite spriteWithSpriteFrameName:@"bouton-off.png"];
         bouton.position = ccp(120, 60);
         [self addChild:bouton];
         [self.boutons addObject:bouton];
         
-        bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+        bouton = [CCSprite spriteWithSpriteFrameName:@"bouton-off.png"];
         bouton.position = ccp(200, 60);
         [self addChild:bouton];
         [self.boutons addObject:bouton];
         
-        bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+        bouton = [CCSprite spriteWithSpriteFrameName:@"bouton-off.png"];
         bouton.position = ccp(280, 60);
         [self addChild:bouton];
         [self.boutons addObject:bouton];
@@ -116,7 +117,7 @@ if ([self.activeItems count]>0){
 
 -(void) newItem:(ItemType)itemType atLane: (int)itemLane
 {
-    WHItem *itemSprite = [WHItem spriteWithSpriteFrameName:@"item01.png"];
+    WHItem *itemSprite = [WHItem spriteWithSpriteFrameName:@"neutre.png"];
     CGSize winsize = [[CCDirector sharedDirector] winSize];
     itemSprite.position = ccp(40.0f+80*(itemLane), winsize.height + 50);
     [self addChild:itemSprite];
@@ -136,7 +137,7 @@ if ([self.activeItems count]>0){
     [self removeChild:node cleanup:YES];
 }
 
--(void)touchBoutonX: (float)bx
+-(void)touchBoutonX: (float)bx withNumber: (int)n
 {
     NSArray *items = [self.activeItems copy];
     BOOL hit = NO;
@@ -148,36 +149,44 @@ if ([self.activeItems count]>0){
             hit = YES;
         }
     }
+
     if(hit) {
-        // NSLog(@"Hit!");
+        NSLog(@"Hit!: %d", n);
+		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-yes.png"]];
+		NSLog(@"%@", self.boutons);
     } else {
-        // NSLog(@"Miss");
+		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-no.png"]];
+        NSLog(@"Miss");
     }
+}
+
+-(void)restoreBouton:(int)btn {
+	[[self.boutons objectAtIndex:btn] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-off.png"]];
 }
 
 -(void)touchBouton:(int)boutonNb
 {
     switch (boutonNb) {
         case 0:
-            [self touchBoutonX:40];
+            [self touchBoutonX:40 withNumber:0];
             break;
             
         case 1:
-            [self touchBoutonX:120];
+            [self touchBoutonX:120 withNumber:1];
             break;
             
         case 2:
-            [self touchBoutonX:200];
+            [self touchBoutonX:200 withNumber:2];
             break;
             
         case 3:
-            [self touchBoutonX:280];
+            [self touchBoutonX:280 withNumber:3];
             break;
             
         default:
             break;
     }
-    
+	
 #ifdef RECORDING_MODE
     NSTimeInterval dt = -[self.dateInit timeIntervalSinceNow];
     [self.recPartition.array addObject:@[[NSNumber numberWithDouble:dt],[NSNumber numberWithInt:boutonNb]]];

@@ -77,9 +77,10 @@
 		32A1C12116B427B400B4DEF3 /* TechnoDev-187bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C11F16B427B400B4DEF3 /* TechnoDev-187bpm.aifc */; };
 		32A1C12216B427B400B4DEF3 /* TechnoIntro-187bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C12016B427B400B4DEF3 /* TechnoIntro-187bpm.aifc */; };
 		32A1C12416B4289A00B4DEF3 /* DNB-165bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C12316B4287F00B4DEF3 /* DNB-165bpm.aifc */; };
+		32A1C13216B429A100B4DEF3 /* fond-jeu.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13116B429A100B4DEF3 /* fond-jeu.png */; };
+		32A1C13516B42F0D00B4DEF3 /* spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13316B42F0D00B4DEF3 /* spritesheet.png */; };
+		32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */; };
 		B541433D16B36935000E45B8 /* WHPartition.m in Sources */ = {isa = PBXBuildFile; fileRef = B541433C16B36934000E45B8 /* WHPartition.m */; };
-		B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541434216B36B97000E45B8 /* SpriteSheet.plist */; };
-		B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B541434316B36B97000E45B8 /* SpriteSheet.png */; };
 		B541435016B3C841000E45B8 /* WHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B541434F16B3C841000E45B8 /* WHItem.m */; };
 		B541435316B3E601000E45B8 /* WHControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B541435216B3E601000E45B8 /* WHControlLayer.m */; };
 		B5F0349D16B40AB7008BCBC0 /* track0.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F0349C16B40AB7008BCBC0 /* track0.plist */; };
@@ -368,10 +369,11 @@
 		32A1C11F16B427B400B4DEF3 /* TechnoDev-187bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TechnoDev-187bpm.aifc"; path = "Resources/TechnoDev-187bpm.aifc"; sourceTree = "<group>"; };
 		32A1C12016B427B400B4DEF3 /* TechnoIntro-187bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TechnoIntro-187bpm.aifc"; path = "Resources/TechnoIntro-187bpm.aifc"; sourceTree = "<group>"; };
 		32A1C12316B4287F00B4DEF3 /* DNB-165bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DNB-165bpm.aifc"; path = "Resources/DNB-165bpm.aifc"; sourceTree = "<group>"; };
+		32A1C13116B429A100B4DEF3 /* fond-jeu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fond-jeu.png"; path = "Resources/fond-jeu.png"; sourceTree = "<group>"; };
+		32A1C13316B42F0D00B4DEF3 /* spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spritesheet.png; path = Resources/spritesheet.png; sourceTree = "<group>"; };
+		32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = spritesheet.plist; path = Resources/spritesheet.plist; sourceTree = "<group>"; };
 		B541433B16B36934000E45B8 /* WHPartition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPartition.h; sourceTree = "<group>"; };
 		B541433C16B36934000E45B8 /* WHPartition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPartition.m; sourceTree = "<group>"; };
-		B541434216B36B97000E45B8 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SpriteSheet.plist; sourceTree = "<group>"; };
-		B541434316B36B97000E45B8 /* SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpriteSheet.png; sourceTree = "<group>"; };
 		B541434E16B3C841000E45B8 /* WHItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHItem.h; sourceTree = "<group>"; };
 		B541434F16B3C841000E45B8 /* WHItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHItem.m; sourceTree = "<group>"; };
 		B541435116B3E601000E45B8 /* WHControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHControlLayer.h; sourceTree = "<group>"; };
@@ -485,6 +487,9 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32A1C13116B429A100B4DEF3 /* fond-jeu.png */,
+				32A1C13316B42F0D00B4DEF3 /* spritesheet.png */,
+				32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */,
 				32A1C11F16B427B400B4DEF3 /* TechnoDev-187bpm.aifc */,
 				32A1C12016B427B400B4DEF3 /* TechnoIntro-187bpm.aifc */,
 				32A1C12316B4287F00B4DEF3 /* DNB-165bpm.aifc */,
@@ -522,8 +527,6 @@
 				32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */,
 				32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */,
 				32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */,
-				B541434216B36B97000E45B8 /* SpriteSheet.plist */,
-				B541434316B36B97000E45B8 /* SpriteSheet.png */,
 				324254BD168DDFB40050EDD1 /* Default.png */,
 				324254BF168DDFB40050EDD1 /* Default-Landscape~ipad.png */,
 				324254C1168DDFB40050EDD1 /* fps_images.png */,
@@ -983,8 +986,6 @@
 				3242591D168DE59F0050EDD1 /* LICENSE_cocos2d.txt in Resources */,
 				3242591E168DE59F0050EDD1 /* LICENSE_CocosDenshion.txt in Resources */,
 				3242591F168DE59F0050EDD1 /* LICENSE_Kazmath.txt in Resources */,
-				B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */,
-				B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */,
 				B5F0349D16B40AB7008BCBC0 /* track0.plist in Resources */,
 				B5F034BA16B41ADE008BCBC0 /* track1.plist in Resources */,
 				B5F034BB16B41ADE008BCBC0 /* track2.plist in Resources */,
@@ -1019,6 +1020,9 @@
 				32A1C11E16B425F600B4DEF3 /* Default@2x.png in Resources */,
 				32A1C12116B427B400B4DEF3 /* TechnoDev-187bpm.aifc in Resources */,
 				32A1C12216B427B400B4DEF3 /* TechnoIntro-187bpm.aifc in Resources */,
+				32A1C13216B429A100B4DEF3 /* fond-jeu.png in Resources */,
+				32A1C13516B42F0D00B4DEF3 /* spritesheet.png in Resources */,
+				32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */,
 				B5F034FB16B42DE9008BCBC0 /* track5.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

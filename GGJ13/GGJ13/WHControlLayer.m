@@ -45,4 +45,25 @@
     }
 }
 
+- (void)ccTouchesEnded:(NSSet*)touches withEvent:(UIEvent*)event {
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInView: [touch view]];
+        location = [[CCDirector sharedDirector] convertToGL: location];
+        
+        if (location.y < 150)
+        {
+            if (location.x < 80) {
+                [self.gameLayer restoreBouton:0];
+            } else if (location.x < 160) {
+                [self.gameLayer restoreBouton:1];
+            } else if (location.x < 240) {
+                [self.gameLayer restoreBouton:2];
+            } else {
+                [self.gameLayer restoreBouton:3];
+            }
+        } 
+    }
+	
+}
+
 @end
