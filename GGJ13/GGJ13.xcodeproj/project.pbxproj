@@ -53,8 +53,7 @@
 		B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B541434316B36B97000E45B8 /* SpriteSheet.png */; };
 		B541435016B3C841000E45B8 /* WHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B541434F16B3C841000E45B8 /* WHItem.m */; };
 		B541435316B3E601000E45B8 /* WHControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B541435216B3E601000E45B8 /* WHControlLayer.m */; };
-		B541436116B3F962000E45B8 /* testPart.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541436016B3F962000E45B8 /* testPart.plist */; };
-		B541436F16B407EE000E45B8 /* testPart.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541436E16B407EE000E45B8 /* testPart.plist */; };
+		B5F0349D16B40AB7008BCBC0 /* testPart.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F0349C16B40AB7008BCBC0 /* testPart.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,8 +313,7 @@
 		B541434F16B3C841000E45B8 /* WHItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHItem.m; sourceTree = "<group>"; };
 		B541435116B3E601000E45B8 /* WHControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHControlLayer.h; sourceTree = "<group>"; };
 		B541435216B3E601000E45B8 /* WHControlLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHControlLayer.m; sourceTree = "<group>"; };
-		B541436016B3F962000E45B8 /* testPart.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testPart.plist; sourceTree = "<group>"; };
-		B541436E16B407EE000E45B8 /* testPart.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = testPart.plist; path = Resources/testPart.plist; sourceTree = "<group>"; };
+		B5F0349C16B40AB7008BCBC0 /* testPart.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = testPart.plist; path = Resources/testPart.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +415,7 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B541436E16B407EE000E45B8 /* testPart.plist */,
+				B5F0349C16B40AB7008BCBC0 /* testPart.plist */,
 				32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */,
 				32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */,
 				32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */,
@@ -885,8 +883,7 @@
 				324330A416B3364D0052534D /* fondpapier.png in Resources */,
 				B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */,
 				B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */,
-				B541436116B3F962000E45B8 /* testPart.plist in Resources */,
-				B541436F16B407EE000E45B8 /* testPart.plist in Resources */,
+				B5F0349D16B40AB7008BCBC0 /* testPart.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
