@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Partition : NSObject <NSCoding>
+@interface WHPartition : NSObject <NSCoding>
 
 @property NSMutableArray *array;
 

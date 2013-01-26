@@ -6,9 +6,9 @@
 //
 //
 
-#import "Partition.h"
+#import "WHPartition.h"
 
-@implementation Partition
+@implementation WHPartition
 {
     int _currentItem;
 }
@@ -55,7 +55,7 @@
 
 
 -(void)loadData {
-    NSString *dataPath = [Partition getPrivateDocsDir];
+    NSString *dataPath = [WHPartition getPrivateDocsDir];
     // dataPath = [dataPath stringByAppendingPathComponent:@"testLecture"];
     
     dataPath = [[NSBundle mainBundle] pathForResource:@"testPart" ofType:@"plist"];
@@ -76,7 +76,7 @@
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:self.array forKey:kArrayKey];
     [archiver finishEncoding];
-    NSString *path = [Partition getPrivateDocsDir];
+    NSString *path = [WHPartition getPrivateDocsDir];
     path = [path stringByAppendingPathComponent:@"tarabiscotte"];
     [data writeToFile:path atomically:YES];
     

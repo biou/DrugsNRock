@@ -56,7 +56,7 @@
 		//bgpic.opacity = 160;
 		bgpic.color = ccc3(160, 160, 160);
 		[bgLayer addChild:bgpic];
-		[self addChild:bgLayer z:-10];
+		// [self addChild:bgLayer z:-10];
 
 		
 		

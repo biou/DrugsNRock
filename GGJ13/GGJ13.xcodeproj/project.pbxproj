@@ -45,10 +45,11 @@
 		324330A716B33DA50052534D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 324330A616B33DA50052534D /* GCDAsyncSocket.m */; };
 		324330A916B3420D0052534D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324330A816B3420D0052534D /* Security.framework */; };
 		324330AB16B342890052534D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324330AA16B342890052534D /* CFNetwork.framework */; };
-		B541433D16B36935000E45B8 /* Partition.m in Sources */ = {isa = PBXBuildFile; fileRef = B541433C16B36934000E45B8 /* Partition.m */; };
+		B541433D16B36935000E45B8 /* WHPartition.m in Sources */ = {isa = PBXBuildFile; fileRef = B541433C16B36934000E45B8 /* WHPartition.m */; };
 		B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541434216B36B97000E45B8 /* SpriteSheet.plist */; };
 		B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B541434316B36B97000E45B8 /* SpriteSheet.png */; };
 		B541434916B373AD000E45B8 /* testPart.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541434816B373AD000E45B8 /* testPart.plist */; };
+		B541435016B3C841000E45B8 /* WHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B541434F16B3C841000E45B8 /* WHItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,11 +298,13 @@
 		324330A616B33DA50052534D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		324330A816B3420D0052534D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		324330AA16B342890052534D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		B541433B16B36934000E45B8 /* Partition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partition.h; sourceTree = "<group>"; };
-		B541433C16B36934000E45B8 /* Partition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partition.m; sourceTree = "<group>"; };
+		B541433B16B36934000E45B8 /* WHPartition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPartition.h; sourceTree = "<group>"; };
+		B541433C16B36934000E45B8 /* WHPartition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPartition.m; sourceTree = "<group>"; };
 		B541434216B36B97000E45B8 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SpriteSheet.plist; sourceTree = "<group>"; };
 		B541434316B36B97000E45B8 /* SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpriteSheet.png; sourceTree = "<group>"; };
 		B541434816B373AD000E45B8 /* testPart.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testPart.plist; sourceTree = "<group>"; };
+		B541434E16B3C841000E45B8 /* WHItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHItem.h; sourceTree = "<group>"; };
+		B541434F16B3C841000E45B8 /* WHItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +371,8 @@
 			children = (
 				32425636168DDFBC0050EDD1 /* WHGameLayer.h */,
 				32425637168DDFBC0050EDD1 /* WHGameLayer.mm */,
+				B541434E16B3C841000E45B8 /* WHItem.h */,
+				B541434F16B3C841000E45B8 /* WHItem.m */,
 				32425944168DF21E0050EDD1 /* WHIntroLayer.h */,
 				32425949168DF21E0050EDD1 /* WHIntroLayer.mm */,
 				324330A616B33DA50052534D /* GCDAsyncSocket.m */,
@@ -382,8 +387,8 @@
 				3243308216B1E0F60052534D /* WHBasicLayer.mm */,
 				32425633168DDFBC0050EDD1 /* AppDelegate.h */,
 				32425634168DDFBC0050EDD1 /* AppDelegate.mm */,
-				B541433B16B36934000E45B8 /* Partition.h */,
-				B541433C16B36934000E45B8 /* Partition.m */,
+				B541433B16B36934000E45B8 /* WHPartition.h */,
+				B541433C16B36934000E45B8 /* WHPartition.m */,
 				3242594C168DF33D0050EDD1 /* BBAudioManager.h */,
 				3242594D168DF33D0050EDD1 /* BBAudioManager.mm */,
 				3242594E168DF3550050EDD1 /* BBGCDSingleton.h */,
@@ -879,7 +884,8 @@
 				32425632168DDFBC0050EDD1 /* main.m in Sources */,
 				32425635168DDFBC0050EDD1 /* AppDelegate.mm in Sources */,
 				324330A716B33DA50052534D /* GCDAsyncSocket.m in Sources */,
-				B541433D16B36935000E45B8 /* Partition.m in Sources */,
+				B541433D16B36935000E45B8 /* WHPartition.m in Sources */,
+				B541435016B3C841000E45B8 /* WHItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
