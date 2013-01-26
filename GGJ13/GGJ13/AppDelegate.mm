@@ -30,6 +30,8 @@
 								 multiSampling:NO
 							   numberOfSamples:0];
 
+    [glView setMultipleTouchEnabled:YES];
+    
 	director_ = (CCDirectorIOS*) [CCDirector sharedDirector];
 
 	director_.wantsFullScreenLayout = YES;
@@ -73,7 +75,8 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	[director_ pushScene: [WHIntroLayer scene]];
+	//[director_ pushScene: [WHIntroLayer scene]];
+	[director_ pushScene: [WHGameScene node]];
 
 	
 	// Create a Navigation Controller with the Director

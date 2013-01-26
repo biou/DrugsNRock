@@ -48,6 +48,10 @@
 		// initialisation de textures
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"SpriteSheet.plist"];
         
+        // Layer de contrôle
+        WHControlLayer *ctrl = [WHControlLayer node];
+        [self addChild:ctrl];
+        
         // chargement de partition
         self.partition = [WHPartition new];
         [self.partition loadData];
@@ -96,12 +100,12 @@
 {
     WHItem *itemSprite = [WHItem spriteWithSpriteFrameName:@"item01.png"];
     CGSize winsize = [[CCDirector sharedDirector] winSize];
-    itemSprite.position = ccp(winsize.width/2, winsize.height + 50);
+    itemSprite.position = ccp(40.0f+80*(arc4random()%4), winsize.height + 50);
     [self addChild:itemSprite];
     [self.activeItems addObject:itemSprite];
     
     // Create the actions
-    id actionMove = [CCMoveTo actionWithDuration:6.0f position:ccp(120, -50)];
+    id actionMove = [CCMoveTo actionWithDuration:6.0f position:ccp(itemSprite.position.x, -50)];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
     [itemSprite runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
 }

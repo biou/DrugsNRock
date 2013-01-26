@@ -50,6 +50,7 @@
 		B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B541434316B36B97000E45B8 /* SpriteSheet.png */; };
 		B541434916B373AD000E45B8 /* testPart.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541434816B373AD000E45B8 /* testPart.plist */; };
 		B541435016B3C841000E45B8 /* WHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B541434F16B3C841000E45B8 /* WHItem.m */; };
+		B541435316B3E601000E45B8 /* WHControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B541435216B3E601000E45B8 /* WHControlLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,6 +306,8 @@
 		B541434816B373AD000E45B8 /* testPart.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testPart.plist; sourceTree = "<group>"; };
 		B541434E16B3C841000E45B8 /* WHItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHItem.h; sourceTree = "<group>"; };
 		B541434F16B3C841000E45B8 /* WHItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHItem.m; sourceTree = "<group>"; };
+		B541435116B3E601000E45B8 /* WHControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHControlLayer.h; sourceTree = "<group>"; };
+		B541435216B3E601000E45B8 /* WHControlLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHControlLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +374,8 @@
 			children = (
 				32425636168DDFBC0050EDD1 /* WHGameLayer.h */,
 				32425637168DDFBC0050EDD1 /* WHGameLayer.mm */,
+				B541435116B3E601000E45B8 /* WHControlLayer.h */,
+				B541435216B3E601000E45B8 /* WHControlLayer.m */,
 				B541434E16B3C841000E45B8 /* WHItem.h */,
 				B541434F16B3C841000E45B8 /* WHItem.m */,
 				32425944168DF21E0050EDD1 /* WHIntroLayer.h */,
@@ -886,6 +891,7 @@
 				324330A716B33DA50052534D /* GCDAsyncSocket.m in Sources */,
 				B541433D16B36935000E45B8 /* WHPartition.m in Sources */,
 				B541435016B3C841000E45B8 /* WHItem.m in Sources */,
+				B541435316B3E601000E45B8 /* WHControlLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

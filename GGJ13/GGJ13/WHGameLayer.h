@@ -13,6 +13,7 @@
 #import "cocos2d.h"
 #import "WHPartition.h"
 #import "WHItem.h"
+#import "WHControlLayer.h"
 
 // HelloWorldLayer
 @interface WHGameLayer : CCLayer
