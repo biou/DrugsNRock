@@ -25,6 +25,17 @@
     return result;
 }
 
+-(int)itemLane
+{
+    int result = -1;
+    if (_currentItem < [self.array count]) {
+        NSArray *a = [self.array objectAtIndex:_currentItem];
+        NSNumber *nb = [a objectAtIndex:1];
+        result = [nb intValue];
+    }
+    return result;
+}
+
 -(void)goToNextItem
 {
     _currentItem++;

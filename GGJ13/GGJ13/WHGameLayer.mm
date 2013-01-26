@@ -18,6 +18,8 @@
 #define PERFECT_TOLERANCE 8.0f
 #define ITEMS_SPEED 400.0f
 
+#define RECORDING_MODE YES
+
 // HelloWorldLayer implementation
 @implementation WHGameLayer
 {
@@ -57,6 +59,13 @@
         self.partition = [WHPartition new];
         [self.partition loadData];
         
+        // éléments utiles uniquement pour enregistrer une partoche
+#ifdef RECORDING_MODE
+        self.dateInit = [NSDate new];
+        self.recPartition = [WHPartition new];
+        self.recPartition.array = [NSMutableArray new];
+#endif
+        
         // init du tick
         [self schedule: @selector(tick:) interval:1.0/30.0];
         _elapsedTime = 0.0;
@@ -91,17 +100,17 @@
     _elapsedTime+=dt;
     while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp]) {
         NSLog(@"New Item");
-        [self newItem:ItemTypeNormal];
+        [self newItem:ItemTypeNormal atLane:[self.partition itemLane]];
         [self.partition goToNextItem];
     }
 }
 
 
--(void) newItem:(ItemType)itemType
+-(void) newItem:(ItemType)itemType atLane: (int)itemLane
 {
     WHItem *itemSprite = [WHItem spriteWithSpriteFrameName:@"item01.png"];
     CGSize winsize = [[CCDirector sharedDirector] winSize];
-    itemSprite.position = ccp(40.0f+80*(arc4random()%4), winsize.height + 50);
+    itemSprite.position = ccp(40.0f+80*(itemLane), winsize.height + 50);
     [self addChild:itemSprite];
     [self.activeItems addObject:itemSprite];
     
@@ -160,6 +169,13 @@
         default:
             break;
     }
+    
+#ifdef RECORDING_MODE
+    NSTimeInterval dt = -[self.dateInit timeIntervalSinceNow];
+    [self.recPartition.array addObject:@[[NSNumber numberWithDouble:dt],[NSNumber numberWithInt:boutonNb]]];
+     
+     NSLog(@"touch %d", self.recPartition.array.count);
+#endif
 }
 
 @end

@@ -17,5 +17,6 @@
 
 -(float)nextItemTimestamp;
 -(void)goToNextItem;
+-(int)itemLane;
 
 @end
