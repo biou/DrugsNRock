@@ -56,8 +56,9 @@
         ctrl.gameLayer = self;
         [self addChild:ctrl];
         
-        _currentMusicBPM = 70;
-        [self startPartitionWithBPM:_currentMusicBPM];
+        _currentMusicBPM = 0;
+        _elapsedTime = 0.0;
+        // [self startPartitionWithBPM:_currentMusicBPM];
         
         // éléments utiles uniquement pour enregistrer une partoche
 #ifdef RECORDING_MODE
@@ -98,7 +99,7 @@
 {
     _elapsedTime+=dt;
     while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp] - 4.9f) {
-        NSLog(@"New Item");
+        // NSLog(@"New Item");
         [self newItem:ItemTypeNormal atLane:[self.partition itemLane]];
         [self.partition goToNextItem];
     }
@@ -106,7 +107,7 @@
 
 if ([self.activeItems count]>0){
     WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
-    if(item.position.y >HIT_Y-3 && item.position.y <HIT_Y+3) {
+    if(item.position.y >HIT_Y-2 && item.position.y <HIT_Y+2) {
         NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
     }
 }
@@ -129,7 +130,7 @@ if ([self.activeItems count]>0){
 
 -(void)itemMoveFinished:(id)target
 {
-    NSLog(@"Fin de move… Suppr. de l’item");
+    // NSLog(@"Fin de move… Suppr. de l’item");
     CCNode *node = (CCNode *)[self.activeItems objectAtIndex:0];
     [self.activeItems removeObjectAtIndex:0];
     [self removeChild:node cleanup:YES];
@@ -188,11 +189,17 @@ if ([self.activeItems count]>0){
 -(void)newLevel:(int)gameBPM {
 	NSLog(@"newLevel: %d", gameBPM);
     _currentMusicBPM = gameBPM;
+    [self startPartitionWithBPM:_currentMusicBPM];
 }
 
 -(void)startPartitionWithBPM:(int)bpm
 {
     // chargement de partition
+    for (WHItem *item in self.activeItems) {
+        [self removeChild:item cleanup:YES];
+    }
+    [self.activeItems removeAllObjects];
+    
     self.partition = [WHPartition new];
     [self.partition loadTrackWithBPM:bpm];
     _elapsedTime = 0.0;
