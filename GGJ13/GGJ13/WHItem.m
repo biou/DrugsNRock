@@ -20,7 +20,7 @@
 }
 
 
-+(CCSprite *item)randomSpecialItem {
++(WHItem *)randomSpecialItem {
     int itemType = arc4random()%(ItemTypeExta-1)+1;
     NSString *frameName;
     
@@ -29,7 +29,7 @@
             frameName = @"ch-1-ghb.png";
             break;
         case ItemTypeLSD:
-            frameName = @"ch-2-LSD.png";
+            frameName = @"ch-2-lsd.png";
             break;
         case ItemTypeHero:
             frameName = @"moins-1-hero.png";
