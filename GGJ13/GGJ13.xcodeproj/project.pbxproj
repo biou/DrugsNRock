@@ -953,6 +953,7 @@
 				GCC_PREFIX_HEADER = GGJ13/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"GGJ13/libs/kazmath/include\"";
 				INFOPLIST_FILE = GGJ13/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -974,6 +975,7 @@
 				GCC_PREFIX_HEADER = GGJ13/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"GGJ13/libs/kazmath/include\"";
 				INFOPLIST_FILE = GGJ13/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",

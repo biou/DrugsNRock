@@ -20,7 +20,10 @@
 {
 }
 
-@property WHPartition *partition;
-@property NSMutableArray *activeItems;
+@property (strong) WHPartition *partition;
+@property (strong) NSMutableArray *activeItems;
+@property (strong) NSMutableArray *boutons;
+
+-(void)touchBouton:(int)boutonNb;
 
 @end

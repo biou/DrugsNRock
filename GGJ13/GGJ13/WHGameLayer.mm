@@ -50,6 +50,7 @@
         
         // Layer de contrôle
         WHControlLayer *ctrl = [WHControlLayer node];
+        ctrl.gameLayer = self;
         [self addChild:ctrl];
         
         // chargement de partition
@@ -61,25 +62,25 @@
         _elapsedTime = 0.0;
         
         // Boutons de jeu
-        CCMenuItemImage *bouton = [CCMenuItemImage itemWithNormalSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] target:self selector:@selector(touchBouton1)];
-        CCMenu * controls = [CCMenu menuWithItems:bouton, nil];
-        controls.position = ccp(40, 60);
-        [self addChild:controls];
+        CCSprite *bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+        bouton.position = ccp(40, 60);
+        [self addChild:bouton];
+        [self.boutons addObject:bouton];
         
-        bouton = [CCMenuItemImage itemWithNormalSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] target:self selector:@selector(touchBouton2)];
-        controls = [CCMenu menuWithItems:bouton, nil];
-        controls.position = ccp(120, 60);
-        [self addChild:controls];
+        bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+        bouton.position = ccp(120, 60);
+        [self addChild:bouton];
+        [self.boutons addObject:bouton];
         
-        bouton = [CCMenuItemImage itemWithNormalSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] target:self selector:@selector(touchBouton3)];
-        controls = [CCMenu menuWithItems:bouton, nil];
-        controls.position = ccp(200, 60);
-        [self addChild:controls];
+        bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+        bouton.position = ccp(200, 60);
+        [self addChild:bouton];
+        [self.boutons addObject:bouton];
         
-        bouton = [CCMenuItemImage itemWithNormalSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"item00.png"] target:self selector:@selector(touchBouton4)];
-        controls = [CCMenu menuWithItems:bouton, nil];
-        controls.position = ccp(280, 60);
-        [self addChild:controls];
+        bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
+        bouton.position = ccp(280, 60);
+        [self addChild:bouton];
+        [self.boutons addObject:bouton];
 	}
 	return self;
 }
@@ -137,25 +138,28 @@
     }
 }
 
--(void)touchBouton1
+-(void)touchBouton:(int)boutonNb
 {
-    [self touchBoutonX:40];
+    switch (boutonNb) {
+        case 0:
+            [self touchBoutonX:40];
+            break;
+            
+        case 1:
+            [self touchBoutonX:120];
+            break;
+            
+        case 2:
+            [self touchBoutonX:200];
+            break;
+            
+        case 3:
+            [self touchBoutonX:280];
+            break;
+            
+        default:
+            break;
+    }
 }
-
--(void)touchBouton2
-{
-    [self touchBoutonX:120];
-}
-
--(void)touchBouton3
-{
-    [self touchBoutonX:200];
-}
-
--(void)touchBouton4
-{
-    [self touchBoutonX:280];
-}
-
 
 @end
