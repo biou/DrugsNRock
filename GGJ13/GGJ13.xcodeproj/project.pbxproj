@@ -48,33 +48,6 @@
 		32742F7B16B3FED900BB1992 /* MetalDev-150bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */; };
 		32742F7C16B3FED900BB1992 /* MetalIntro-150bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */; };
 		32742F7D16B3FED900BB1992 /* ReggaeDev-70bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */; };
-		32742FA316B41B0200BB1992 /* wwDigital.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32742FA216B41B0200BB1992 /* wwDigital.ttf */; };
-		32742FA716B41CB700BB1992 /* bouton-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FA416B41CB700BB1992 /* bouton-off.png */; };
-		32742FA816B41CB700BB1992 /* bouton-on-no.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FA516B41CB700BB1992 /* bouton-on-no.png */; };
-		32742FA916B41CB700BB1992 /* bouton-on-yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FA616B41CB700BB1992 /* bouton-on-yes.png */; };
-		32742FAB16B41CC100BB1992 /* fond-jeu.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FAA16B41CC100BB1992 /* fond-jeu.png */; };
-		32742FAD16B41CCA00BB1992 /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FAC16B41CCA00BB1992 /* team.png */; };
-		32742FB616B41CD900BB1992 /* rival-jauge-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FAE16B41CD900BB1992 /* rival-jauge-3.png */; };
-		32742FB716B41CD900BB1992 /* rival-jauge-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FAF16B41CD900BB1992 /* rival-jauge-2.png */; };
-		32742FB816B41CD900BB1992 /* rival-jauge-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FB016B41CD900BB1992 /* rival-jauge-1.png */; };
-		32742FB916B41CD900BB1992 /* rival-jauge-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FB116B41CD900BB1992 /* rival-jauge-0.png */; };
-		32742FBA16B41CD900BB1992 /* jauge-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FB216B41CD900BB1992 /* jauge-0.png */; };
-		32742FBB16B41CD900BB1992 /* jauge-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FB316B41CD900BB1992 /* jauge-1.png */; };
-		32742FBC16B41CD900BB1992 /* jauge-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FB416B41CD900BB1992 /* jauge-2.png */; };
-		32742FBD16B41CD900BB1992 /* jauge-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FB516B41CD900BB1992 /* jauge-3.png */; };
-		32742FCB16B41CE400BB1992 /* moins-5-opium.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FBE16B41CE400BB1992 /* moins-5-opium.png */; };
-		32742FCC16B41CE400BB1992 /* moins-4-alcool.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FBF16B41CE400BB1992 /* moins-4-alcool.png */; };
-		32742FCD16B41CE400BB1992 /* moins-3-tramadol.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC016B41CE400BB1992 /* moins-3-tramadol.png */; };
-		32742FCE16B41CE400BB1992 /* moins-2-canna.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC116B41CE400BB1992 /* moins-2-canna.png */; };
-		32742FCF16B41CE400BB1992 /* moins-1-hero.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC216B41CE400BB1992 /* moins-1-hero.png */; };
-		32742FD016B41CE400BB1992 /* plus-5-exta.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC316B41CE400BB1992 /* plus-5-exta.png */; };
-		32742FD116B41CE400BB1992 /* plus-4-meth.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC416B41CE400BB1992 /* plus-4-meth.png */; };
-		32742FD216B41CE400BB1992 /* plus-3-champi.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC516B41CE400BB1992 /* plus-3-champi.png */; };
-		32742FD316B41CE400BB1992 /* plus-2-cafe.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC616B41CE400BB1992 /* plus-2-cafe.png */; };
-		32742FD416B41CE400BB1992 /* plus-1-cocaine.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC716B41CE400BB1992 /* plus-1-cocaine.png */; };
-		32742FD516B41CE400BB1992 /* neutre.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC816B41CE400BB1992 /* neutre.png */; };
-		32742FD616B41CE400BB1992 /* ch-2-lsd.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FC916B41CE400BB1992 /* ch-2-lsd.png */; };
-		32742FD716B41CE400BB1992 /* ch-1-ghb.png in Resources */ = {isa = PBXBuildFile; fileRef = 32742FCA16B41CE400BB1992 /* ch-1-ghb.png */; };
 		B541433D16B36935000E45B8 /* WHPartition.m in Sources */ = {isa = PBXBuildFile; fileRef = B541433C16B36934000E45B8 /* WHPartition.m */; };
 		B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541434216B36B97000E45B8 /* SpriteSheet.plist */; };
 		B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B541434316B36B97000E45B8 /* SpriteSheet.png */; };
@@ -336,33 +309,6 @@
 		32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MetalDev-150bpm.aifc"; path = "Resources/MetalDev-150bpm.aifc"; sourceTree = "<group>"; };
 		32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MetalIntro-150bpm.aifc"; path = "Resources/MetalIntro-150bpm.aifc"; sourceTree = "<group>"; };
 		32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ReggaeDev-70bpm.aifc"; path = "Resources/ReggaeDev-70bpm.aifc"; sourceTree = "<group>"; };
-		32742FA216B41B0200BB1992 /* wwDigital.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wwDigital.ttf; sourceTree = "<group>"; };
-		32742FA416B41CB700BB1992 /* bouton-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bouton-off.png"; sourceTree = "<group>"; };
-		32742FA516B41CB700BB1992 /* bouton-on-no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bouton-on-no.png"; sourceTree = "<group>"; };
-		32742FA616B41CB700BB1992 /* bouton-on-yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bouton-on-yes.png"; sourceTree = "<group>"; };
-		32742FAA16B41CC100BB1992 /* fond-jeu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fond-jeu.png"; sourceTree = "<group>"; };
-		32742FAC16B41CCA00BB1992 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
-		32742FAE16B41CD900BB1992 /* rival-jauge-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rival-jauge-3.png"; sourceTree = "<group>"; };
-		32742FAF16B41CD900BB1992 /* rival-jauge-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rival-jauge-2.png"; sourceTree = "<group>"; };
-		32742FB016B41CD900BB1992 /* rival-jauge-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rival-jauge-1.png"; sourceTree = "<group>"; };
-		32742FB116B41CD900BB1992 /* rival-jauge-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rival-jauge-0.png"; sourceTree = "<group>"; };
-		32742FB216B41CD900BB1992 /* jauge-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jauge-0.png"; sourceTree = "<group>"; };
-		32742FB316B41CD900BB1992 /* jauge-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jauge-1.png"; sourceTree = "<group>"; };
-		32742FB416B41CD900BB1992 /* jauge-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jauge-2.png"; sourceTree = "<group>"; };
-		32742FB516B41CD900BB1992 /* jauge-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jauge-3.png"; sourceTree = "<group>"; };
-		32742FBE16B41CE400BB1992 /* moins-5-opium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moins-5-opium.png"; sourceTree = "<group>"; };
-		32742FBF16B41CE400BB1992 /* moins-4-alcool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moins-4-alcool.png"; sourceTree = "<group>"; };
-		32742FC016B41CE400BB1992 /* moins-3-tramadol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moins-3-tramadol.png"; sourceTree = "<group>"; };
-		32742FC116B41CE400BB1992 /* moins-2-canna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moins-2-canna.png"; sourceTree = "<group>"; };
-		32742FC216B41CE400BB1992 /* moins-1-hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "moins-1-hero.png"; sourceTree = "<group>"; };
-		32742FC316B41CE400BB1992 /* plus-5-exta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-5-exta.png"; sourceTree = "<group>"; };
-		32742FC416B41CE400BB1992 /* plus-4-meth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-4-meth.png"; sourceTree = "<group>"; };
-		32742FC516B41CE400BB1992 /* plus-3-champi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-3-champi.png"; sourceTree = "<group>"; };
-		32742FC616B41CE400BB1992 /* plus-2-cafe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-2-cafe.png"; sourceTree = "<group>"; };
-		32742FC716B41CE400BB1992 /* plus-1-cocaine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-1-cocaine.png"; sourceTree = "<group>"; };
-		32742FC816B41CE400BB1992 /* neutre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = neutre.png; sourceTree = "<group>"; };
-		32742FC916B41CE400BB1992 /* ch-2-lsd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ch-2-lsd.png"; sourceTree = "<group>"; };
-		32742FCA16B41CE400BB1992 /* ch-1-ghb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ch-1-ghb.png"; sourceTree = "<group>"; };
 		B541433B16B36934000E45B8 /* WHPartition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPartition.h; sourceTree = "<group>"; };
 		B541433C16B36934000E45B8 /* WHPartition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPartition.m; sourceTree = "<group>"; };
 		B541434216B36B97000E45B8 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SpriteSheet.plist; sourceTree = "<group>"; };
@@ -478,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				32742FA216B41B0200BB1992 /* wwDigital.ttf */,
 				32742FA416B41CB700BB1992 /* bouton-off.png */,
 				32742FA516B41CB700BB1992 /* bouton-on-no.png */,
@@ -505,6 +452,8 @@
 				32742FC816B41CE400BB1992 /* neutre.png */,
 				32742FC916B41CE400BB1992 /* ch-2-lsd.png */,
 				32742FCA16B41CE400BB1992 /* ch-1-ghb.png */,
+=======
+>>>>>>> parent of 3e98969... bob
 				B5F0349C16B40AB7008BCBC0 /* testPart.plist */,
 =======
 				B5F0349C16B40AB7008BCBC0 /* track0.plist */,
@@ -982,6 +931,7 @@
 				B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */,
 <<<<<<< HEAD
 				B5F0349D16B40AB7008BCBC0 /* testPart.plist in Resources */,
+<<<<<<< HEAD
 				32742FA316B41B0200BB1992 /* wwDigital.ttf in Resources */,
 				32742FA716B41CB700BB1992 /* bouton-off.png in Resources */,
 				32742FA816B41CB700BB1992 /* bouton-on-no.png in Resources */,
@@ -1016,6 +966,8 @@
 				B5F034BC16B41ADE008BCBC0 /* track3.plist in Resources */,
 				B5F034BD16B41ADE008BCBC0 /* track4.plist in Resources */,
 >>>>>>> 0d98578a03c25719d968de86757c15928739421a
+=======
+>>>>>>> parent of 3e98969... bob
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
