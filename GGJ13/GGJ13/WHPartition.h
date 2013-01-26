@@ -13,6 +13,7 @@
 @property (strong) NSMutableArray *array;
 
 -(void)saveData;
+-(void)saveDataForTrack:(int)num;
 -(void)loadData;
 -(void)loadTrackWithBPM:(int)bpm;
 

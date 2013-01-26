@@ -8,6 +8,7 @@
 
 #import "WHGameScene.h"
 
+#define LEVEL_INITIAL 5
 
 @implementation WHGameScene
 
@@ -25,6 +26,7 @@
 		[audioManager preload];
 		//pauseLayer = [JNPPauseLayer node];
 		gameLayer = [WHGameLayer node];
+        gameLayer.gameScene = self;
 		//controlLayer = [JNPControlLayer node];
 		//[controlLayer assignGameLayer:gameLayer];
 
@@ -39,13 +41,13 @@
 		[ziques addObject:zique1];
 		NSDictionary * zique2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:90], @"bpm", @"", @"intro", @"HipHop-90bpm.aifc", @"loop", [NSNumber numberWithFloat:85.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 		[ziques addObject:zique2];
-		NSDictionary * zique3 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:128], @"bpm", @"ElectroIntro-128bpm.aifc", @"intro", @"ElectroDev-128bpm.aifc", @"loop", [NSNumber numberWithFloat:30.0], @"loopLen", [NSNumber numberWithFloat:8.0], @"introLen", nil];
+		NSDictionary * zique3 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:128], @"bpm", @"ElectroIntro-128bpm.aifc", @"intro", @"ElectroDev-128bpm.aifc", @"loop", [NSNumber numberWithFloat:29.86], @"loopLen", [NSNumber numberWithFloat:7.35], @"introLen", nil];
 		[ziques addObject:zique3];
-		NSDictionary * zique4 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:150], @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.7], @"introLen", nil];
+		NSDictionary * zique4 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:150], @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.36], @"introLen", nil];
 		[ziques addObject:zique4];
 		NSDictionary * zique5 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:165], @"bpm", @"", @"intro", @"DNB-165bpm.aifc", @"loop", [NSNumber numberWithFloat:58.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 		[ziques addObject:zique5];
-		NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:187], @"bpm", @"TechnoIntro-187bpm.aifc", @"intro", @"ElectroDev-187bpm.aifc", @"loop", [NSNumber numberWithFloat:26.0], @"loopLen", [NSNumber numberWithFloat:10.0], @"introLen", nil];
+		NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:187], @"bpm", @"TechnoIntro-187bpm.aifc", @"intro", @"TechnoDev-187bpm.aifc", @"loop", [NSNumber numberWithFloat:26.07], @"loopLen", [NSNumber numberWithFloat:10.0], @"introLen", nil];
 		[ziques addObject:zique6];
 		
 		CCLayer *bgLayer = [CCLayer node];
@@ -65,10 +67,10 @@
 		[self addChild:fgLayer z:+10];
 		
 		
-		[self ziqueUpdate:5];
+		[self ziqueUpdate:LEVEL_INITIAL];
 		[self.gameLayer newLevel:currentZique];
-		//[gameLayer setAudioManager:audioManager];
-		 [self schedule:@selector(simulateBPM:) interval:10];
+		// [gameLayer setAudioManager:audioManager];
+		// [self schedule:@selector(simulateBPM:) interval:10];
 		
 		// add layer as a child to scene
 		//[self addChild: pauseLayer z:-15 tag:3];
@@ -134,7 +136,22 @@
 	[audioManager bgmTick:dt];
 }
 
+
+
+
 -(void) ziqueUpdate:(int) zique {
+    currentZique = zique;
+	BBAudioManager *audioManager = [BBAudioManager sharedAM];
+	[audioManager stopBGM];
+	
+	NSDictionary * bob = [ziques objectAtIndex:zique];
+    
+    [audioManager playBGMWithIntro:[bob objectForKey:@"intro"] andLoop:[bob objectForKey:@"loop"]];
+    
+    musicBPM = [[bob objectForKey:@"bpm"] intValue];
+
+    
+    /*
 	currentZique = zique;
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
 	[audioManager stopBGM];
@@ -151,6 +168,7 @@
 		[self schedule:@selector(bgmUpdate:) interval:[[bob objectForKey:@"loopLen"] floatValue]];
 	}
 	musicBPM = [[bob objectForKey:@"bpm"] intValue];
+     */
 }
 
 -(void) simulateBPM:(ccTime) dt {
@@ -185,6 +203,11 @@
 	
 }
 
-
+-(void) restartLevel {
+    NSLog(@"Restart level");
+    int newZique = LEVEL_INITIAL;
+    [self ziqueUpdate:newZique];
+    [self.gameLayer newLevel:newZique];
+}
 
 @end

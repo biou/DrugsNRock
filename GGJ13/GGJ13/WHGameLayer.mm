@@ -63,9 +63,7 @@
         
         // éléments utiles uniquement pour enregistrer une partoche
 #ifdef RECORDING_MODE
-        self.dateInit = [NSDate new];
-        self.recPartition = [WHPartition new];
-        self.recPartition.array = [NSMutableArray new];
+        [self initRecording];
 #endif
         
         // init du tick
@@ -118,6 +116,9 @@ if ([self.activeItems count]>0){
 
 -(void) newItem:(ItemType)itemType atLane: (int)itemLane
 {
+    // BOOL weWantSpecialItem = NO;
+    // _elapsedTime
+    
     WHItem *itemSprite = [WHItem spriteWithSpriteFrameName:@"neutre.png"];
     
     CGSize winsize = [[CCDirector sharedDirector] winSize];
@@ -235,6 +236,12 @@ if ([self.activeItems count]>0){
 
 -(float)adjustedDuration {
     return MAX_DURATION-_currentMusicBPM*1.15f;
+}
+
+-(void)initRecording {
+    self.dateInit = [NSDate new];
+    self.recPartition = [WHPartition new];
+    self.recPartition.array = [NSMutableArray new];
 }
 
 @end

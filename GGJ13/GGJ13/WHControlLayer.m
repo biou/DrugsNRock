@@ -8,6 +8,7 @@
 
 #import "WHControlLayer.h"
 #import "WHGameLayer.h"
+#import "WHGameScene.h"
 
 @implementation WHControlLayer
 
@@ -39,8 +40,9 @@
             }
         } else if (location.y > 300) {
             NSLog(@"### Sauvegarde de la partition ###");
-            [self.gameLayer.recPartition saveData];
-            
+            [self.gameLayer.recPartition saveDataForTrack:5];
+            [self.gameLayer initRecording];
+            [self.gameLayer.gameScene restartLevel];
         }
     }
 }

@@ -81,10 +81,20 @@
 }
 
 -(void)loadTrackWithBPM:(int)bpm {
+    NSString *path = [WHPartition getPrivateDocsDir];
+    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"track%d.plist",bpm]];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    
+    
     NSString *dataPath = [WHPartition getPrivateDocsDir];
     // dataPath = [dataPath stringByAppendingPathComponent:@"testLecture"];
     
     dataPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"track%d",bpm] ofType:@"plist"];
+    
+    if (fileExists) {
+        dataPath = path;
+    }
+    
     NSLog(@"Chargement de la partition (fichier: %@)",dataPath);
     NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
     
@@ -103,6 +113,37 @@
     [archiver finishEncoding];
     NSString *path = [WHPartition getPrivateDocsDir];
     path = [path stringByAppendingPathComponent:@"tarabiscotte"];
+    [data writeToFile:path atomically:YES];
+}
+
+
+-(void)saveDataForTrack:(int)num {
+    // NSLog(@"### Recorde moi ce putain de fichier de marde!");
+    // NSLog(@"### %@",self.array);
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:self.array forKey:kArrayKey];
+    [archiver finishEncoding];
+    NSString *path = [WHPartition getPrivateDocsDir];
+    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"track%d.plist",num]];
+    
+    
+    // NSLog(@"### %@",path);
+    
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    if (fileExists) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        NSError *error;
+        if (![fileManager removeItemAtPath:path error:NULL])
+        {
+            NSLog(@"Error removing file: %@", error);
+        };
+    }
+    
+    // NSLog(@"### %@",path);
+    
     [data writeToFile:path atomically:YES];
 }
 

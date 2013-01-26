@@ -11,6 +11,7 @@
 #import "CCNode.h"
 #import "BBGCDSingleton.h"
 
+
 @implementation BBAudioManager
 
 #pragma mark Singleton
@@ -57,21 +58,61 @@ static BBAudioManager *sharedAM = nil;
 	}
 }
 
+-(void) playBGMWithIntro:(NSString *)introName andLoop:(NSString *)loopName {
+    
+    NSLog(@"IntroName %@",introName);
+    
+    self.introTrack = [OALAudioTrack track];
+    self.mainTrack = [OALAudioTrack track];
+    
+    
+    if ([introName length]==0) {
+        [self.mainTrack preloadFile:loopName];
+        self.mainTrack.numberOfLoops = -1;
+        [self.mainTrack play];
+    } else {
+        [self.introTrack preloadFile:introName];
+        [self.mainTrack preloadFile:loopName];
+        
+        self.mainTrack.numberOfLoops = -1;
+        
+        // Play the main track at volume 0 to secure the hardware channel for it.
+        self.mainTrack.volume = 0;
+        [self.mainTrack play];
+        
+        // Start the intro playing on a software channel, then stop the main track.
+        [self.introTrack play];
+        [self.mainTrack stop];
+        
+        // Have the main track start again after the intro track's duration elapses.
+        NSTimeInterval playAt = self.mainTrack.deviceCurrentTime + self.introTrack.duration;
+        [self.mainTrack playAtTime:playAt];
+        self.mainTrack.volume = 1;
+    }
+}
+
+
+
+
 // set next loop to play
 -(void) nextBGMWithName:(NSString *) name {
     self.nextBGM = name;
 }
 
 -(void) stopBGM {
-	[[SimpleAudioEngine sharedEngine] stopEffect:self.currentBGM];
+	// [[SimpleAudioEngine sharedEngine] stopEffect:self.currentBGM];
+    [self.mainTrack stop];
+    [self.introTrack stop];
 }
 
 -(void) pauseBGM {
-	[[SimpleAudioEngine sharedEngine] stopEffect:self.currentBGM];
+    [self stopBGM];
+	// [[SimpleAudioEngine sharedEngine] stopEffect:self.currentBGM];
 }
 
 -(void) resumeBGM {
-	[self playBGMWithName:self.nextBGM];
+	// [self playBGMWithName:self.nextBGM];
+    NSLog(@"RESUME TA MERE");
 }
 
 
@@ -102,9 +143,11 @@ static BBAudioManager *sharedAM = nil;
 	for (NSString* s in self.sfxFiles) {
 		[[SimpleAudioEngine sharedEngine] preloadEffect:s];
 	}
+    /*
 	for (NSString* s in self.bgmFiles) {
 		[[SimpleAudioEngine sharedEngine] preloadEffect:s];
 	}
+     */
 }
 
 -(void)bgmTick:(float)dt {

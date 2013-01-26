@@ -10,6 +10,8 @@
 #import "SimpleAudioEngine.h"
 #import "CCNode.h"
 
+#import "ObjectAL.h"
+#import "OALAudioTrack.h"
 
 @interface BBAudioManager : CCNode {
 	
@@ -36,6 +38,7 @@
 -(void) playSFX:(NSString *)soundType;
 // play a random sfx file in a list
 -(void) playRandomSfx:(NSArray *) names;
+-(void) playBGMWithIntro:(NSString *)introName andLoop:(NSString *)loopName;
 
 
 +(BBAudioManager *) sharedAM;
@@ -44,5 +47,8 @@
 @property (strong, nonatomic) NSString * nextBGM;
 @property (nonatomic) ALuint currentBGM;
 
+
+@property(nonatomic, readwrite) OALAudioTrack* mainTrack;
+@property(nonatomic, readwrite) OALAudioTrack* introTrack;
 
 @end

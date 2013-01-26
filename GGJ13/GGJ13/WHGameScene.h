@@ -14,6 +14,9 @@
 #import "WHGameLayer.h"
 #import "GCDAsyncSocket.h"
 
+#import "ObjectAL.h"
+#import "OALAudioTrack.h"
+
 
 
 
@@ -29,8 +32,10 @@
 @property (strong) NSMutableArray * ziques;
 
 
+
 -(void)showPauseLayer;
 -(void)hidePauseLayer;
+-(void) restartLevel;
 
 
 @end

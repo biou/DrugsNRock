@@ -15,6 +15,8 @@
 #import "WHItem.h"
 #import "WHControlLayer.h"
 
+@class WHGameScene;
+
 // HelloWorldLayer
 @interface WHGameLayer : CCLayer
 {
@@ -25,9 +27,12 @@
 @property (strong) NSDate *dateInit;
 @property (strong) NSMutableArray *activeItems;
 @property (strong) NSMutableArray *boutons;
+@property (weak) WHGameScene *gameScene;
 
 -(void)touchBouton:(int)boutonNb;
 -(void)newLevel:(int)gameBPM;
 -(void)restoreBouton:(int)btn;
+-(void)restartLevel;
+-(void)initRecording;
 
 @end
