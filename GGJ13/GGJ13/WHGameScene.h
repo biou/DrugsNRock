@@ -18,12 +18,14 @@
 
 
 @interface WHGameScene : CCScene {	
-	
+	int currentZique;
 }
 
 @property (strong) WHGameLayer * gameLayer;
 @property (strong) WHPauseLayer * pauseLayer;
 @property (strong) GCDAsyncSocket * socket;
+@property (strong) NSMutableArray * ziques;
+
 
 -(void)showPauseLayer;
 -(void)hidePauseLayer;
