@@ -80,6 +80,7 @@
 		32A1C13216B429A100B4DEF3 /* fond-jeu.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13116B429A100B4DEF3 /* fond-jeu.png */; };
 		32A1C13516B42F0D00B4DEF3 /* spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13316B42F0D00B4DEF3 /* spritesheet.png */; };
 		32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */; };
+		32A1C15016B4452900B4DEF3 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C14F16B4452900B4DEF3 /* header.png */; };
 		B541433D16B36935000E45B8 /* WHPartition.m in Sources */ = {isa = PBXBuildFile; fileRef = B541433C16B36934000E45B8 /* WHPartition.m */; };
 		B541435016B3C841000E45B8 /* WHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B541434F16B3C841000E45B8 /* WHItem.m */; };
 		B541435316B3E601000E45B8 /* WHControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B541435216B3E601000E45B8 /* WHControlLayer.m */; };
@@ -109,7 +110,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		324254A5168DDFB40050EDD1 /* GGJ13.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGJ13.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		324254A5168DDFB40050EDD1 /* Drugs&Rock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drugs&Rock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		324254A9168DDFB40050EDD1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		324254AB168DDFB40050EDD1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		324254AD168DDFB40050EDD1 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -372,6 +373,7 @@
 		32A1C13116B429A100B4DEF3 /* fond-jeu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fond-jeu.png"; path = "Resources/fond-jeu.png"; sourceTree = "<group>"; };
 		32A1C13316B42F0D00B4DEF3 /* spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spritesheet.png; path = Resources/spritesheet.png; sourceTree = "<group>"; };
 		32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = spritesheet.plist; path = Resources/spritesheet.plist; sourceTree = "<group>"; };
+		32A1C14F16B4452900B4DEF3 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Resources/header.png; sourceTree = "<group>"; };
 		B541433B16B36934000E45B8 /* WHPartition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPartition.h; sourceTree = "<group>"; };
 		B541433C16B36934000E45B8 /* WHPartition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPartition.m; sourceTree = "<group>"; };
 		B541434E16B3C841000E45B8 /* WHItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHItem.h; sourceTree = "<group>"; };
@@ -426,7 +428,7 @@
 		324254A6168DDFB40050EDD1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				324254A5168DDFB40050EDD1 /* GGJ13.app */,
+				324254A5168DDFB40050EDD1 /* Drugs&Rock.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -488,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				32A1C13116B429A100B4DEF3 /* fond-jeu.png */,
+				32A1C14F16B4452900B4DEF3 /* header.png */,
 				32A1C13316B42F0D00B4DEF3 /* spritesheet.png */,
 				32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */,
 				32A1C11F16B427B400B4DEF3 /* TechnoDev-187bpm.aifc */,
@@ -894,9 +897,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		324254A4168DDFB40050EDD1 /* GGJ13 */ = {
+		324254A4168DDFB40050EDD1 /* Drugs&Rock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3242563E168DDFBC0050EDD1 /* Build configuration list for PBXNativeTarget "GGJ13" */;
+			buildConfigurationList = 3242563E168DDFBC0050EDD1 /* Build configuration list for PBXNativeTarget "Drugs&Rock" */;
 			buildPhases = (
 				324254A1168DDFB40050EDD1 /* Sources */,
 				324254A2168DDFB40050EDD1 /* Frameworks */,
@@ -906,9 +909,9 @@
 			);
 			dependencies = (
 			);
-			name = GGJ13;
+			name = "Drugs&Rock";
 			productName = GGJ13;
-			productReference = 324254A5168DDFB40050EDD1 /* GGJ13.app */;
+			productReference = 324254A5168DDFB40050EDD1 /* Drugs&Rock.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -919,7 +922,7 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 			};
-			buildConfigurationList = 3242549F168DDFB40050EDD1 /* Build configuration list for PBXProject "GGJ13" */;
+			buildConfigurationList = 3242549F168DDFB40050EDD1 /* Build configuration list for PBXProject "Drugs&Rock" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -937,7 +940,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				324254A4168DDFB40050EDD1 /* GGJ13 */,
+				324254A4168DDFB40050EDD1 /* Drugs&Rock */,
 			);
 		};
 /* End PBXProject section */
@@ -1024,6 +1027,7 @@
 				32A1C13516B42F0D00B4DEF3 /* spritesheet.png in Resources */,
 				32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */,
 				B5F034FB16B42DE9008BCBC0 /* track5.plist in Resources */,
+				32A1C15016B4452900B4DEF3 /* header.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1106,7 +1110,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Drugs&Rock";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "./**";
 				WRAPPER_EXTENSION = app;
@@ -1128,7 +1132,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Drugs&Rock";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "./**";
 				VALIDATE_PRODUCT = YES;
@@ -1139,7 +1143,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3242549F168DDFB40050EDD1 /* Build configuration list for PBXProject "GGJ13" */ = {
+		3242549F168DDFB40050EDD1 /* Build configuration list for PBXProject "Drugs&Rock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3242563C168DDFBC0050EDD1 /* Debug */,
@@ -1148,7 +1152,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3242563E168DDFBC0050EDD1 /* Build configuration list for PBXNativeTarget "GGJ13" */ = {
+		3242563E168DDFBC0050EDD1 /* Build configuration list for PBXNativeTarget "Drugs&Rock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3242563F168DDFBC0050EDD1 /* Debug */,

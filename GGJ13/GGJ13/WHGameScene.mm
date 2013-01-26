@@ -58,6 +58,11 @@
 		[bgLayer addChild:bgpic];
 		[self addChild:bgLayer z:-10];
 
+		CCLayer *fgLayer = [CCLayer node];
+		CCSprite *bgpic2 = [CCSprite spriteWithFile:@"header.png"];
+		bgpic2.position = ccp(s.width/2.0, s.height-48);
+		[fgLayer addChild:bgpic2];
+		[self addChild:fgLayer z:+10];
 		
 		
 		[self ziqueUpdate:5];
