@@ -85,7 +85,7 @@
     // dataPath = [dataPath stringByAppendingPathComponent:@"testLecture"];
     
     dataPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"track%d",bpm] ofType:@"plist"];
-    NSLog(@"Chargement de la particion (fichier: %@)",dataPath);
+    NSLog(@"Chargement de la partition (fichier: %@)",dataPath);
     NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
     
     if (codedData == nil) { /* gérer cette erreur */ };

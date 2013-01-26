@@ -88,6 +88,7 @@
 		B5F034BB16B41ADE008BCBC0 /* track2.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B716B41ADE008BCBC0 /* track2.plist */; };
 		B5F034BC16B41ADE008BCBC0 /* track3.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B816B41ADE008BCBC0 /* track3.plist */; };
 		B5F034BD16B41ADE008BCBC0 /* track4.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B916B41ADE008BCBC0 /* track4.plist */; };
+		B5F034FB16B42DE9008BCBC0 /* track5.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034FA16B42DE9008BCBC0 /* track5.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,7 +332,6 @@
 		3242594E168DF3550050EDD1 /* BBGCDSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBGCDSingleton.h; sourceTree = "<group>"; };
 		3243308116B1E0F60052534D /* WHBasicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHBasicLayer.h; sourceTree = "<group>"; };
 		3243308216B1E0F60052534D /* WHBasicLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WHBasicLayer.mm; sourceTree = "<group>"; };
-		324330A316B3364D0052534D /* fondpapier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondpapier.png; sourceTree = "<group>"; };
 		324330A516B33D9A0052534D /* GCDAsyncSocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		324330A616B33DA50052534D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		324330A816B3420D0052534D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -383,6 +383,7 @@
 		B5F034B716B41ADE008BCBC0 /* track2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track2.plist; sourceTree = "<group>"; };
 		B5F034B816B41ADE008BCBC0 /* track3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track3.plist; sourceTree = "<group>"; };
 		B5F034B916B41ADE008BCBC0 /* track4.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track4.plist; sourceTree = "<group>"; };
+		B5F034FA16B42DE9008BCBC0 /* track5.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track5.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,10 +523,10 @@
 				B5F034B716B41ADE008BCBC0 /* track2.plist */,
 				B5F034B816B41ADE008BCBC0 /* track3.plist */,
 				B5F034B916B41ADE008BCBC0 /* track4.plist */,
+				B5F034FA16B42DE9008BCBC0 /* track5.plist */,
 				32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */,
 				32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */,
 				32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */,
-				324330A316B3364D0052534D /* fondpapier.png */,
 				324254BD168DDFB40050EDD1 /* Default.png */,
 				324254BF168DDFB40050EDD1 /* Default-Landscape~ipad.png */,
 				324254C1168DDFB40050EDD1 /* fps_images.png */,
@@ -1022,6 +1023,7 @@
 				32A1C13216B429A100B4DEF3 /* fond-jeu.png in Resources */,
 				32A1C13516B42F0D00B4DEF3 /* spritesheet.png in Resources */,
 				32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */,
+				B5F034FB16B42DE9008BCBC0 /* track5.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

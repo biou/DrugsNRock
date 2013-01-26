@@ -45,6 +45,8 @@
 		[ziques addObject:zique4];
 		NSDictionary * zique5 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:188], @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.7], @"introLen", nil];
 		[ziques addObject:zique5];
+		NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:200], @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.7], @"introLen", nil];
+		[ziques addObject:zique6];
 		
 		CCLayer *bgLayer = [CCLayer node];
 		CGSize s = [CCDirector sharedDirector].winSize;		
@@ -58,10 +60,10 @@
 
 		
 		
-		[self ziqueUpdate:0];
+		[self ziqueUpdate:5];
 		[self.gameLayer newLevel:currentZique];
 		//[gameLayer setAudioManager:audioManager];
-		[self schedule:@selector(simulateBPM:) interval:10];
+		// [self schedule:@selector(simulateBPM:) interval:10];
 		
 		// add layer as a child to scene
 		//[self addChild: pauseLayer z:-15 tag:3];
