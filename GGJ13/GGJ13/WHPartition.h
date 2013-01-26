@@ -14,6 +14,7 @@
 
 -(void)saveData;
 -(void)loadData;
+-(void)loadTrackWithBPM:(int)bpm;
 
 -(float)nextItemTimestamp;
 -(void)goToNextItem;

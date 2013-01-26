@@ -56,9 +56,8 @@
         ctrl.gameLayer = self;
         [self addChild:ctrl];
         
-        // chargement de partition
-        self.partition = [WHPartition new];
-        [self.partition loadData];
+        _currentMusicBPM = 70;
+        [self startPartitionWithBPM:_currentMusicBPM];
         
         // éléments utiles uniquement pour enregistrer une partoche
 #ifdef RECORDING_MODE
@@ -69,7 +68,6 @@
         
         // init du tick
         [self schedule: @selector(tick:) interval:1.0/30.0];
-        _elapsedTime = 0.0;
         
         // Boutons de jeu
         CCSprite *bouton = [CCSprite spriteWithSpriteFrameName:@"item00.png"];
@@ -189,6 +187,16 @@ if ([self.activeItems count]>0){
 
 -(void)newLevel:(int)gameBPM {
 	NSLog(@"newLevel: %d", gameBPM);
+    _currentMusicBPM = gameBPM;
 }
+
+-(void)startPartitionWithBPM:(int)bpm
+{
+    // chargement de partition
+    self.partition = [WHPartition new];
+    [self.partition loadTrackWithBPM:bpm];
+    _elapsedTime = 0.0;
+}
+
 
 @end

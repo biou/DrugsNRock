@@ -80,7 +80,11 @@
 		B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B541434316B36B97000E45B8 /* SpriteSheet.png */; };
 		B541435016B3C841000E45B8 /* WHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B541434F16B3C841000E45B8 /* WHItem.m */; };
 		B541435316B3E601000E45B8 /* WHControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B541435216B3E601000E45B8 /* WHControlLayer.m */; };
-		B5F0349D16B40AB7008BCBC0 /* testPart.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F0349C16B40AB7008BCBC0 /* testPart.plist */; };
+		B5F0349D16B40AB7008BCBC0 /* track0.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F0349C16B40AB7008BCBC0 /* track0.plist */; };
+		B5F034BA16B41ADE008BCBC0 /* track1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B616B41ADE008BCBC0 /* track1.plist */; };
+		B5F034BB16B41ADE008BCBC0 /* track2.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B716B41ADE008BCBC0 /* track2.plist */; };
+		B5F034BC16B41ADE008BCBC0 /* track3.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B816B41ADE008BCBC0 /* track3.plist */; };
+		B5F034BD16B41ADE008BCBC0 /* track4.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B916B41ADE008BCBC0 /* track4.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -367,7 +371,11 @@
 		B541434F16B3C841000E45B8 /* WHItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHItem.m; sourceTree = "<group>"; };
 		B541435116B3E601000E45B8 /* WHControlLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHControlLayer.h; sourceTree = "<group>"; };
 		B541435216B3E601000E45B8 /* WHControlLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHControlLayer.m; sourceTree = "<group>"; };
-		B5F0349C16B40AB7008BCBC0 /* testPart.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = testPart.plist; path = Resources/testPart.plist; sourceTree = "<group>"; };
+		B5F0349C16B40AB7008BCBC0 /* track0.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = track0.plist; path = Resources/track0.plist; sourceTree = "<group>"; };
+		B5F034B616B41ADE008BCBC0 /* track1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track1.plist; sourceTree = "<group>"; };
+		B5F034B716B41ADE008BCBC0 /* track2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track2.plist; sourceTree = "<group>"; };
+		B5F034B816B41ADE008BCBC0 /* track3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track3.plist; sourceTree = "<group>"; };
+		B5F034B916B41ADE008BCBC0 /* track4.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track4.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -469,6 +477,7 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				32742FA216B41B0200BB1992 /* wwDigital.ttf */,
 				32742FA416B41CB700BB1992 /* bouton-off.png */,
 				32742FA516B41CB700BB1992 /* bouton-on-no.png */,
@@ -497,6 +506,13 @@
 				32742FC916B41CE400BB1992 /* ch-2-lsd.png */,
 				32742FCA16B41CE400BB1992 /* ch-1-ghb.png */,
 				B5F0349C16B40AB7008BCBC0 /* testPart.plist */,
+=======
+				B5F0349C16B40AB7008BCBC0 /* track0.plist */,
+				B5F034B616B41ADE008BCBC0 /* track1.plist */,
+				B5F034B716B41ADE008BCBC0 /* track2.plist */,
+				B5F034B816B41ADE008BCBC0 /* track3.plist */,
+				B5F034B916B41ADE008BCBC0 /* track4.plist */,
+>>>>>>> 0d98578a03c25719d968de86757c15928739421a
 				32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */,
 				32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */,
 				32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */,
@@ -964,6 +980,7 @@
 				324330A416B3364D0052534D /* fondpapier.png in Resources */,
 				B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */,
 				B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */,
+<<<<<<< HEAD
 				B5F0349D16B40AB7008BCBC0 /* testPart.plist in Resources */,
 				32742FA316B41B0200BB1992 /* wwDigital.ttf in Resources */,
 				32742FA716B41CB700BB1992 /* bouton-off.png in Resources */,
@@ -992,6 +1009,13 @@
 				32742FD516B41CE400BB1992 /* neutre.png in Resources */,
 				32742FD616B41CE400BB1992 /* ch-2-lsd.png in Resources */,
 				32742FD716B41CE400BB1992 /* ch-1-ghb.png in Resources */,
+=======
+				B5F0349D16B40AB7008BCBC0 /* track0.plist in Resources */,
+				B5F034BA16B41ADE008BCBC0 /* track1.plist in Resources */,
+				B5F034BB16B41ADE008BCBC0 /* track2.plist in Resources */,
+				B5F034BC16B41ADE008BCBC0 /* track3.plist in Resources */,
+				B5F034BD16B41ADE008BCBC0 /* track4.plist in Resources */,
+>>>>>>> 0d98578a03c25719d968de86757c15928739421a
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

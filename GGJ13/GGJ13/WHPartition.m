@@ -80,9 +80,23 @@
     [unarchiver finishDecoding];
 }
 
+-(void)loadTrackWithBPM:(int)bpm {
+    NSString *dataPath = [WHPartition getPrivateDocsDir];
+    // dataPath = [dataPath stringByAppendingPathComponent:@"testLecture"];
+    
+    dataPath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"track%d",bpm] ofType:@"plist"];
+    
+    NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
+    
+    if (codedData == nil) { /* gérer cette erreur */ };
+    
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:codedData];
+    self.array = [unarchiver decodeObjectForKey:kArrayKey];
+    [unarchiver finishDecoding];
+}
+
 
 -(void)saveData {
-    
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:self.array forKey:kArrayKey];
@@ -90,7 +104,6 @@
     NSString *path = [WHPartition getPrivateDocsDir];
     path = [path stringByAppendingPathComponent:@"tarabiscotte"];
     [data writeToFile:path atomically:YES];
-    
 }
 
 
