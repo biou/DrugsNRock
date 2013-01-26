@@ -53,7 +53,7 @@
 		
 		
 		[self ziqueUpdate:0];
-		[self.gameLayer newLevel:gameBPM];
+		[self.gameLayer newLevel:currentZique];
 		//[gameLayer setAudioManager:audioManager];
 		[self schedule:@selector(simulateBPM:) interval:10];
 		
@@ -147,18 +147,11 @@
 }
 
 -(int) ziqueWithBPM:(int) bpm {
-	if (bpm< 92) {
+	if (bpm< 150) {
 		return 0;
-	} else if (bpm < 124) {
-		return 1;
-	} else if (bpm < 156) {
-		return 2;
-	} else if (bpm < 188) {
-		return 3;
 	} else {
-		return 4;
+		return 1;
 	}
-	
 }
 
 -(void) updateMusicBPM {
@@ -166,7 +159,7 @@
 	if (newZique != currentZique) {
 			NSLog(@"changeZique %d", newZique);
 		[self ziqueUpdate:newZique];
-		[self.gameLayer newLevel:newZique];
+		[self.gameLayer newLevel:gameBPM];
 	}
 	
 }
