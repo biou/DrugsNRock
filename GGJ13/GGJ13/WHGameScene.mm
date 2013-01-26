@@ -28,7 +28,7 @@
 		//controlLayer = [JNPControlLayer node];
 		//[controlLayer assignGameLayer:gameLayer];
 
-		gameBPM = 70;
+		gameBPM = 80;
 		
 		//[gameLayer setGameScene:self];
 		//[controlLayer setGameScene:self];
@@ -147,10 +147,16 @@
 }
 
 -(int) ziqueWithBPM:(int) bpm {
-	if (bpm< 150) {
+	if (bpm< 92) {
 		return 0;
-	} else {
+	} else if (bpm < 124){
 		return 1;
+	} else if (bpm < 156) {
+		return 2;
+	} else if (bpm < 188) {
+		return 3;
+	} else {
+		return 4;
 	}
 }
 
@@ -159,7 +165,7 @@
 	if (newZique != currentZique) {
 			NSLog(@"changeZique %d", newZique);
 		[self ziqueUpdate:newZique];
-		[self.gameLayer newLevel:gameBPM];
+		[self.gameLayer newLevel:newZique];
 	}
 	
 }
