@@ -25,22 +25,7 @@
 		//controlLayer = [JNPControlLayer node];
 		//[controlLayer assignGameLayer:gameLayer];
 
-
-        /**** parallax ****/
-        /*
-		parallax = [CCParallaxScrollNode node];
-        CCSprite *clouds1 = [CCSprite spriteWithFile:@"paralaxe1.png"];
-        CCSprite *clouds2 = [CCSprite spriteWithFile:@"paralaxe2.png"];
-        CCSprite *clouds1bis = [CCSprite spriteWithFile:@"paralaxe1.png"];
-        CCSprite *clouds2bis = [CCSprite spriteWithFile:@"paralaxe2.png"];
-        float totalWidth = 4 * clouds1.contentSize.width;
-        [parallax addChild:clouds1 z:0 Ratio:ccp(1.3,1) Pos:ccp(0,0) ScrollOffset:ccp(totalWidth,0)];
-        [parallax addChild:clouds2 z:0 Ratio:ccp(0.6,1) Pos:ccp(0,0) ScrollOffset:ccp(totalWidth,0)];
-        [parallax addChild:clouds1bis z:0 Ratio:ccp(1.3,1) Pos:ccp(clouds1.contentSize.width,0) ScrollOffset:ccp(totalWidth,0)];
-        [parallax addChild:clouds2bis z:0 Ratio:ccp(0.6,1) Pos:ccp(clouds2.contentSize.width,0) ScrollOffset:ccp(totalWidth,0)];
-        // Add to layer, sprite, etc.
-        [self addChild:parallax z:-1];	
-		*/
+		
 		
 		//[gameLayer setGameScene:self];
 		//[controlLayer setGameScene:self];
