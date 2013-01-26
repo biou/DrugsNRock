@@ -60,7 +60,7 @@
 
 		
 		
-		[self ziqueUpdate:0];
+		[self ziqueUpdate:5];
 		[self.gameLayer newLevel:currentZique];
 		//[gameLayer setAudioManager:audioManager];
 		// [self schedule:@selector(simulateBPM:) interval:10];

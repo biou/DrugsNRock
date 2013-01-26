@@ -98,7 +98,7 @@
 -(void) tick: (ccTime) dt
 {
     _elapsedTime+=dt;
-    while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp] - [self adjustedDuration]*0.87f) {
+    while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp] - [self adjustedDuration]*(0.82f+_currentMusicBPM*0.01)) {
         // NSLog(@"New Item");
         [self newItem:ItemTypeNormal atLane:[self.partition itemLane]];
         [self.partition goToNextItem];
