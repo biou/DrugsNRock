@@ -8,6 +8,10 @@
 
 #import "cocos2d.h"
 
+@class WHGameLayer;
+
 @interface WHControlLayer : CCLayer
+
+@property (weak) WHGameLayer *gameLayer;
 
 @end

@@ -41,7 +41,7 @@
 +(BBAudioManager *) sharedAM;
 @property (strong) NSMutableArray * sfxFiles;
 @property (strong) NSMutableArray * bgmFiles;
-@property (nonatomic) NSString * nextBGM;
+@property (strong, nonatomic) NSString * nextBGM;
 @property (nonatomic) ALuint currentBGM;
 
 

@@ -10,7 +10,7 @@
 
 @interface WHPartition : NSObject <NSCoding>
 
-@property NSMutableArray *array;
+@property (strong) NSMutableArray *array;
 
 -(void)saveData;
 -(void)loadData;
