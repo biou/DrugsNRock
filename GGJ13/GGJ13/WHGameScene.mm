@@ -35,9 +35,9 @@
 		//[pauseLayer setControlLayer:controlLayer];
 		currentZique = 0;
 		ziques = [NSMutableArray arrayWithCapacity:2];
-		NSDictionary * zique1 = [NSDictionary dictionaryWithObjectsAndKeys:@"70", @"bpm", @"", @"intro", @"ReggaeDev-70bpm.aifc", @"loop", [NSNumber numberWithFloat:82.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
+		NSDictionary * zique1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:70], @"bpm", @"", @"intro", @"ReggaeDev-70bpm.aifc", @"loop", [NSNumber numberWithFloat:82.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 		[ziques addObject:zique1];
-		NSDictionary * zique2 = [NSDictionary dictionaryWithObjectsAndKeys:@"150", @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.7], @"introLen", nil];
+		NSDictionary * zique2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:150], @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.7], @"introLen", nil];
 		[ziques addObject:zique2];
 		
 		CCLayer *bgLayer = [CCLayer node];
