@@ -47,6 +47,9 @@
 		32742F7B16B3FED900BB1992 /* MetalDev-150bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */; };
 		32742F7C16B3FED900BB1992 /* MetalIntro-150bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */; };
 		32742F7D16B3FED900BB1992 /* ReggaeDev-70bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */; };
+		3294D82E16B4508200E8A2DC /* ElectroDev-128bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D82C16B4508200E8A2DC /* ElectroDev-128bpm.aifc */; };
+		3294D82F16B4508200E8A2DC /* ElectroIntro-128bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D82D16B4508200E8A2DC /* ElectroIntro-128bpm.aifc */; };
+		3294D83116B453CE00E8A2DC /* HipHop-90bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D83016B453CE00E8A2DC /* HipHop-90bpm.aifc */; };
 		32A1C0E216B424D600B4DEF3 /* bouton-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DD16B424D600B4DEF3 /* bouton-off.png */; };
 		32A1C0E316B424D600B4DEF3 /* bouton-on-no.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DE16B424D600B4DEF3 /* bouton-on-no.png */; };
 		32A1C0E416B424D600B4DEF3 /* bouton-on-yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DF16B424D600B4DEF3 /* bouton-on-yes.png */; };
@@ -340,6 +343,9 @@
 		32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MetalDev-150bpm.aifc"; path = "Resources/MetalDev-150bpm.aifc"; sourceTree = "<group>"; };
 		32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MetalIntro-150bpm.aifc"; path = "Resources/MetalIntro-150bpm.aifc"; sourceTree = "<group>"; };
 		32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ReggaeDev-70bpm.aifc"; path = "Resources/ReggaeDev-70bpm.aifc"; sourceTree = "<group>"; };
+		3294D82C16B4508200E8A2DC /* ElectroDev-128bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ElectroDev-128bpm.aifc"; path = "Resources/ElectroDev-128bpm.aifc"; sourceTree = "<group>"; };
+		3294D82D16B4508200E8A2DC /* ElectroIntro-128bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ElectroIntro-128bpm.aifc"; path = "Resources/ElectroIntro-128bpm.aifc"; sourceTree = "<group>"; };
+		3294D83016B453CE00E8A2DC /* HipHop-90bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HipHop-90bpm.aifc"; path = "Resources/HipHop-90bpm.aifc"; sourceTree = "<group>"; };
 		32A1C0DD16B424D600B4DEF3 /* bouton-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-off.png"; path = "Resources/bouton-off.png"; sourceTree = "<group>"; };
 		32A1C0DE16B424D600B4DEF3 /* bouton-on-no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-on-no.png"; path = "Resources/bouton-on-no.png"; sourceTree = "<group>"; };
 		32A1C0DF16B424D600B4DEF3 /* bouton-on-yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-on-yes.png"; path = "Resources/bouton-on-yes.png"; sourceTree = "<group>"; };
@@ -489,6 +495,8 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3294D82C16B4508200E8A2DC /* ElectroDev-128bpm.aifc */,
+				3294D82D16B4508200E8A2DC /* ElectroIntro-128bpm.aifc */,
 				32A1C13116B429A100B4DEF3 /* fond-jeu.png */,
 				32A1C14F16B4452900B4DEF3 /* header.png */,
 				32A1C13316B42F0D00B4DEF3 /* spritesheet.png */,
@@ -530,6 +538,7 @@
 				32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */,
 				32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */,
 				32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */,
+				3294D83016B453CE00E8A2DC /* HipHop-90bpm.aifc */,
 				324254BD168DDFB40050EDD1 /* Default.png */,
 				324254BF168DDFB40050EDD1 /* Default-Landscape~ipad.png */,
 				324254C1168DDFB40050EDD1 /* fps_images.png */,
@@ -1028,6 +1037,9 @@
 				32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */,
 				B5F034FB16B42DE9008BCBC0 /* track5.plist in Resources */,
 				32A1C15016B4452900B4DEF3 /* header.png in Resources */,
+				3294D82E16B4508200E8A2DC /* ElectroDev-128bpm.aifc in Resources */,
+				3294D82F16B4508200E8A2DC /* ElectroIntro-128bpm.aifc in Resources */,
+				3294D83116B453CE00E8A2DC /* HipHop-90bpm.aifc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
