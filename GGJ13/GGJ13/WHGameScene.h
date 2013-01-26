@@ -18,12 +18,15 @@
 
 
 @interface WHGameScene : CCScene {	
-	
+	int currentZique;
+	int musicBPM;
 }
 
 @property (strong) WHGameLayer * gameLayer;
 @property (strong) WHPauseLayer * pauseLayer;
 @property (strong) GCDAsyncSocket * socket;
+@property (strong) NSMutableArray * ziques;
+
 
 -(void)showPauseLayer;
 -(void)hidePauseLayer;

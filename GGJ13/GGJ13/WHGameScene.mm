@@ -15,11 +15,14 @@
 @synthesize gameLayer;
 @synthesize pauseLayer;
 @synthesize socket;
+@synthesize ziques;
 
 - (id)init {
     self = [super init];
     if (self) {
 	
+		BBAudioManager *audioManager = [BBAudioManager sharedAM];
+		[audioManager preload];
 		//pauseLayer = [JNPPauseLayer node];
 		gameLayer = [WHGameLayer node];
 		//controlLayer = [JNPControlLayer node];
@@ -30,8 +33,12 @@
 		//[gameLayer setGameScene:self];
 		//[controlLayer setGameScene:self];
 		//[pauseLayer setControlLayer:controlLayer];
-		
-		
+		currentZique = 0;
+		ziques = [NSMutableArray arrayWithCapacity:2];
+		NSDictionary * zique1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:70], @"bpm", @"", @"intro", @"ReggaeDev-70bpm.aifc", @"loop", [NSNumber numberWithFloat:82.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
+		[ziques addObject:zique1];
+		NSDictionary * zique2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:150], @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.7], @"introLen", nil];
+		[ziques addObject:zique2];
 		
 		CCLayer *bgLayer = [CCLayer node];
 		CGSize s = [CCDirector sharedDirector].winSize;		
@@ -45,11 +52,9 @@
 
 		
 		
-		BBAudioManager *audioManager = [BBAudioManager sharedAM];
-		[audioManager nextBGMWithName:@"Reggae-70bpm.aifc"];
-		[audioManager playBGMWithName:@"Reggae-70bpm.aifc"];
-		[self schedule:@selector(bgmUpdate:) interval:82.0];
+		[self ziqueUpdate:0];
 		//[gameLayer setAudioManager:audioManager];
+		//[self schedule:@selector(plop:) interval:5];
 		
 		// add layer as a child to scene
 		//[self addChild: pauseLayer z:-15 tag:3];
@@ -114,5 +119,25 @@
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
 	[audioManager bgmTick:dt];
 }
+
+-(void) ziqueUpdate:(int) zique {
+	BBAudioManager *audioManager = [BBAudioManager sharedAM];
+	[audioManager stopBGM];
+	[self unschedule:@selector(bgmUpdate:)]; // synchroniser
+	
+	NSDictionary * bob = [ziques objectAtIndex:zique];
+	if ([[bob objectForKey:@"introLen"] floatValue] > 0.1) {
+		[audioManager nextBGMWithName:[bob objectForKey:@"loop"]];
+		[audioManager playBGMWithName: [bob objectForKey:@"intro"]];
+		[self schedule:@selector(bgmUpdate:) interval:[[bob objectForKey:@"loopLen"] floatValue] repeat:-1 delay:[[bob objectForKey:@"introLen"] floatValue]];
+	} else {
+		[audioManager nextBGMWithName:[bob objectForKey:@"loop"]];
+		[audioManager playBGMWithName: [bob objectForKey:@"loop"]];
+		[self schedule:@selector(bgmUpdate:) interval:[[bob objectForKey:@"loopLen"] floatValue]];
+	}
+	musicBPM = [[bob objectForKey:@"bpm"] intValue];
+}
+
+
 
 @end
