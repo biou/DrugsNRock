@@ -423,45 +423,11 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-<<<<<<< HEAD
-				32742FA216B41B0200BB1992 /* wwDigital.ttf */,
-				32742FA416B41CB700BB1992 /* bouton-off.png */,
-				32742FA516B41CB700BB1992 /* bouton-on-no.png */,
-				32742FA616B41CB700BB1992 /* bouton-on-yes.png */,
-				32742FAA16B41CC100BB1992 /* fond-jeu.png */,
-				32742FAC16B41CCA00BB1992 /* team.png */,
-				32742FAE16B41CD900BB1992 /* rival-jauge-3.png */,
-				32742FAF16B41CD900BB1992 /* rival-jauge-2.png */,
-				32742FB016B41CD900BB1992 /* rival-jauge-1.png */,
-				32742FB116B41CD900BB1992 /* rival-jauge-0.png */,
-				32742FB216B41CD900BB1992 /* jauge-0.png */,
-				32742FB316B41CD900BB1992 /* jauge-1.png */,
-				32742FB416B41CD900BB1992 /* jauge-2.png */,
-				32742FB516B41CD900BB1992 /* jauge-3.png */,
-				32742FBE16B41CE400BB1992 /* moins-5-opium.png */,
-				32742FBF16B41CE400BB1992 /* moins-4-alcool.png */,
-				32742FC016B41CE400BB1992 /* moins-3-tramadol.png */,
-				32742FC116B41CE400BB1992 /* moins-2-canna.png */,
-				32742FC216B41CE400BB1992 /* moins-1-hero.png */,
-				32742FC316B41CE400BB1992 /* plus-5-exta.png */,
-				32742FC416B41CE400BB1992 /* plus-4-meth.png */,
-				32742FC516B41CE400BB1992 /* plus-3-champi.png */,
-				32742FC616B41CE400BB1992 /* plus-2-cafe.png */,
-				32742FC716B41CE400BB1992 /* plus-1-cocaine.png */,
-				32742FC816B41CE400BB1992 /* neutre.png */,
-				32742FC916B41CE400BB1992 /* ch-2-lsd.png */,
-				32742FCA16B41CE400BB1992 /* ch-1-ghb.png */,
-=======
->>>>>>> parent of 3e98969... bob
-				B5F0349C16B40AB7008BCBC0 /* testPart.plist */,
-=======
 				B5F0349C16B40AB7008BCBC0 /* track0.plist */,
 				B5F034B616B41ADE008BCBC0 /* track1.plist */,
 				B5F034B716B41ADE008BCBC0 /* track2.plist */,
 				B5F034B816B41ADE008BCBC0 /* track3.plist */,
 				B5F034B916B41ADE008BCBC0 /* track4.plist */,
->>>>>>> 0d98578a03c25719d968de86757c15928739421a
 				32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */,
 				32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */,
 				32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */,
@@ -929,45 +895,11 @@
 				324330A416B3364D0052534D /* fondpapier.png in Resources */,
 				B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */,
 				B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */,
-<<<<<<< HEAD
-				B5F0349D16B40AB7008BCBC0 /* testPart.plist in Resources */,
-<<<<<<< HEAD
-				32742FA316B41B0200BB1992 /* wwDigital.ttf in Resources */,
-				32742FA716B41CB700BB1992 /* bouton-off.png in Resources */,
-				32742FA816B41CB700BB1992 /* bouton-on-no.png in Resources */,
-				32742FA916B41CB700BB1992 /* bouton-on-yes.png in Resources */,
-				32742FAB16B41CC100BB1992 /* fond-jeu.png in Resources */,
-				32742FAD16B41CCA00BB1992 /* team.png in Resources */,
-				32742FB616B41CD900BB1992 /* rival-jauge-3.png in Resources */,
-				32742FB716B41CD900BB1992 /* rival-jauge-2.png in Resources */,
-				32742FB816B41CD900BB1992 /* rival-jauge-1.png in Resources */,
-				32742FB916B41CD900BB1992 /* rival-jauge-0.png in Resources */,
-				32742FBA16B41CD900BB1992 /* jauge-0.png in Resources */,
-				32742FBB16B41CD900BB1992 /* jauge-1.png in Resources */,
-				32742FBC16B41CD900BB1992 /* jauge-2.png in Resources */,
-				32742FBD16B41CD900BB1992 /* jauge-3.png in Resources */,
-				32742FCB16B41CE400BB1992 /* moins-5-opium.png in Resources */,
-				32742FCC16B41CE400BB1992 /* moins-4-alcool.png in Resources */,
-				32742FCD16B41CE400BB1992 /* moins-3-tramadol.png in Resources */,
-				32742FCE16B41CE400BB1992 /* moins-2-canna.png in Resources */,
-				32742FCF16B41CE400BB1992 /* moins-1-hero.png in Resources */,
-				32742FD016B41CE400BB1992 /* plus-5-exta.png in Resources */,
-				32742FD116B41CE400BB1992 /* plus-4-meth.png in Resources */,
-				32742FD216B41CE400BB1992 /* plus-3-champi.png in Resources */,
-				32742FD316B41CE400BB1992 /* plus-2-cafe.png in Resources */,
-				32742FD416B41CE400BB1992 /* plus-1-cocaine.png in Resources */,
-				32742FD516B41CE400BB1992 /* neutre.png in Resources */,
-				32742FD616B41CE400BB1992 /* ch-2-lsd.png in Resources */,
-				32742FD716B41CE400BB1992 /* ch-1-ghb.png in Resources */,
-=======
 				B5F0349D16B40AB7008BCBC0 /* track0.plist in Resources */,
 				B5F034BA16B41ADE008BCBC0 /* track1.plist in Resources */,
 				B5F034BB16B41ADE008BCBC0 /* track2.plist in Resources */,
 				B5F034BC16B41ADE008BCBC0 /* track3.plist in Resources */,
 				B5F034BD16B41ADE008BCBC0 /* track4.plist in Resources */,
->>>>>>> 0d98578a03c25719d968de86757c15928739421a
-=======
->>>>>>> parent of 3e98969... bob
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
