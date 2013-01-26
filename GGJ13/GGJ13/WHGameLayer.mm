@@ -16,7 +16,7 @@
 #define HIT_Y 50.0f
 #define HIT_TOLERANCE 30.0f
 #define PERFECT_TOLERANCE 8.0f
-#define ITEMS_SPEED 400.0f
+#define MAX_DURATION 8.0f
 
 #define RECORDING_MODE YES
 
@@ -98,7 +98,7 @@
 -(void) tick: (ccTime) dt
 {
     _elapsedTime+=dt;
-    while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp] - 4.9f) {
+    while ([self.partition nextItemTimestamp] != 0.0 && _elapsedTime > [self.partition nextItemTimestamp] - [self adjustedDuration]*0.87f) {
         // NSLog(@"New Item");
         [self newItem:ItemTypeNormal atLane:[self.partition itemLane]];
         [self.partition goToNextItem];
@@ -108,7 +108,7 @@
 if ([self.activeItems count]>0){
     WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
     if(item.position.y >HIT_Y-2 && item.position.y <HIT_Y+2) {
-        NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
+        // NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
     }
 }
 }
@@ -123,7 +123,7 @@ if ([self.activeItems count]>0){
     [self.activeItems addObject:itemSprite];
     
     // Create the actions
-    id actionMove = [CCMoveTo actionWithDuration:7.0f-_currentMusicBPM position:ccp(itemSprite.position.x, -50)];
+    id actionMove = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(itemSprite.position.x, -50)];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
     [itemSprite runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
 }
@@ -149,9 +149,9 @@ if ([self.activeItems count]>0){
         }
     }
     if(hit) {
-        NSLog(@"Hit!");
+        // NSLog(@"Hit!");
     } else {
-        NSLog(@"Miss");
+        // NSLog(@"Miss");
     }
 }
 
@@ -182,12 +182,12 @@ if ([self.activeItems count]>0){
     NSTimeInterval dt = -[self.dateInit timeIntervalSinceNow];
     [self.recPartition.array addObject:@[[NSNumber numberWithDouble:dt],[NSNumber numberWithInt:boutonNb]]];
      
-     NSLog(@"touch %d", self.recPartition.array.count);
+     // NSLog(@"touch %d", self.recPartition.array.count);
 #endif
 }
 
 -(void)newLevel:(int)gameBPM {
-	NSLog(@"newLevel: %d", gameBPM);
+	// NSLog(@"newLevel: %d", gameBPM);
     _currentMusicBPM = gameBPM;
     [self startPartitionWithBPM:_currentMusicBPM];
 }
@@ -202,8 +202,12 @@ if ([self.activeItems count]>0){
     
     self.partition = [WHPartition new];
     [self.partition loadTrackWithBPM:bpm];
+    // NSLog(@"#### partition chargée : %@",self.partition.array);
     _elapsedTime = 0.0;
 }
 
+-(float)adjustedDuration {
+    return MAX_DURATION-_currentMusicBPM*1.15f;
+}
 
 @end
