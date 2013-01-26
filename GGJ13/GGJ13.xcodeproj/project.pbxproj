@@ -418,7 +418,6 @@
 				32742F7816B3F9FF00BB1992 /* MetalDev-150bpm.aifc */,
 				32742F7916B3F9FF00BB1992 /* MetalIntro-150bpm.aifc */,
 				32742F7A16B3F9FF00BB1992 /* ReggaeDev-70bpm.aifc */,
-				B541434816B373AD000E45B8 /* testPart.plist */,
 				B541434216B36B97000E45B8 /* SpriteSheet.plist */,
 				B541434316B36B97000E45B8 /* SpriteSheet.png */,
 				324330A316B3364D0052534D /* fondpapier.png */,
