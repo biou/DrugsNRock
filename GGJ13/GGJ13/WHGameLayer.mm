@@ -25,6 +25,7 @@
 {
     float _elapsedTime;
     int _currentMusicBPM;
+    BOOL flip;
 }
 
 
@@ -118,15 +119,32 @@ if ([self.activeItems count]>0){
 -(void) newItem:(ItemType)itemType atLane: (int)itemLane
 {
     WHItem *itemSprite = [WHItem spriteWithSpriteFrameName:@"neutre.png"];
+    
     CGSize winsize = [[CCDirector sharedDirector] winSize];
     itemSprite.position = ccp(40.0f+80*(itemLane), winsize.height + 50);
     [self addChild:itemSprite];
     [self.activeItems addObject:itemSprite];
+    NSLog(@"Ligne de nouvel élément: %d", itemLane);
+    
+    WHItem *specialItemSprite = [WHItem randomSpecialItem];
+    itemLane += flip?5:3;
+    flip=!flip;
+    specialItemSprite.position = ccp(40.0f+80*(itemLane%4), winsize.height + 50);
+    [self addChild:specialItemSprite];
+    [self.activeItems addObject:specialItemSprite];
+    
+    NSLog(@"Ligne d’élément spécial: %d", itemLane);
+
     
     // Create the actions
     id actionMove = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(itemSprite.position.x, -50)];
     id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
     [itemSprite runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+    
+    // Create the actions
+    id actionMove2 = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(specialItemSprite.position.x, -50)];
+    id actionMoveDone2 = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
+    [specialItemSprite runAction:[CCSequence actions:actionMove2, actionMoveDone2, nil]];
 }
 
 -(void)itemMoveFinished:(id)target

@@ -34,4 +34,6 @@ typedef enum
 
 -(id) initWithTexture:(CCTexture2D*)texture rect:(CGRect)rect;
 
++(WHItem *)randomSpecialItem;
+
 @end

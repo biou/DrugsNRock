@@ -20,6 +20,20 @@
                ReferencedContainer = "container:GGJ13.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "324254A4168DDFB40050EDD1"
+               BuildableName = "Drugs&amp;Rock.app"
+               BlueprintName = "Drugs&amp;Rock"
+               ReferencedContainer = "container:Drugs&amp;Rock.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
