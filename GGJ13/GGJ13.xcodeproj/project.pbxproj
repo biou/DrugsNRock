@@ -45,6 +45,10 @@
 		324330A716B33DA50052534D /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 324330A616B33DA50052534D /* GCDAsyncSocket.m */; };
 		324330A916B3420D0052534D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324330A816B3420D0052534D /* Security.framework */; };
 		324330AB16B342890052534D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324330AA16B342890052534D /* CFNetwork.framework */; };
+		B541433D16B36935000E45B8 /* Partition.m in Sources */ = {isa = PBXBuildFile; fileRef = B541433C16B36934000E45B8 /* Partition.m */; };
+		B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541434216B36B97000E45B8 /* SpriteSheet.plist */; };
+		B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = B541434316B36B97000E45B8 /* SpriteSheet.png */; };
+		B541434916B373AD000E45B8 /* testPart.plist in Resources */ = {isa = PBXBuildFile; fileRef = B541434816B373AD000E45B8 /* testPart.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +297,11 @@
 		324330A616B33DA50052534D /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		324330A816B3420D0052534D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		324330AA16B342890052534D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B541433B16B36934000E45B8 /* Partition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partition.h; sourceTree = "<group>"; };
+		B541433C16B36934000E45B8 /* Partition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Partition.m; sourceTree = "<group>"; };
+		B541434216B36B97000E45B8 /* SpriteSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SpriteSheet.plist; sourceTree = "<group>"; };
+		B541434316B36B97000E45B8 /* SpriteSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpriteSheet.png; sourceTree = "<group>"; };
+		B541434816B373AD000E45B8 /* testPart.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testPart.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +382,8 @@
 				3243308216B1E0F60052534D /* WHBasicLayer.mm */,
 				32425633168DDFBC0050EDD1 /* AppDelegate.h */,
 				32425634168DDFBC0050EDD1 /* AppDelegate.mm */,
+				B541433B16B36934000E45B8 /* Partition.h */,
+				B541433C16B36934000E45B8 /* Partition.m */,
 				3242594C168DF33D0050EDD1 /* BBAudioManager.h */,
 				3242594D168DF33D0050EDD1 /* BBAudioManager.mm */,
 				3242594E168DF3550050EDD1 /* BBGCDSingleton.h */,
@@ -388,6 +399,9 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B541434816B373AD000E45B8 /* testPart.plist */,
+				B541434216B36B97000E45B8 /* SpriteSheet.plist */,
+				B541434316B36B97000E45B8 /* SpriteSheet.png */,
 				324330A316B3364D0052534D /* fondpapier.png */,
 				324254BD168DDFB40050EDD1 /* Default.png */,
 				324254BF168DDFB40050EDD1 /* Default-Landscape~ipad.png */,
@@ -845,6 +859,9 @@
 				3242591E168DE59F0050EDD1 /* LICENSE_CocosDenshion.txt in Resources */,
 				3242591F168DE59F0050EDD1 /* LICENSE_Kazmath.txt in Resources */,
 				324330A416B3364D0052534D /* fondpapier.png in Resources */,
+				B541434416B36B98000E45B8 /* SpriteSheet.plist in Resources */,
+				B541434516B36B98000E45B8 /* SpriteSheet.png in Resources */,
+				B541434916B373AD000E45B8 /* testPart.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +879,7 @@
 				32425632168DDFBC0050EDD1 /* main.m in Sources */,
 				32425635168DDFBC0050EDD1 /* AppDelegate.mm in Sources */,
 				324330A716B33DA50052534D /* GCDAsyncSocket.m in Sources */,
+				B541433D16B36935000E45B8 /* Partition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

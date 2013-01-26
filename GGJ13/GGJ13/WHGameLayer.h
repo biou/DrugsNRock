@@ -11,11 +11,13 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "Partition.h"
 
 // HelloWorldLayer
 @interface WHGameLayer : CCLayer
 {
 }
 
+@property Partition *partition;
 
 @end
