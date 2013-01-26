@@ -19,6 +19,7 @@
 
 @interface WHGameScene : CCScene {	
 	int currentZique;
+	int musicBPM;
 }
 
 @property (strong) WHGameLayer * gameLayer;

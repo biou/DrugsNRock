@@ -135,6 +135,7 @@
 		[audioManager playBGMWithName: [bob objectForKey:@"loop"]];
 		[self schedule:@selector(bgmUpdate:) interval:[[bob objectForKey:@"loopLen"] floatValue]];
 	}
+	musicBPM = [[bob objectForKey:@"bpm"] intValue];
 }
 
 
