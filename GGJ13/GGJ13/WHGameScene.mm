@@ -61,7 +61,9 @@
 		
 		
 		BBAudioManager *audioManager = [BBAudioManager sharedAM];
-
+		[audioManager nextBGMWithName:@"Reggae-70bpm.aifc"];
+		[audioManager playBGMWithName:@"Reggae-70bpm.aifc"];
+		[self schedule:@selector(bgmUpdate:) interval:82.0];
 		//[gameLayer setAudioManager:audioManager];
 		
 		// add layer as a child to scene
@@ -121,6 +123,11 @@
 -(void)hidePauseLayer
 {
 	[self removeChild:pauseLayer cleanup:YES];
+}
+
+- (void) bgmUpdate:(ccTime) dt {
+	BBAudioManager *audioManager = [BBAudioManager sharedAM];
+	[audioManager bgmTick:dt];
 }
 
 @end
