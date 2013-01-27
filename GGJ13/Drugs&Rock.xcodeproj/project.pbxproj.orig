@@ -645,7 +645,11 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				329D369716B57543001BDACA /* Win.caf */,
+=======
 				B5CEAE1C16B573FB006AFA22 /* blank.png */,
+>>>>>>> eceaf58fb6a4dca9946ebf446c8c620280fa4b7b
 				329D369316B56D55001BDACA /* ECGFast.aifc */,
 				329D369416B56D55001BDACA /* ECGSlow.aifc */,
 				329D369116B56936001BDACA /* OrchestreFBI.aifc */,

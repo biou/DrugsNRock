@@ -47,7 +47,7 @@
 -(void) updateJaugeWith:(int)statut;
 -(void) sendDrug:(int)itemType;
 -(void) displayMessage:(int)m;
-
+-(void) executeNewZique;
 
 +(WHGameScene *) scene:(int)m;
 

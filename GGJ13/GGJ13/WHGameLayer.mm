@@ -119,6 +119,10 @@
         [self.partition goToNextItem];
     }
 
+    if ([self.partition nextItemTimestamp] == 0.0f) {
+        [self scheduleOnce:@selector(forceRestart) delay:[self adjustedDuration]+0.2f];
+
+    }
 
     if ([self.activeItems count]>0){
         WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
@@ -147,6 +151,10 @@
          }
 		});
     }
+}
+
+-(void)forceRestart {
+    [self.gameScene executeNewZique];
 }
 
 
@@ -372,10 +380,14 @@
     NSLog(@"%@ miss",bigMiss?@"Gros":@"Petit");
     if (!_lastActionSuccess) {
         _jaugeEchecs ++;
+        _jaugeSucces = 0;
     } else {
         _jaugeEchecs = 0;
+        _jaugeSucces = 0;
         _lastActionSuccess = NO;
     }
+    
+    [self.gameScene updateJaugeWith:0];
     
     int penalty = bigMiss?2:1;
     if ([self.gameScene getGameBPM] < BPM_MEDIAN) {

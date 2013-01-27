@@ -11,12 +11,8 @@
 
 #import "WHGameScene.h"
 #import "WHBasicLayer.h"
-#import "WHItem.h"
 
-#define LEVEL_INITIAL 1
-
-
-static int gameMode;
+#define LEVEL_INITIAL 5
 
 @implementation WHGameScene
 
@@ -26,20 +22,6 @@ static int gameMode;
 @synthesize socket;
 @synthesize ziques;
 @synthesize headerLayer;
-@synthesize jauge;
-@synthesize jaugeRival;
-
-
-+(WHGameScene *) scene:(int) m
-{
-
-	gameMode = m;
-	// 'scene' is an autorelease object.
-	WHGameScene *scene = [WHGameScene node];
-	
-	// return the scene
-	return scene;
-}
 
 - (id)init {
     self = [super init];
@@ -53,6 +35,55 @@ static int gameMode;
 		//controlLayer = [JNPControlLayer node];
 		//[controlLayer assignGameLayer:gameLayer];
 
+<<<<<<< HEAD
+		gameBPM = 80;
+		
+		//[gameLayer setGameScene:self];
+		//[controlLayer setGameScene:self];
+		//[pauseLayer setControlLayer:controlLayer];
+		currentZique = 0;
+		ziques = [NSMutableArray arrayWithCapacity:2];
+		NSDictionary * zique1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:70], @"bpm", @"", @"intro", @"ReggaeDev-70bpm.aifc", @"loop", [NSNumber numberWithFloat:82.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
+		[ziques addObject:zique1];
+		NSDictionary * zique2 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:90], @"bpm", @"", @"intro", @"HipHop-90bpm.aifc", @"loop", [NSNumber numberWithFloat:85.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
+		[ziques addObject:zique2];
+		NSDictionary * zique3 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:128], @"bpm", @"ElectroIntro-128bpm.aifc", @"intro", @"ElectroDev-128bpm.aifc", @"loop", [NSNumber numberWithFloat:29.86], @"loopLen", [NSNumber numberWithFloat:7.35], @"introLen", nil];
+		[ziques addObject:zique3];
+		NSDictionary * zique4 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:150], @"bpm", @"MetalIntro-150bpm.aifc", @"intro", @"MetalDev-150bpm.aifc", @"loop", [NSNumber numberWithFloat:51.0], @"loopLen", [NSNumber numberWithFloat:1.36], @"introLen", nil];
+		[ziques addObject:zique4];
+		NSDictionary * zique5 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:165], @"bpm", @"", @"intro", @"DNB-165bpm.aifc", @"loop", [NSNumber numberWithFloat:58.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
+		[ziques addObject:zique5];
+		NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:187], @"bpm", @"TechnoIntro-187bpm.aifc", @"intro", @"TechnoDev-187bpm.aifc", @"loop", [NSNumber numberWithFloat:26.07], @"loopLen", [NSNumber numberWithFloat:10.0], @"introLen", nil];
+		[ziques addObject:zique6];
+		
+		CCLayer *bgLayer = [CCLayer node];
+		CGSize s = [CCDirector sharedDirector].winSize;		
+		// init du background
+		CCSprite *bgpic = [CCSprite spriteWithFile:@"fond-jeu.png"];
+		bgpic.position = ccp(bgpic.position.x + s.width/2.0, bgpic.position.y+s.height/2.0);
+		//bgpic.opacity = 160;
+		//bgpic.color = ccc3(160, 160, 160);
+		[bgLayer addChild:bgpic];
+		[self addChild:bgLayer z:-10];
+
+		CCLayer *fgLayer = [CCLayer node];
+		CCSprite *bgpic2 = [CCSprite spriteWithFile:@"header.png"];
+		bgpic2.position = ccp(s.width/2.0, s.height-48);
+		[fgLayer addChild:bgpic2];
+		[self addChild:fgLayer z:+10];
+		
+		
+		[self ziqueUpdate:LEVEL_INITIAL];
+		[self.gameLayer newLevel:currentZique];
+		// [gameLayer setAudioManager:audioManager];
+		// [self schedule:@selector(simulateBPM:) interval:10];
+		
+		// add layer as a child to scene
+		//[self addChild: pauseLayer z:-15 tag:3];
+		[self addChild: gameLayer z:5 tag:1];
+		//[self addChild: controlLayer z:10 tag:2];
+=======
+>>>>>>> e45f91e4e45161c7165cdf24ecdb65a4eaf5d82d
 		
 		socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
 		NSError *err = nil;
@@ -63,15 +94,12 @@ static int gameMode;
 		}
 		
 		#ifdef whNetworking
-		[self sendSocketWithKey:@"wiener" andValue:@"biou"];
+		NSError* error;
+		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:@"biou", @"wiener", nil];
+		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+		[socket writeData:jsonData withTimeout:-1 tag:1];
 		NSData *term = [@"\n" dataUsingEncoding:NSUTF8StringEncoding];
         [socket readDataToData:term withTimeout:-1 tag:1];
-		if (gameMode == MODE_SOLO) {
-			NSLog(@"mode solo");
-			[self sendSocketWithKey:@"ready" andValue:@"1"];
-		} else {
-			NSLog(@"mode multi");
-		}
 		
 		CGSize s = [CCDirector sharedDirector].winSize;		
 		
@@ -88,11 +116,13 @@ static int gameMode;
     return self;
 }
 
--(void)initGame {	
+-(void)initGame {
+	[self setBPM: 80];
+	
 	//[gameLayer setGameScene:self];
 	//[controlLayer setGameScene:self];
 	//[pauseLayer setControlLayer:controlLayer];
-	currentZique = LEVEL_INITIAL;
+	currentZique = 0;
 	ziques = [NSMutableArray arrayWithCapacity:2];
 	NSDictionary * zique1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:70], @"bpm", @"", @"intro", @"ReggaeDev-70bpm.aifc", @"loop", [NSNumber numberWithFloat:82.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 	[ziques addObject:zique1];
@@ -104,7 +134,7 @@ static int gameMode;
 	[ziques addObject:zique4];
 	NSDictionary * zique5 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:165], @"bpm", @"", @"intro", @"DNB-165bpm.aifc", @"loop", [NSNumber numberWithFloat:58.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 	[ziques addObject:zique5];
-	NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:187], @"bpm", @"TechnoIntro-187bpm.aifc", @"intro", @"TechnoDev-187bpm.aifc", @"loop", [NSNumber numberWithFloat:26.0], @"loopLen", [NSNumber numberWithFloat:10.0], @"introLen", nil];
+	NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:187], @"bpm", @"TechnoIntro-187bpm.aifc", @"intro", @"ElectroDev-187bpm.aifc", @"loop", [NSNumber numberWithFloat:26.0], @"loopLen", [NSNumber numberWithFloat:10.0], @"introLen", nil];
 	[ziques addObject:zique6];
 	
 	CCLayer *bgLayer = [CCLayer node];
@@ -122,25 +152,16 @@ static int gameMode;
 	bgpic2.position = ccp(s.width/2.0, s.height-48);
 	[headerLayer addChild:bgpic2];
 	[self addChild:headerLayer z:+10];
-	
-	jauge = [CCSprite spriteWithSpriteFrameName:@"jauge-0.png"];
-	jauge.position = ccp(50, s.height-60);
-	[headerLayer addChild: jauge z:11 tag:14];
-	jaugeRival = [CCSprite spriteWithSpriteFrameName:@"rival-jauge-0.png"];
-	jaugeRival.position = ccp(s.width-50, s.height-60);
-	[headerLayer addChild: jaugeRival z:11 tag:15];
-	
-	
-	[self setBPM: 80];
+	[self updateHeaderBPM];
 
 	score = 0;
 	[self updateHeaderScore];
 	
 	
-	[self ziqueUpdate:LEVEL_INITIAL];
+	[self ziqueUpdate:5];
 	[self.gameLayer newLevel:currentZique];
 	//[gameLayer setAudioManager:audioManager];
-	//[self schedule:@selector(simulateBPM:) interval:10];
+	[self schedule:@selector(simulateBPM:) interval:10];
 	
 	// add layer as a child to scene
 	//[self addChild: pauseLayer z:-15 tag:3];
@@ -190,30 +211,7 @@ static int gameMode;
 				[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
 			}
 			NSLog(@"end");
-		} else if ([json objectForKey:@"mange"] != Nil) {
-			[self mange:[[json objectForKey:@"mange"] intValue]];
-		} else if ([json objectForKey:@"jauge"] != Nil) {
-			[self updateRivalJauge:[[json objectForKey:@"jauge"] intValue]];
-			
 		}
-}
-
--(void)mange:(int)m {
-    switch (m) {
-        case ItemTypeGHB:
-            [self displayMessage:2];
-            NSLog(@"TODO Score à zéro pour cause de GHB");
-            break;
-            
-        case ItemTypeLSD:
-            [self displayMessage:2];
-            break;
-            
-        default:
-            
-            [self setBPM: gameBPM + [WHItem effectForType:(ItemType)m]];
-            break;
-    }
 }
 
 -(void)showPauseLayer
@@ -235,13 +233,14 @@ static int gameMode;
 }
 
 
+
+
 -(void) ziqueUpdate:(int) zique {
     currentZique = zique;
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
 	[audioManager stopBGM];
 	
 	NSDictionary * bob = [ziques objectAtIndex:zique];
-	NSLog(@"bob: %@", bob);
     
     [audioManager playBGMWithIntro:[bob objectForKey:@"intro"] andLoop:[bob objectForKey:@"loop"]];
     
@@ -268,44 +267,13 @@ static int gameMode;
      */
 }
 
--(void) incrementBPM:(int)bpm {
-	[self setBPM:gameBPM+bpm];
-}
-
--(int) getGameBPM {
-    return gameBPM;
-}
-
--(void) sendDrug:(int)itemType {
-    // NSLog(@"Envoi de drogue à l’autre connard: type %d",itemType);
-	[self sendSocketWithKey:@"faitmanger" andValue:[NSString stringWithFormat:@"%d",itemType]];
-}
-
 
 -(void) setBPM:(int)bpm {
 	gameBPM=bpm;
-	[self updateHeaderBPM];
-	[self updateMusicBPM];
-	if ((bpm > 220) || (bpm < 50)) {
-		[self sendSocketWithKey:@"bye" andValue:@"1"];
-		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
-	} else {
-		[self sendSocketWithKey:@"mybpm" andValue:[NSString stringWithFormat:@"%d",bpm]];
-	}
-}
-
--(void) sendSocketWithKey:(NSString *)key andValue:(NSString *)val {
 	NSError* error;
-	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:val, key, nil];
-	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:Nil error:&error];
-	NSString* str = @"\n\n";
-	NSData* fin=[str dataUsingEncoding: [NSString defaultCStringEncoding] ];
-
-	NSMutableData *msgData = [NSMutableData data];
-	[msgData appendData:jsonData];
-	[msgData appendData:fin];
-	
-	[socket writeData:msgData withTimeout:-1 tag:1];
+	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",bpm], @"mybpm", nil];
+	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+	[socket writeData:jsonData withTimeout:-1 tag:1];
 }
 
 -(void) simulateBPM:(ccTime) dt {
@@ -316,51 +284,39 @@ static int gameMode;
 }
 
 -(int) ziqueWithBPM:(int) bpm {
-	int val = 0;
-	if (bpm< 70) {
-		val = 0;
+	if (bpm< 80) {
+		return 0;
 	} else if (bpm < 105){
-		val = 1;
+		return 1;
 	} else if (bpm < 135) {
-		val = 2;
+		return 2;
 	} else if (bpm < 158) {
-		val = 3;
+		return 3;
 	} else if (bpm < 176) {
-		val = 4;
+		return 4;
 	} else {
-        val = 5;
+        return 5;
     }
-	NSLog(@"ziqueWithBPM: %d %d", bpm, val);
-	return val;
 }
 
 -(void) updateMusicBPM {
 	int newZique = [self ziqueWithBPM:gameBPM];
-
 	if (newZique != currentZique) {
 			NSLog(@"changeZique %d", newZique);
-		if (newZique > currentZique) {
-			[self displayMessage:1];
-		} else {
-			[self displayMessage:0];
-		}
-		currentZique = newZique;
-		[self scheduleOnce:@selector(executeNewZique) delay:0.1];
+		[self ziqueUpdate:newZique];
+		[self.gameLayer newLevel:newZique];
 	}
 	
 }
 
--(void) executeNewZique {
-	[self ziqueUpdate:currentZique];
-	[self.gameLayer newLevel:currentZique];
-}
-
+<<<<<<< HEAD
 -(void) restartLevel {
     NSLog(@"Restart level");
     int newZique = LEVEL_INITIAL;
     [self ziqueUpdate:newZique];
     [self.gameLayer newLevel:newZique];
 }
+=======
 -(void) updateHeaderBPM {
 	[headerLayer removeChildByTag:10 cleanup:true];
 	CGSize winsize = [CCDirector sharedDirector].winSize;
@@ -393,81 +349,6 @@ static int gameMode;
 		[headerLayer addChild: label z:1 tag:12];
 }
 
--(void) updateJaugeWith:(int)statut {
-	if (statut>=0 && statut <4) {
-		[jauge setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jauge-%d.png",statut]]];
-	}
-	[self sendSocketWithKey:@"jauge" andValue:[NSString stringWithFormat:@"%d",statut]];
-}
-
--(void) updateRivalJauge:(int)i {
-	if (i>=0 && i <4) {
-		[jaugeRival setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jauge-%d.png",i]]];
-	}
-}
-
-
--(void) displayMessage:(int)m {
-		[headerLayer removeChildByTag:13 cleanup:true];
-		CGSize winsize = [CCDirector sharedDirector].winSize;
-	NSString * image;
-	NSString * son;
-	switch (m) {
-		case 0:
-			image = @"slowdown.png";
-			son = @"Swoosh4.caf";
-		break;
-		case 1:
-			image = @"speedup.png";
-			son = @"Swoosh3.caf";
-		break;
-		case 2:
-			image = @"lsd.png";
-			son = @"Swoosh1.caf";
-		break;
-		case 3:
-			image = @"ghb.png";
-			son = @"Swoosh2.caf";
-		break;
-		default:
-		break;
-	}
-	CCSprite * bgpic = [CCSprite spriteWithFile:image];
-	
-	bgpic.position = ccp(winsize.width/2 , winsize.height/2 );
-	[headerLayer addChild:bgpic z:1 tag:13];
-    
-    // Create fade out action
-    //id actionFadeOut = [CCFadeIn actionWithDuration:1.0f];
-    //[bgpic runAction:[CCSequence actions:[CCMoveBy actionWithDuration:1.0f position:ccp(0,0)], actionFadeOut, nil]];
-    
-	BBAudioManager *audioManager = [BBAudioManager sharedAM];
-	[audioManager playSFX:son];
-	[self scheduleOnce:@selector(removeMessage:) delay:2.0];
-}
-
-- (void) removeMessage:(ccTime) dt {
-	[headerLayer removeChildByTag:13 cleanup:true];
-}
-
-- (void)lsdGlowingEffect {
-    //fixme
-    // élément blanc à glower
-    CGSize s = [CCDirector sharedDirector].winSize;
-    
-    CCSprite *sprite = [self rectangleSpriteWithSize:CGSizeMake(s.width, s.height) color:ccc3(255, 255, 255)];
-    
-    sprite.position = ccp(s.width/2.0f,s.height/2.0f);
-
-    [self addChild:sprite];
-}
-
--(CCSprite *) rectangleSpriteWithSize:(CGSize)cgsize color:(ccColor3B) c
-{
-    CCSprite *sg = [CCSprite spriteWithFile:@"blank.png"];
-    [sg setTextureRect:CGRectMake( 0, 0, cgsize.width, cgsize.height)];
-    sg.color = c;
-    return sg;
-}
+>>>>>>> e45f91e4e45161c7165cdf24ecdb65a4eaf5d82d
 
 @end
