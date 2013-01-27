@@ -216,6 +216,10 @@
      */
 }
 
+-(void) incrementBPM:(int)bpm {
+	[self setBPM:gameBPM+bpm];
+}
+
 
 -(void) setBPM:(int)bpm {
 	gameBPM=bpm;

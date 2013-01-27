@@ -35,7 +35,7 @@
 @property (strong) NSMutableArray * ziques;
 
 
-
+-(void) incrementBPM:(int)bpm;
 -(void)showPauseLayer;
 -(void)hidePauseLayer;
 -(void) restartLevel;
