@@ -254,7 +254,10 @@ static int gameMode;
 
 -(void) sendDrug:(int)itemType {
     NSLog(@"Envoi de drogue à l’autre connard: type %d",itemType);
-    NSLog(@"--> Fix me baby one more time!");
+	NSError* error;
+	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",itemType], @"faitmanger", nil];
+	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+	[socket writeData:jsonData withTimeout:-1 tag:1];
 }
 
 
