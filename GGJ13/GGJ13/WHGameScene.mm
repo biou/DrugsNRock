@@ -135,7 +135,7 @@ static int gameMode;
 	[self ziqueUpdate:LEVEL_INITIAL];
 	[self.gameLayer newLevel:currentZique];
 	//[gameLayer setAudioManager:audioManager];
-	[self schedule:@selector(simulateBPM:) interval:10];
+	//[self schedule:@selector(simulateBPM:) interval:10];
 	
 	// add layer as a child to scene
 	//[self addChild: pauseLayer z:-15 tag:3];
@@ -185,7 +185,15 @@ static int gameMode;
 				[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
 			}
 			NSLog(@"end");
+		} else if ([json objectForKey:@"mange"] != Nil) {
+			[self mange:[[json objectForKey:@"mange"] intValue]];
 		}
+}
+
+-(void)mange:(int)m {
+	NSLog(@"mange: %d", m);
+	NSLog(@"FIXME Noliv");
+	
 }
 
 -(void)showPauseLayer
@@ -352,6 +360,17 @@ static int gameMode;
 		[label setPosition: ccp(60, winsize.height-34)];
 		[headerLayer addChild: label z:1 tag:12];
 }
+
+-(void) updateJauge {
+	[headerLayer removeChildByTag:12 cleanup:true];
+	CGSize winsize = [CCDirector sharedDirector].winSize;
+	int fontSize = 16;
+	CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", score] fontName:@"DBLCDTempBlack" fontSize:fontSize];
+	[label setColor:ccc3(181, 216, 19)];
+	[label setPosition: ccp(60, winsize.height-34)];
+	[headerLayer addChild: label z:1 tag:12];
+}
+
 
 -(void) displayMessage:(int)m {
 		[headerLayer removeChildByTag:13 cleanup:true];
