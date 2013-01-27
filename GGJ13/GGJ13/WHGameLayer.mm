@@ -314,7 +314,7 @@
     } else if (_jaugeSucces < 6) {
         jaugeStatut = 2;
     }else {
-        if (_shouldSendDrugToOpponent) {
+        if (_shouldSendDrugToOpponent && item.type != ItemTypeNormal) {
             [self.gameScene sendDrug:item.type];
             jaugeStatut = 0;
             _jaugeSucces = 0;
