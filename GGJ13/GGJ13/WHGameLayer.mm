@@ -174,6 +174,10 @@
         id actionMove2 = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(specialItemSprite.position.x, -50)];
         // id actionMoveDone2 = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
         [specialItemSprite runAction:[CCSequence actions:actionMove2, nil, nil]];
+        
+        // Create fade in action
+        id actionFadeIn = [CCFadeIn actionWithDuration:[self adjustedDuration]*0.44f];
+        [specialItemSprite runAction:actionFadeIn];
     }
     
 
@@ -182,6 +186,15 @@
     id actionMove = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(itemSprite.position.x, -50)];
     // id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
     [itemSprite runAction:[CCSequence actions:actionMove, nil, nil]];
+    
+    
+    // Create fade in action
+    id actionFade = [CCFadeIn actionWithDuration:[self adjustedDuration]*0.44f];
+    [itemSprite runAction:actionFade];
+    
+}
+
+-(void)itemFadeFinished:(id)target {
     
 }
 
