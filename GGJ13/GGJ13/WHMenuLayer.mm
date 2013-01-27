@@ -92,8 +92,9 @@ CCMenu * myMenu;
 	
 	// Arrange the menu items vertically
 	[myMenu alignItemsVertically];
+	[myMenu alignItemsVerticallyWithPadding:1];
 	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-		myMenu.position = ccp(winsize.width/2, 100);
+		myMenu.position = ccp(winsize.width/2, 120);
 	} else {
 		myMenu.position = ccp(winsize.width/2, 280);
 	}
