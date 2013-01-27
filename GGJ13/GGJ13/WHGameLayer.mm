@@ -117,7 +117,7 @@ if ([self.activeItems count]>0){
 -(void) newItem:(ItemType)itemType atLane: (int)itemLane
 {
     BOOL weWantSpecialItem = NO;
-    float proba = MIN(_elapsedTime,60.0f)/60.0f;
+    float proba = MIN(20.0f + _elapsedTime,60.0f)/60.0f;
     float rand = ((float)arc4random())/100000.0f;
     rand -= floorf(rand);
     weWantSpecialItem = rand < proba;

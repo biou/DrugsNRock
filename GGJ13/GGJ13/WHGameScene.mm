@@ -12,7 +12,7 @@
 #import "WHGameScene.h"
 #import "WHBasicLayer.h"
 
-#define LEVEL_INITIAL 5
+#define LEVEL_INITIAL 1
 
 @implementation WHGameScene
 
@@ -109,7 +109,7 @@
 	[self updateHeaderScore];
 	
 	
-	[self ziqueUpdate:5];
+	[self ziqueUpdate:LEVEL_INITIAL];
 	[self.gameLayer newLevel:currentZique];
 	//[gameLayer setAudioManager:audioManager];
 	[self schedule:@selector(simulateBPM:) interval:10];
