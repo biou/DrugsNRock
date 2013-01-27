@@ -84,6 +84,8 @@
 		32A1C13516B42F0D00B4DEF3 /* spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13316B42F0D00B4DEF3 /* spritesheet.png */; };
 		32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */; };
 		32A1C15016B4452900B4DEF3 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C14F16B4452900B4DEF3 /* header.png */; };
+		32FB54F516B4A86100F1CB4E /* WHMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3242594A168DF21E0050EDD1 /* WHMenuLayer.mm */; };
+		32FB54F616B4A86600F1CB4E /* WHBasicLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3243308216B1E0F60052534D /* WHBasicLayer.mm */; };
 		B541433D16B36935000E45B8 /* WHPartition.m in Sources */ = {isa = PBXBuildFile; fileRef = B541433C16B36934000E45B8 /* WHPartition.m */; };
 		B541435016B3C841000E45B8 /* WHItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B541434F16B3C841000E45B8 /* WHItem.m */; };
 		B541435316B3E601000E45B8 /* WHControlLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B541435216B3E601000E45B8 /* WHControlLayer.m */; };
@@ -1250,6 +1252,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FB54F616B4A86600F1CB4E /* WHBasicLayer.mm in Sources */,
+				32FB54F516B4A86100F1CB4E /* WHMenuLayer.mm in Sources */,
 				3243307F16B1DEA30052534D /* BBAudioManager.mm in Sources */,
 				3243307016B1DBFA0052534D /* WHIntroLayer.mm in Sources */,
 				3243309016B332CB0052534D /* WHGameLayer.mm in Sources */,
