@@ -50,6 +50,9 @@
 		3294D82E16B4508200E8A2DC /* ElectroDev-128bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D82C16B4508200E8A2DC /* ElectroDev-128bpm.aifc */; };
 		3294D82F16B4508200E8A2DC /* ElectroIntro-128bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D82D16B4508200E8A2DC /* ElectroIntro-128bpm.aifc */; };
 		3294D83116B453CE00E8A2DC /* HipHop-90bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D83016B453CE00E8A2DC /* HipHop-90bpm.aifc */; };
+		329D369216B56936001BDACA /* OrchestreFBI.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 329D369116B56936001BDACA /* OrchestreFBI.aifc */; };
+		329D369516B56D55001BDACA /* ECGFast.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 329D369316B56D55001BDACA /* ECGFast.aifc */; };
+		329D369616B56D55001BDACA /* ECGSlow.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 329D369416B56D55001BDACA /* ECGSlow.aifc */; };
 		32A1C0E216B424D600B4DEF3 /* bouton-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DD16B424D600B4DEF3 /* bouton-off.png */; };
 		32A1C0E316B424D600B4DEF3 /* bouton-on-no.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DE16B424D600B4DEF3 /* bouton-on-no.png */; };
 		32A1C0E416B424D600B4DEF3 /* bouton-on-yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DF16B424D600B4DEF3 /* bouton-on-yes.png */; };
@@ -400,6 +403,9 @@
 		3294D82C16B4508200E8A2DC /* ElectroDev-128bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ElectroDev-128bpm.aifc"; path = "Resources/ElectroDev-128bpm.aifc"; sourceTree = "<group>"; };
 		3294D82D16B4508200E8A2DC /* ElectroIntro-128bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ElectroIntro-128bpm.aifc"; path = "Resources/ElectroIntro-128bpm.aifc"; sourceTree = "<group>"; };
 		3294D83016B453CE00E8A2DC /* HipHop-90bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HipHop-90bpm.aifc"; path = "Resources/HipHop-90bpm.aifc"; sourceTree = "<group>"; };
+		329D369116B56936001BDACA /* OrchestreFBI.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = OrchestreFBI.aifc; path = Resources/OrchestreFBI.aifc; sourceTree = "<group>"; };
+		329D369316B56D55001BDACA /* ECGFast.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = ECGFast.aifc; path = Resources/ECGFast.aifc; sourceTree = "<group>"; };
+		329D369416B56D55001BDACA /* ECGSlow.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = ECGSlow.aifc; path = Resources/ECGSlow.aifc; sourceTree = "<group>"; };
 		32A1C0DD16B424D600B4DEF3 /* bouton-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-off.png"; path = "Resources/bouton-off.png"; sourceTree = "<group>"; };
 		32A1C0DE16B424D600B4DEF3 /* bouton-on-no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-on-no.png"; path = "Resources/bouton-on-no.png"; sourceTree = "<group>"; };
 		32A1C0DF16B424D600B4DEF3 /* bouton-on-yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-on-yes.png"; path = "Resources/bouton-on-yes.png"; sourceTree = "<group>"; };
@@ -638,6 +644,9 @@
 			isa = PBXGroup;
 			children = (
 				B5CEAE1C16B573FB006AFA22 /* blank.png */,
+				329D369316B56D55001BDACA /* ECGFast.aifc */,
+				329D369416B56D55001BDACA /* ECGSlow.aifc */,
+				329D369116B56936001BDACA /* OrchestreFBI.aifc */,
 				32FB553716B5538900F1CB4E /* buzz.caf */,
 				32FB553816B5538900F1CB4E /* Click.caf */,
 				32FB553916B5538A00F1CB4E /* ECGFast.caf */,
@@ -1342,6 +1351,9 @@
 				32FB554616B5538C00F1CB4E /* Swoosh4.caf in Resources */,
 				B5CEAE1B16B570C5006AFA22 /* win.png in Resources */,
 				B5CEAE1D16B573FB006AFA22 /* blank.png in Resources */,
+				329D369216B56936001BDACA /* OrchestreFBI.aifc in Resources */,
+				329D369516B56D55001BDACA /* ECGFast.aifc in Resources */,
+				329D369616B56D55001BDACA /* ECGSlow.aifc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

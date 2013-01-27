@@ -70,7 +70,10 @@ static BBAudioManager *sharedAM = nil;
         [self.mainTrack preloadFile:loopName];
         self.mainTrack.numberOfLoops = -1;
         [self.mainTrack play];
-    } else {
+    } else if ([loopName length] ==0) {
+		[self.introTrack preloadFile:introName];
+		[self.introTrack play];
+	} else {
         [self.introTrack preloadFile:introName];
         [self.mainTrack preloadFile:loopName];
         

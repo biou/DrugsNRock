@@ -403,20 +403,19 @@ static int gameMode;
 	switch (m) {
 		case 0:
 			image = @"slowdown.png";
-			son = @"";
+			son = @"Swoosh4.caf";
 		break;
 		case 1:
 			image = @"speedup.png";
-			son = @"";
+			son = @"Swoosh3.caf";
 		break;
 		case 2:
 			image = @"lsd.png";
-			son = @"";
-            // [self scheduleOnce:@selector(lsdGlowingEffect) delay:0.3f];
+			son = @"Swoosh1.caf";
 		break;
 		case 3:
 			image = @"ghb.png";
-			son = @"";
+			son = @"Swoosh2.caf";
 		break;
 		default:
 		break;

@@ -248,7 +248,9 @@
 		// NSLog(@"%@", self.boutons);
     } else {
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-no.png"]];
-        [self itemMissed:YES];
+		BBAudioManager * am = [BBAudioManager sharedAM];
+		[am playSFX:@"buzz.caf"];
+		[self itemMissed:YES];
     }
 }
 

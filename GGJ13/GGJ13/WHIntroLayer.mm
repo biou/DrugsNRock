@@ -10,6 +10,7 @@
 // Import the interfaces
 #import "WHIntroLayer.h"
 #import "WHMenuLayer.h"
+#import "BBAudioManager.h"
 
 
 
@@ -58,6 +59,9 @@
 	
 	logo.position = ccp(winsize.width/2 , winsize.height/2 );
 	[self addChild:logo];
+	BBAudioManager * am = [BBAudioManager sharedAM];
+
+	[ am playBGMWithIntro:@"OrchestreFBI.aifc" andLoop:@""];
 
 	
 	// Pour éviter de saccader l'animation lors du chargement du son, on préload le son maintenant et on le schedule quand on veut.
@@ -66,7 +70,7 @@
 	// conversion tt seule
 
 	//[self scheduleOnce:@selector(introSound:) delay:0.65];
-	[self scheduleOnce:@selector(toNextScene:) delay:3.8];
+	[self scheduleOnce:@selector(toNextScene:) delay:6.0];
 }
 
 - (void) toNextScene:(ccTime) dt {
