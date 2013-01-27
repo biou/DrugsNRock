@@ -27,6 +27,7 @@
 	int gameBPM;
 	int rivalBPM;
 	int score;
+	bool started;
 }
 
 @property (strong) WHGameLayer * gameLayer;
