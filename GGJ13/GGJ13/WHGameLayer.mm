@@ -119,6 +119,10 @@
         [self.partition goToNextItem];
     }
 
+    if ([self.partition nextItemTimestamp] == 0.0f) {
+        [self scheduleOnce:@selector(forceRestart) delay:[self adjustedDuration]+0.2f];
+
+    }
 
     if ([self.activeItems count]>0){
         WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
@@ -147,6 +151,10 @@
          }
 		});
     }
+}
+
+-(void)forceRestart {
+    [self.gameScene executeNewZique];
 }
 
 
