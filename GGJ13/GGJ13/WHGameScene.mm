@@ -414,6 +414,11 @@ static int gameMode;
 	
 	bgpic.position = ccp(winsize.width/2 , winsize.height/2 );
 	[headerLayer addChild:bgpic z:1 tag:13];
+    
+    // Create fade out action
+    //id actionFadeOut = [CCFadeIn actionWithDuration:1.0f];
+    //[bgpic runAction:[CCSequence actions:[CCMoveBy actionWithDuration:1.0f position:ccp(0,0)], actionFadeOut, nil]];
+    
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
 	[audioManager playSFX:son];
 	[self scheduleOnce:@selector(removeMessage:) delay:2.0];

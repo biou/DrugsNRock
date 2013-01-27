@@ -4,7 +4,7 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "GGJ13/WHGameLayer.mm"
@@ -40,6 +40,19 @@
          startingLineNumber = "71"
          endingLineNumber = "71"
          landmarkName = "-playBGMWithIntro:andLoop:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "GGJ13/WHGameLayer.mm"
+         timestampString = "380980287.756497"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "303"
+         endingLineNumber = "303"
+         landmarkName = "-itemTapped:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

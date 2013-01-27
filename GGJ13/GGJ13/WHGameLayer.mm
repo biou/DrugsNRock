@@ -300,22 +300,25 @@
 
 -(void)itemTapped:(WHItem *)item {
     NSLog(@"HIT! Appliquer effet %d",[item effect]);
+    BOOL itemSent = NO;
     
     if (_lastActionSuccess) {
         _jaugeSucces++;
     } else {
-        _jaugeSucces = 0;
+        _jaugeSucces = 1;
+        _jaugeEchecs = 0;
         _lastActionSuccess = YES;
     }
     
     int jaugeStatut=0;
-    if (_jaugeSucces > 0 && _jaugeSucces < 3) {
+    if (_jaugeSucces >= 0 && _jaugeSucces < 3) {
         jaugeStatut = 1;
     } else if (_jaugeSucces < 6) {
         jaugeStatut = 2;
     }else {
         if (_shouldSendDrugToOpponent && item.type != ItemTypeNormal) {
             [self.gameScene sendDrug:item.type];
+            itemSent = YES;
             jaugeStatut = 0;
             _jaugeSucces = 0;
             _shouldSendDrugToOpponent = NO;
@@ -326,6 +329,20 @@
     }
     
     [self.gameScene updateJaugeWith:jaugeStatut];
+    
+    
+    
+    if(item.type != ItemTypeNormal && !itemSent) {
+        // il faut appliquer l’item à notre propre face
+        [self.gameScene incrementBPM:[item effect]];
+        
+        if (item.type == ItemTypeGHB) {
+            [self.gameScene displayMessage:3];
+            NSLog(@" todo effet ghb : score à zéro");
+        } else if (item.type == ItemTypeLSD) {
+            [self.gameScene displayMessage:2];
+        }
+    }
     
     [self.activeItems removeObject:item];
     [self removeChild:item cleanup:YES];

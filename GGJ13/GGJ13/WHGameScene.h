@@ -43,6 +43,8 @@
 -(int) getGameBPM;
 -(void) updateJaugeWith:(int)statut;
 -(void) sendDrug:(int)itemType;
+-(void) displayMessage:(int)m;
+
 
 +(WHGameScene *) scene:(int)m;
 
