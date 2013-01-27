@@ -112,7 +112,7 @@
 	[self ziqueUpdate:5];
 	[self.gameLayer newLevel:currentZique];
 	//[gameLayer setAudioManager:audioManager];
-	[self schedule:@selector(simulateBPM:) interval:10];
+	//[self schedule:@selector(simulateBPM:) interval:10];
 	
 	// add layer as a child to scene
 	//[self addChild: pauseLayer z:-15 tag:3];
@@ -184,8 +184,6 @@
 }
 
 
-
-
 -(void) ziqueUpdate:(int) zique {
     currentZique = zique;
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
@@ -221,10 +219,18 @@
 
 -(void) setBPM:(int)bpm {
 	gameBPM=bpm;
-	NSError* error;
-	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",bpm], @"mybpm", nil];
-	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
-	[socket writeData:jsonData withTimeout:-1 tag:1];
+	if ((bpm > 220) || (bpm < 50)) {
+		NSError* error;
+		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:@"1", @"bye", nil];
+		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+		[socket writeData:jsonData withTimeout:-1 tag:1];
+		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
+	} else {
+		NSError* error;
+		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",bpm], @"mybpm", nil];
+		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+		[socket writeData:jsonData withTimeout:-1 tag:1];
+	}
 }
 
 -(void) simulateBPM:(ccTime) dt {
