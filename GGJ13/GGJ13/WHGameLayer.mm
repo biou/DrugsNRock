@@ -16,6 +16,7 @@
 #define HIT_Y 50.0f
 #define HIT_TOLERANCE 30.0f
 #define PERFECT_TOLERANCE 8.0f
+#define SEUIL_TROP_TARD 15.0f
 #define MAX_DURATION 8.0f
 
 #define RECORDING_MODE YES
@@ -105,12 +106,26 @@
     }
 
 
-if ([self.activeItems count]>0){
-    WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
-    if(item.position.y >HIT_Y-2 && item.position.y <HIT_Y+2) {
-        // NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
+    if ([self.activeItems count]>0){
+        WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
+        if(item.position.y >HIT_Y-2 && item.position.y <HIT_Y+2) {
+            // NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
+        }
+        
+        NSMutableArray *gc = [NSMutableArray new];
+        for (WHItem *i in self.activeItems) {
+            if(i.position.y<SEUIL_TROP_TARD) {
+                [gc addObject:i];
+                if (i.specialPeer != nil) {
+                    [gc addObject:i.specialPeer];
+                }
+            }
+        }
+        for (WHItem *i in gc) {
+            [self.activeItems removeObject:i];
+            [self removeChild:i cleanup:YES];
+        }
     }
-}
 }
 
 
@@ -128,7 +143,7 @@ if ([self.activeItems count]>0){
     itemSprite.position = ccp(40.0f+80*(itemLane), winsize.height + 50);
     [self addChild:itemSprite];
     [self.activeItems addObject:itemSprite];
-    NSLog(@"Ligne de nouvel élément: %d", itemLane);
+    // NSLog(@"Ligne de nouvel élément: %d", itemLane);
     
     if (weWantSpecialItem) {
         WHItem *specialItemSprite = [WHItem randomSpecialItem];
@@ -138,21 +153,23 @@ if ([self.activeItems count]>0){
         [self addChild:specialItemSprite];
         [self.activeItems addObject:specialItemSprite];
         
-        NSLog(@"Ligne d’élément spécial: %d", itemLane);
+        // NSLog(@"Ligne d’élément spécial: %d", itemLane);
         
+        itemSprite.specialPeer = specialItemSprite;
+        specialItemSprite.specialPeer = itemSprite;
         
         // Create the actions
         id actionMove2 = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(specialItemSprite.position.x, -50)];
-        id actionMoveDone2 = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
-        [specialItemSprite runAction:[CCSequence actions:actionMove2, actionMoveDone2, nil]];
+        // id actionMoveDone2 = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
+        [specialItemSprite runAction:[CCSequence actions:actionMove2, nil, nil]];
     }
     
 
     
     // Create the actions
     id actionMove = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(itemSprite.position.x, -50)];
-    id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
-    [itemSprite runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+    // id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
+    [itemSprite runAction:[CCSequence actions:actionMove, nil, nil]];
     
 }
 
@@ -168,17 +185,21 @@ if ([self.activeItems count]>0){
 {
     NSArray *items = [self.activeItems copy];
     BOOL hit = NO;
+    WHItem *hittedItem;
     for (WHItem *item in items) {
         // todo : comparer les coordonnées.
         float y = item.position.y;
         float x = item.position.x;
         if (y>HIT_Y-HIT_TOLERANCE && y <HIT_Y+HIT_TOLERANCE && x>bx-HIT_TOLERANCE && x<bx+HIT_TOLERANCE) {
             hit = YES;
+            hittedItem = item;
+            break;
         }
     }
 
     if(hit) {
         NSLog(@"Hit!: %d", n);
+        [self itemTapped:hittedItem];
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-yes.png"]];
 		NSLog(@"%@", self.boutons);
     } else {
@@ -250,6 +271,17 @@ if ([self.activeItems count]>0){
     self.dateInit = [NSDate new];
     self.recPartition = [WHPartition new];
     self.recPartition.array = [NSMutableArray new];
+}
+
+-(void)itemTapped:(WHItem *)item {
+    NSLog(@"HIT! Appliquer effet %d",[item effect]);
+    
+    [self.activeItems removeObject:item];
+    [self removeChild:item cleanup:YES];
+    if (item.specialPeer != nil) {
+        [self.activeItems removeObject:item.specialPeer];
+        [self removeChild:item.specialPeer cleanup:YES];
+    }
 }
 
 @end
