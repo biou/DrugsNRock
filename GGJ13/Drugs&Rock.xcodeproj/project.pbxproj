@@ -114,6 +114,15 @@
 		B5D8FDDB16B48B47005C0702 /* NSMutableDictionary+WeakReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDBB16B48B47005C0702 /* NSMutableDictionary+WeakReferences.m */; };
 		B5D8FDDC16B48B47005C0702 /* OALAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDBD16B48B47005C0702 /* OALAudioFile.m */; };
 		B5D8FDDD16B48B47005C0702 /* OALTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDC016B48B47005C0702 /* OALTools.m */; };
+		B5D8FE0216B50DF9005C0702 /* WHMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3242594A168DF21E0050EDD1 /* WHMenuLayer.mm */; };
+		B5D8FE0316B50E00005C0702 /* WHBasicLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3243308216B1E0F60052534D /* WHBasicLayer.mm */; };
+		B5D8FE0516B50E93005C0702 /* fondstart.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE0416B50E93005C0702 /* fondstart.png */; };
+		B5D8FE0716B50F02005C0702 /* credits-off.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE0616B50F02005C0702 /* credits-off.png */; };
+		B5D8FE0916B50F3A005C0702 /* credits-on.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE0816B50F3A005C0702 /* credits-on.png */; };
+		B5D8FE0B16B50F4A005C0702 /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE0A16B50F4A005C0702 /* credits.png */; };
+		B5D8FE0E16B50F77005C0702 /* play-off.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE0C16B50F77005C0702 /* play-off.png */; };
+		B5D8FE0F16B50F77005C0702 /* play-on.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE0D16B50F77005C0702 /* play-on.png */; };
+		B5D8FE1116B50FD8005C0702 /* pleasewait.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE1016B50FD8005C0702 /* pleasewait.png */; };
 		B5F0349D16B40AB7008BCBC0 /* track0.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F0349C16B40AB7008BCBC0 /* track0.plist */; };
 		B5F034BA16B41ADE008BCBC0 /* track1.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B616B41ADE008BCBC0 /* track1.plist */; };
 		B5F034BB16B41ADE008BCBC0 /* track2.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F034B716B41ADE008BCBC0 /* track2.plist */; };
@@ -475,6 +484,13 @@
 		B5D8FDC016B48B47005C0702 /* OALTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OALTools.m; sourceTree = "<group>"; };
 		B5D8FDC116B48B47005C0702 /* ObjectALMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectALMacros.h; sourceTree = "<group>"; };
 		B5D8FDC216B48B47005C0702 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		B5D8FE0416B50E93005C0702 /* fondstart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fondstart.png; path = Resources/fondstart.png; sourceTree = "<group>"; };
+		B5D8FE0616B50F02005C0702 /* credits-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-off.png"; path = "Resources/credits-off.png"; sourceTree = "<group>"; };
+		B5D8FE0816B50F3A005C0702 /* credits-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-on.png"; path = "Resources/credits-on.png"; sourceTree = "<group>"; };
+		B5D8FE0A16B50F4A005C0702 /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = credits.png; path = Resources/credits.png; sourceTree = "<group>"; };
+		B5D8FE0C16B50F77005C0702 /* play-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-off.png"; path = "Resources/play-off.png"; sourceTree = "<group>"; };
+		B5D8FE0D16B50F77005C0702 /* play-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-on.png"; path = "Resources/play-on.png"; sourceTree = "<group>"; };
+		B5D8FE1016B50FD8005C0702 /* pleasewait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pleasewait.png; path = Resources/pleasewait.png; sourceTree = "<group>"; };
 		B5F0349C16B40AB7008BCBC0 /* track0.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = track0.plist; path = Resources/track0.plist; sourceTree = "<group>"; };
 		B5F034B616B41ADE008BCBC0 /* track1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track1.plist; sourceTree = "<group>"; };
 		B5F034B716B41ADE008BCBC0 /* track2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = track2.plist; sourceTree = "<group>"; };
@@ -618,6 +634,13 @@
 				32A1C0F716B424F600B4DEF3 /* rival-jauge-1.png */,
 				32A1C0F816B424F600B4DEF3 /* rival-jauge-2.png */,
 				32A1C0F916B424F600B4DEF3 /* rival-jauge-3.png */,
+				B5D8FE0616B50F02005C0702 /* credits-off.png */,
+				B5D8FE0816B50F3A005C0702 /* credits-on.png */,
+				B5D8FE0A16B50F4A005C0702 /* credits.png */,
+				B5D8FE0C16B50F77005C0702 /* play-off.png */,
+				B5D8FE0D16B50F77005C0702 /* play-on.png */,
+				B5D8FE1016B50FD8005C0702 /* pleasewait.png */,
+				B5D8FE0416B50E93005C0702 /* fondstart.png */,
 				32A1C0FA16B424F600B4DEF3 /* team.png */,
 				B5F0349C16B40AB7008BCBC0 /* track0.plist */,
 				B5F034B616B41ADE008BCBC0 /* track1.plist */,
@@ -1240,6 +1263,13 @@
 				3294D82F16B4508200E8A2DC /* ElectroIntro-128bpm.aifc in Resources */,
 				3294D83116B453CE00E8A2DC /* HipHop-90bpm.aifc in Resources */,
 				B5D8FDCA16B48B47005C0702 /* LICENSE.ObjectAL.txt in Resources */,
+				B5D8FE0516B50E93005C0702 /* fondstart.png in Resources */,
+				B5D8FE0716B50F02005C0702 /* credits-off.png in Resources */,
+				B5D8FE0916B50F3A005C0702 /* credits-on.png in Resources */,
+				B5D8FE0B16B50F4A005C0702 /* credits.png in Resources */,
+				B5D8FE0E16B50F77005C0702 /* play-off.png in Resources */,
+				B5D8FE0F16B50F77005C0702 /* play-on.png in Resources */,
+				B5D8FE1116B50FD8005C0702 /* pleasewait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1250,6 +1280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D8FE0316B50E00005C0702 /* WHBasicLayer.mm in Sources */,
+				B5D8FE0216B50DF9005C0702 /* WHMenuLayer.mm in Sources */,
 				3243307F16B1DEA30052534D /* BBAudioManager.mm in Sources */,
 				3243307016B1DBFA0052534D /* WHIntroLayer.mm in Sources */,
 				3243309016B332CB0052534D /* WHGameLayer.mm in Sources */,

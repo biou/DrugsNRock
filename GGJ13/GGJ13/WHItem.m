@@ -14,7 +14,7 @@
 {
     if( (self=[super initWithTexture:texture rect:rect]))
     {
-        
+        self.type = ItemTypeNormal;
     }
     return self;
 }
@@ -65,7 +65,59 @@
         default:
             break;
     }
-    return [WHItem spriteWithSpriteFrameName:frameName];
+    
+    
+    WHItem *result = [WHItem spriteWithSpriteFrameName:frameName];
+    result.type = itemType;
+    return result;
+}
+
+-(int)effect {
+    float effect = 0;
+    
+    switch (self.type) {
+        case ItemTypeGHB:
+            effect = 0;
+            break;
+        case ItemTypeLSD:
+            effect = 0;
+            break;
+        case ItemTypeHero:
+            effect = -10;
+            break;
+        case ItemTypeCanna:
+            effect = -7;
+            break;
+        case ItemTypeTramadol:
+            effect = -5;
+            break;
+        case ItemTypeAlcool:
+            effect = -3;
+            break;
+        case ItemTypeOpium:
+            effect = -9;
+            break;
+        case ItemTypeCocaine:
+            effect = +8;
+            break;
+        case ItemTypeCafe:
+            effect = +3;
+            break;
+        case ItemTypeChampi:
+            effect = +4;
+            break;
+        case ItemTypeMeth:
+            effect = +10;
+            break;
+        case ItemTypeExta:
+            effect = +5;
+            break;
+            
+        default:
+            break;
+    }
+    
+    return effect;
 }
 
 @end
