@@ -11,6 +11,7 @@
 
 #import "WHGameScene.h"
 #import "WHBasicLayer.h"
+#import "WHItem.h"
 
 #define LEVEL_INITIAL 0
 
@@ -30,7 +31,7 @@ static int gameMode;
 +(WHGameScene *) scene:(int) m
 {
 
-	gameMode = m;	
+	gameMode = m;
 	// 'scene' is an autorelease object.
 	WHGameScene *scene = [WHGameScene node];
 	
@@ -101,7 +102,7 @@ static int gameMode;
 	[ziques addObject:zique4];
 	NSDictionary * zique5 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:165], @"bpm", @"", @"intro", @"DNB-165bpm.aifc", @"loop", [NSNumber numberWithFloat:58.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 	[ziques addObject:zique5];
-	NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:187], @"bpm", @"TechnoIntro-187bpm.aifc", @"intro", @"TechnoIntro-187bpm.aifc", @"loop", [NSNumber numberWithFloat:26.0], @"loopLen", [NSNumber numberWithFloat:10.0], @"introLen", nil];
+	NSDictionary * zique6 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:187], @"bpm", @"TechnoIntro-187bpm.aifc", @"intro", @"TechnoDev-187bpm.aifc", @"loop", [NSNumber numberWithFloat:26.0], @"loopLen", [NSNumber numberWithFloat:10.0], @"introLen", nil];
 	[ziques addObject:zique6];
 	
 	CCLayer *bgLayer = [CCLayer node];
@@ -184,9 +185,21 @@ static int gameMode;
 }
 
 -(void)mange:(int)m {
-	NSLog(@"mange: %d", m);
-	NSLog(@"FIXME Noliv");
-	
+    switch (m) {
+        case ItemTypeGHB:
+            [self displayMessage:2];
+            NSLog(@"TODO Score à zéro pour cause de GHB");
+            break;
+            
+        case ItemTypeLSD:
+            [self displayMessage:2];
+            break;
+            
+        default:
+            
+            [self setBPM: gameBPM + [WHItem effectForType:(ItemType)m]];
+            break;
+    }
 }
 
 -(void)showPauseLayer

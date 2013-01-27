@@ -38,6 +38,7 @@ typedef enum
 -(int)effect;
 
 +(WHItem *)randomSpecialItem;
++(int)effectForType:(ItemType)type;
 
 
 @end

@@ -73,9 +73,13 @@
 }
 
 -(int)effect {
+    return [WHItem effectForType:self.type];
+}
+
++(int)effectForType:(ItemType)type {
     float effect = 0;
     
-    switch (self.type) {
+    switch (type) {
         case ItemTypeGHB:
             effect = 0;
             break;
@@ -119,5 +123,7 @@
     
     return effect;
 }
+
+
 
 @end
