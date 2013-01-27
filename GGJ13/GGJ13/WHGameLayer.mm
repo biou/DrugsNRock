@@ -380,10 +380,14 @@
     NSLog(@"%@ miss",bigMiss?@"Gros":@"Petit");
     if (!_lastActionSuccess) {
         _jaugeEchecs ++;
+        _jaugeSucces = 0;
     } else {
         _jaugeEchecs = 0;
+        _jaugeSucces = 0;
         _lastActionSuccess = NO;
     }
+    
+    [self.gameScene updateJaugeWith:0];
     
     int penalty = bigMiss?2:1;
     if ([self.gameScene getGameBPM] < BPM_MEDIAN) {
