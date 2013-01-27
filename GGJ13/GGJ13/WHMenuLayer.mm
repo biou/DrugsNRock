@@ -93,11 +93,10 @@ CCMenu * myMenu;
 	// Arrange the menu items vertically
 	[myMenu alignItemsVertically];
 	[myMenu alignItemsVerticallyWithPadding:1];
-	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-		myMenu.position = ccp(winsize.width/2, 120);
-	} else {
-		myMenu.position = ccp(winsize.width/2, 280);
-	}
+
+	myMenu.position = ccp(winsize.width/2, 120);
+	//myMenu.position = ccp(winsize.width/2, winsize.height/2);
+
 
 	// add the menu to your scene
 	[self addChild:myMenu];
