@@ -34,5 +34,6 @@
 -(void)restoreBouton:(int)btn;
 -(void)restartLevel;
 -(void)initRecording;
+-(void)itemTapped:(WHItem *)item;
 
 @end

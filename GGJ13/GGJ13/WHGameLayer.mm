@@ -13,10 +13,14 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
+#import "WHGameScene.h"
+
 #define HIT_Y 50.0f
 #define HIT_TOLERANCE 30.0f
 #define PERFECT_TOLERANCE 8.0f
+#define SEUIL_TROP_TARD 15.0f
 #define MAX_DURATION 8.0f
+#define BPM_MEDIAN 125
 
 #define RECORDING_MODE YES
 
@@ -26,6 +30,10 @@
     float _elapsedTime;
     int _currentMusicBPM;
     BOOL flip;
+    BOOL _lastActionSuccess;
+    int _jaugeSucces;
+    int _jaugeEchecs;
+    BOOL _shouldSendDrugToOpponent;
 }
 
 
@@ -48,6 +56,8 @@
 		
         // init des variables
         self.activeItems = [NSMutableArray new];
+        _jaugeEchecs = 0;
+        _jaugeSucces= 0;
         
 		// initialisation de textures
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spritesheet.plist"];
@@ -105,12 +115,29 @@
     }
 
 
-if ([self.activeItems count]>0){
-    WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
-    if(item.position.y >HIT_Y-2 && item.position.y <HIT_Y+2) {
-        // NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
+    if ([self.activeItems count]>0){
+        WHItem *item = (WHItem *)[self.activeItems objectAtIndex:0];
+        if(item.position.y >HIT_Y-2 && item.position.y <HIT_Y+2) {
+            // NSLog(@"########## First point -- y:%f temps:%f",item.position.y,_elapsedTime);
+        }
+        
+        NSMutableArray *gc = [NSMutableArray new];
+        for (WHItem *i in self.activeItems) {
+            if(i.position.y<SEUIL_TROP_TARD) {
+                [gc addObject:i];
+                if (i.type == ItemTypeNormal) {
+                    [self itemMissed:NO];
+                }
+//                if (i.specialPeer != nil) {
+//                    [gc addObject:i.specialPeer];
+//                }
+            }
+        }
+        for (WHItem *i in gc) {
+            [self.activeItems removeObject:i];
+            [self removeChild:i cleanup:YES];
+        }
     }
-}
 }
 
 
@@ -128,7 +155,7 @@ if ([self.activeItems count]>0){
     itemSprite.position = ccp(40.0f+80*(itemLane), winsize.height + 50);
     [self addChild:itemSprite];
     [self.activeItems addObject:itemSprite];
-    NSLog(@"Ligne de nouvel élément: %d", itemLane);
+    // NSLog(@"Ligne de nouvel élément: %d", itemLane);
     
     if (weWantSpecialItem) {
         WHItem *specialItemSprite = [WHItem randomSpecialItem];
@@ -138,21 +165,36 @@ if ([self.activeItems count]>0){
         [self addChild:specialItemSprite];
         [self.activeItems addObject:specialItemSprite];
         
-        NSLog(@"Ligne d’élément spécial: %d", itemLane);
+        // NSLog(@"Ligne d’élément spécial: %d", itemLane);
         
+        itemSprite.specialPeer = specialItemSprite;
+        specialItemSprite.specialPeer = itemSprite;
         
         // Create the actions
         id actionMove2 = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(specialItemSprite.position.x, -50)];
-        id actionMoveDone2 = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
-        [specialItemSprite runAction:[CCSequence actions:actionMove2, actionMoveDone2, nil]];
+        // id actionMoveDone2 = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
+        [specialItemSprite runAction:[CCSequence actions:actionMove2, nil, nil]];
+        
+        // Create fade in action
+        id actionFadeIn = [CCFadeIn actionWithDuration:[self adjustedDuration]*0.44f];
+        [specialItemSprite runAction:actionFadeIn];
     }
     
 
     
     // Create the actions
     id actionMove = [CCMoveTo actionWithDuration:[self adjustedDuration] position:ccp(itemSprite.position.x, -50)];
-    id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
-    [itemSprite runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+    // id actionMoveDone = [CCCallFuncN actionWithTarget:self selector:@selector(itemMoveFinished:)];
+    [itemSprite runAction:[CCSequence actions:actionMove, nil, nil]];
+    
+    
+    // Create fade in action
+    id actionFade = [CCFadeIn actionWithDuration:[self adjustedDuration]*0.44f];
+    [itemSprite runAction:actionFade];
+    
+}
+
+-(void)itemFadeFinished:(id)target {
     
 }
 
@@ -168,22 +210,26 @@ if ([self.activeItems count]>0){
 {
     NSArray *items = [self.activeItems copy];
     BOOL hit = NO;
+    WHItem *hittedItem;
     for (WHItem *item in items) {
         // todo : comparer les coordonnées.
         float y = item.position.y;
         float x = item.position.x;
         if (y>HIT_Y-HIT_TOLERANCE && y <HIT_Y+HIT_TOLERANCE && x>bx-HIT_TOLERANCE && x<bx+HIT_TOLERANCE) {
             hit = YES;
+            hittedItem = item;
+            break;
         }
     }
 
     if(hit) {
-        NSLog(@"Hit!: %d", n);
+        // NSLog(@"Hit!: %d", n);
+        [self itemTapped:hittedItem];
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-yes.png"]];
-		NSLog(@"%@", self.boutons);
+		// NSLog(@"%@", self.boutons);
     } else {
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-no.png"]];
-        NSLog(@"Miss");
+        [self itemMissed:YES];
     }
 }
 
@@ -250,6 +296,59 @@ if ([self.activeItems count]>0){
     self.dateInit = [NSDate new];
     self.recPartition = [WHPartition new];
     self.recPartition.array = [NSMutableArray new];
+}
+
+-(void)itemTapped:(WHItem *)item {
+    NSLog(@"HIT! Appliquer effet %d",[item effect]);
+    
+    if (_lastActionSuccess) {
+        _jaugeSucces++;
+    } else {
+        _jaugeSucces = 0;
+        _lastActionSuccess = YES;
+    }
+    
+    int jaugeStatut=0;
+    if (_jaugeSucces > 0 && _jaugeSucces < 3) {
+        jaugeStatut = 1;
+    } else if (_jaugeSucces < 6) {
+        jaugeStatut = 2;
+    }else {
+        if (_shouldSendDrugToOpponent) {
+            [self.gameScene sendDrug:item.type];
+            jaugeStatut = 0;
+            _jaugeSucces = 0;
+            _shouldSendDrugToOpponent = NO;
+        } else {
+            jaugeStatut = 3;
+            _shouldSendDrugToOpponent = YES;
+        }
+    }
+    
+    [self.gameScene updateJaugeWith:jaugeStatut];
+    
+    [self.activeItems removeObject:item];
+    [self removeChild:item cleanup:YES];
+    if (item.specialPeer != nil) {
+        [self.activeItems removeObject:item.specialPeer];
+        [self removeChild:item.specialPeer cleanup:YES];
+    }
+}
+
+-(void)itemMissed:(BOOL)bigMiss {
+    NSLog(@"%@ miss",bigMiss?@"Gros":@"Petit");
+    if (!_lastActionSuccess) {
+        _jaugeEchecs ++;
+    } else {
+        _jaugeEchecs = 0;
+        _lastActionSuccess = NO;
+    }
+    
+    int penalty = bigMiss?2:1;
+    if ([self.gameScene getGameBPM] < BPM_MEDIAN) {
+        penalty = -penalty;
+    }
+    [self.gameScene incrementBPM:penalty];
 }
 
 @end
