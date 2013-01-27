@@ -12,7 +12,7 @@
 #import "WHGameScene.h"
 #import "WHBasicLayer.h"
 
-#define LEVEL_INITIAL 1
+#define LEVEL_INITIAL 0
 
 
 static int gameMode;
@@ -85,13 +85,11 @@ static int gameMode;
     return self;
 }
 
--(void)initGame {
-	[self setBPM: 80];
-	
+-(void)initGame {	
 	//[gameLayer setGameScene:self];
 	//[controlLayer setGameScene:self];
 	//[pauseLayer setControlLayer:controlLayer];
-	currentZique = 0;
+	currentZique = 1;
 	ziques = [NSMutableArray arrayWithCapacity:2];
 	NSDictionary * zique1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:70], @"bpm", @"", @"intro", @"ReggaeDev-70bpm.aifc", @"loop", [NSNumber numberWithFloat:82.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 	[ziques addObject:zique1];
@@ -121,7 +119,7 @@ static int gameMode;
 	bgpic2.position = ccp(s.width/2.0, s.height-48);
 	[headerLayer addChild:bgpic2];
 	[self addChild:headerLayer z:+10];
-	[self updateHeaderBPM];
+	[self setBPM: 80];
 
 	score = 0;
 	[self updateHeaderScore];
@@ -216,6 +214,7 @@ static int gameMode;
 	[audioManager stopBGM];
 	
 	NSDictionary * bob = [ziques objectAtIndex:zique];
+	NSLog(@"bob: %@", bob);
     
     [audioManager playBGMWithIntro:[bob objectForKey:@"intro"] andLoop:[bob objectForKey:@"loop"]];
     
@@ -263,6 +262,8 @@ static int gameMode;
 
 -(void) setBPM:(int)bpm {
 	gameBPM=bpm;
+	[self updateHeaderBPM];
+	[self updateMusicBPM];
 	if ((bpm > 220) || (bpm < 50)) {
 		[self sendSocketWithKey:@"bye" andValue:@"1"];
 		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
@@ -293,19 +294,22 @@ static int gameMode;
 }
 
 -(int) ziqueWithBPM:(int) bpm {
-	if (bpm< 80) {
-		return 0;
+	int val = 0;
+	if (bpm< 70) {
+		val = 0;
 	} else if (bpm < 105){
-		return 1;
+		val = 1;
 	} else if (bpm < 135) {
-		return 2;
+		val = 2;
 	} else if (bpm < 158) {
-		return 3;
+		val = 3;
 	} else if (bpm < 176) {
-		return 4;
+		val = 4;
 	} else {
-        return 5;
+        val = 5;
     }
+	NSLog(@"ziqueWithBPM: %d %d", bpm, val);
+	return val;
 }
 
 -(void) updateMusicBPM {
