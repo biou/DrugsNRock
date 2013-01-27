@@ -90,7 +90,7 @@ static int gameMode;
 	//[gameLayer setGameScene:self];
 	//[controlLayer setGameScene:self];
 	//[pauseLayer setControlLayer:controlLayer];
-	currentZique = 1;
+	currentZique = LEVEL_INITIAL;
 	ziques = [NSMutableArray arrayWithCapacity:2];
 	NSDictionary * zique1 = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:70], @"bpm", @"", @"intro", @"ReggaeDev-70bpm.aifc", @"loop", [NSNumber numberWithFloat:82.0], @"loopLen", [NSNumber numberWithFloat:0.0], @"introLen", nil];
 	[ziques addObject:zique1];
