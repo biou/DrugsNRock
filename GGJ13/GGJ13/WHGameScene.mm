@@ -192,6 +192,9 @@ static int gameMode;
 			NSLog(@"end");
 		} else if ([json objectForKey:@"mange"] != Nil) {
 			[self mange:[[json objectForKey:@"mange"] intValue]];
+		} else if ([json objectForKey:@"jauge"] != Nil) {
+			[self updateRivalJauge:[[json objectForKey:@"jauge"] intValue]];
+			
 		}
 }
 
@@ -394,6 +397,7 @@ static int gameMode;
 	if (statut>=0 && statut <4) {
 		[jauge setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jauge-%d.png",statut]]];
 	}
+	[self sendSocketWithKey:@"jauge" andValue:[NSString stringWithFormat:@"%d",statut]];
 }
 
 -(void) updateRivalJauge:(int)i {
