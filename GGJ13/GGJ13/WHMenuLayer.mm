@@ -135,6 +135,7 @@ CCMenu * myMenu;
 	[self unscheduleUpdate];
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
 	// play a sound
+	[audioManager playSFX:@"Click.caf"];
 	[audioManager stopBGM];
 	
 }

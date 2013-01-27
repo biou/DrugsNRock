@@ -15,6 +15,7 @@
 
 #import "WHGameScene.h"
 
+
 #define HIT_Y 50.0f
 #define HIT_TOLERANCE 30.0f
 #define PERFECT_TOLERANCE 8.0f
@@ -24,9 +25,12 @@
 
 #define RECORDING_MODE YES
 
+
 // HelloWorldLayer implementation
 @implementation WHGameLayer
 {
+	
+
     float _elapsedTime;
     int _currentMusicBPM;
     BOOL flip;
@@ -36,12 +40,13 @@
     BOOL _shouldSendDrugToOpponent;
 }
 
+@synthesize gcdQueue;
 
 // on "init" you need to initialize your instance
 -(id) init
 {
 	if( (self=[super init]) ) {
-		
+		gcdQueue = dispatch_queue_create("com.foo.samplequeue", NULL);
 //		// create and initialize a Label
 //		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
 //
@@ -122,21 +127,25 @@
         }
         
         NSMutableArray *gc = [NSMutableArray new];
-        for (WHItem *i in self.activeItems) {
-            if(i.position.y<SEUIL_TROP_TARD) {
-                [gc addObject:i];
-                if (i.type == ItemTypeNormal) {
-                    [self itemMissed:NO];
-                }
+		dispatch_sync(gcdQueue, ^{
+			for (WHItem *i in self.activeItems) {
+				if(i.position.y<SEUIL_TROP_TARD) {
+					[gc addObject:i];
+					if (i.type == ItemTypeNormal) {
+						[self itemMissed:NO];
+					}
 //                if (i.specialPeer != nil) {
 //                    [gc addObject:i.specialPeer];
 //                }
-            }
-        }
-        for (WHItem *i in gc) {
-            [self.activeItems removeObject:i];
-            [self removeChild:i cleanup:YES];
-        }
+				}
+			}
+		});
+		dispatch_sync(gcdQueue, ^{
+         for (WHItem *i in gc) {
+             [self.activeItems removeObject:i];
+             [self removeChild:i cleanup:YES];
+         }
+		});
     }
 }
 
@@ -154,7 +163,9 @@
     CGSize winsize = [[CCDirector sharedDirector] winSize];
     itemSprite.position = ccp(40.0f+80*(itemLane), winsize.height + 50);
     [self addChild:itemSprite];
-    [self.activeItems addObject:itemSprite];
+	dispatch_sync(gcdQueue, ^{
+		[self.activeItems addObject:itemSprite];
+	});
     // NSLog(@"Ligne de nouvel élément: %d", itemLane);
     
     if (weWantSpecialItem) {
@@ -277,11 +288,14 @@
 -(void)startPartitionWithBPM:(int)bpm
 {
     // chargement de partition
+	dispatch_sync(gcdQueue, ^{
     for (WHItem *item in self.activeItems) {
         [self removeChild:item cleanup:YES];
     }
+
     [self.activeItems removeAllObjects];
-    
+    });
+	
     self.partition = [WHPartition new];
     [self.partition loadTrackWithBPM:bpm];
     // NSLog(@"#### partition chargée : %@",self.partition.array);
