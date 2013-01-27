@@ -38,12 +38,18 @@ static int mode;
 		switch (mode) {
 			case whGameover:
 				image = @"gameover.png";
-				son = @"Game_Over.caf";
-				break;
-			case whCredits:
-				image = @"creditsImg.png";
 				son = @"";
 				break;
+			case whCredits:
+				image = @"credits.png";
+				son = @"";
+				break;
+			case whWin:
+				image = @"win.png";
+				son = @"";
+				break;
+				
+			/*
 			case whNewLevel:
 				image = @"levelup.png";
 				son = @"Checkpoint.caf";
@@ -52,32 +58,26 @@ static int mode;
 				image = @"faq.png";
 				son = @"";
 				break;
+			 */
 			default:
 				break;
 		}
 		
 		CGSize winsize = [[CCDirector sharedDirector] winSize];
-		CCSprite *bgpic = Nil;
-		if (mode == whHelp && fabs(568.0 - winsize.width) <1 ) {
-			bgpic = [CCSprite spriteWithFile:@"faq-i5.png"];
-		} else if (mode == whCredits && fabs(568.0 - winsize.width) <1 ) {
-			bgpic = [CCSprite spriteWithFile:@"creditsImg-i5.png"];
-		} else {
-			bgpic = [CCSprite spriteWithFile:image];
-		}
-		
+		CCSprite * bgpic = [CCSprite spriteWithFile:image];;
+
 		
         bgpic.position = ccp(winsize.width/2 , winsize.height/2 );
 		[self addChild:bgpic];
 		
-		
+		/*
 		if (mode == whGameover) {
-			WHScore * s = [WHScore sharedInstance];
-			int t = [s getScore];
-			s.vomis = [NSMutableArray array];
-			[[GCHelper sharedInstance] reportScore:t forCategory:@"WHScore1"];
+			//WHScore * s = [WHScore sharedInstance];
+			//int t = [s getScore];
+			//s.vomis = [NSMutableArray array];
+			//[[GCHelper sharedInstance] reportScore:t forCategory:@"WHScore1"];
 		}
-		
+
 		if (mode != whCredits && mode != whHelp)
 		{
 			WHScore * s = [WHScore sharedInstance];
@@ -126,13 +126,10 @@ static int mode;
 			[label setPosition: labelPos];
 			[self addChild: label];
 		}
+		*/
 		
 		
-		
-		
-		
-		
-        WHAudioManager *audioManager = [WHAudioManager sharedAM];
+        BBAudioManager *audioManager = [BBAudioManager sharedAM];
         [audioManager stopBGM];
 		[audioManager playSFX:son];
 		self.isTouchEnabled = YES;
@@ -168,18 +165,23 @@ static int mode;
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	switch (mode) {
-		case WHGameover:
-			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHMenuBaseLayer scene]]];
+		case whGameover:
+			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHMenuLayer scene]]];
 			break;
-		case WHCredits:
-			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHMenuBaseLayer scene]]];
+		case whCredits:
+			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHMenuLayer scene]]];
 			break;
-		case WHHelp:
+		case whWin:
+			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHMenuLayer scene]]];
+			break;
+		/*
+		case whHelp:
             [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHGameScene node]]];
 			break;
-		case WHNewLevel:
+		case whNewLevel:
 			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHGameScene node]]];
 			break;
+		*/
 		default:
 			break;
 	}

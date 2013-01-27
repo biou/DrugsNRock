@@ -24,9 +24,12 @@
 	int currentZique;
 	int musicBPM;
 	int gameBPM;
+	int rivalBPM;
+	int score;
 }
 
 @property (strong) WHGameLayer * gameLayer;
+@property (strong) WHGameLayer * headerLayer;
 @property (strong) WHPauseLayer * pauseLayer;
 @property (strong) GCDAsyncSocket * socket;
 @property (strong) NSMutableArray * ziques;

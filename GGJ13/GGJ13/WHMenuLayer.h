@@ -12,15 +12,16 @@
 #import "BBAudioManager.h"
 #import "BBGCHelper.h"
 #import "WHGameScene.h"
+#import "WHBasicLayer.h"
 
 
-@interface WHMenuLayer : CCLayer <GCEnabled> {
+@interface WHMenuLayer : CCLayer {
     
 }
 
 +(CCScene *) scene;
 -(void)startMenuAction;
 -(void)setupMenu;
--(void)handleAuthChange:(BOOL) n;
+//-(void)handleAuthChange:(BOOL) n;
 
 @end

@@ -18,8 +18,9 @@
 
 #define whGameover 0
 #define whCredits 1
+#define whWin 2
 #define whNewLevel 2
-#define whHelp 3
+//#define whHelp 3
 
 @interface WHBasicLayer : CCLayer {
 
