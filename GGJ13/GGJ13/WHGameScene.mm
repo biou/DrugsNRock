@@ -13,7 +13,7 @@
 #import "WHBasicLayer.h"
 #import "WHItem.h"
 
-#define LEVEL_INITIAL 0
+#define LEVEL_INITIAL 1
 
 
 static int gameMode;
@@ -327,6 +327,7 @@ static int gameMode;
 
 -(void) updateMusicBPM {
 	int newZique = [self ziqueWithBPM:gameBPM];
+
 	if (newZique != currentZique) {
 			NSLog(@"changeZique %d", newZique);
 		if (newZique > currentZique) {
@@ -334,10 +335,15 @@ static int gameMode;
 		} else {
 			[self displayMessage:0];
 		}
-		[self ziqueUpdate:newZique];
-		[self.gameLayer newLevel:newZique];
+		currentZique = newZique;
+		[self scheduleOnce:@selector(executeNewZique) delay:0.1];
 	}
 	
+}
+
+-(void) executeNewZique {
+	[self ziqueUpdate:currentZique];
+	[self.gameLayer newLevel:currentZique];
 }
 
 -(void) restartLevel {
