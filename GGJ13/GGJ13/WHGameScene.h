@@ -35,6 +35,8 @@
 @property (strong) WHPauseLayer * pauseLayer;
 @property (strong) GCDAsyncSocket * socket;
 @property (strong) NSMutableArray * ziques;
+@property (strong) CCSprite * jauge;
+@property (strong) CCSprite * jaugeRival;
 
 
 -(void) incrementBPM:(int)bpm;

@@ -46,7 +46,7 @@ static int mode;
 				break;
 			case whWin:
 				image = @"win.png";
-				son = @"";
+				son = @"Win.caf";
 				break;
 				
 			/*

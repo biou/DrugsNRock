@@ -26,6 +26,8 @@ static int gameMode;
 @synthesize socket;
 @synthesize ziques;
 @synthesize headerLayer;
+@synthesize jauge;
+@synthesize jaugeRival;
 
 
 +(WHGameScene *) scene:(int) m
@@ -120,6 +122,15 @@ static int gameMode;
 	bgpic2.position = ccp(s.width/2.0, s.height-48);
 	[headerLayer addChild:bgpic2];
 	[self addChild:headerLayer z:+10];
+	
+	jauge = [CCSprite spriteWithSpriteFrameName:@"jauge-0.png"];
+	jauge.position = ccp(50, s.height-60);
+	[headerLayer addChild: jauge z:11 tag:14];
+	jaugeRival = [CCSprite spriteWithSpriteFrameName:@"rival-jauge-0.png"];
+	jaugeRival.position = ccp(s.width-50, s.height-60);
+	[headerLayer addChild: jaugeRival z:11 tag:15];
+	
+	
 	[self setBPM: 80];
 
 	score = 0;
@@ -262,11 +273,6 @@ static int gameMode;
     return gameBPM;
 }
 
--(void) updateJaugeWith:(int)statut {
-    NSLog(@"Update jauge with statut %d (0,1,2,3)", statut);
-    NSLog(@"--> Fix me baby one more time!");
-}
-
 -(void) sendDrug:(int)itemType {
     NSLog(@"Envoi de drogue à l’autre connard: type %d",itemType);
 	[self sendSocketWithKey:@"faitmanger" andValue:[NSString stringWithFormat:@"%d",itemType]];
@@ -384,14 +390,16 @@ static int gameMode;
 		[headerLayer addChild: label z:1 tag:12];
 }
 
--(void) updateJauge {
-	[headerLayer removeChildByTag:12 cleanup:true];
-	CGSize winsize = [CCDirector sharedDirector].winSize;
-	int fontSize = 16;
-	CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", score] fontName:@"DBLCDTempBlack" fontSize:fontSize];
-	[label setColor:ccc3(181, 216, 19)];
-	[label setPosition: ccp(60, winsize.height-34)];
-	[headerLayer addChild: label z:1 tag:12];
+-(void) updateJaugeWith:(int)statut {
+	if (statut>=0 && statut <4) {
+		[jauge setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jauge-%d.png",statut]]];
+	}
+}
+
+-(void) updateRivalJauge:(int)i {
+	if (i>=0 && i <4) {
+		[jaugeRival setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jauge-%d.png",i]]];
+	}
 }
 
 
