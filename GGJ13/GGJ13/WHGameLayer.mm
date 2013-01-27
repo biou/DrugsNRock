@@ -13,11 +13,14 @@
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
 
+#import "WHGameScene.h"
+
 #define HIT_Y 50.0f
 #define HIT_TOLERANCE 30.0f
 #define PERFECT_TOLERANCE 8.0f
 #define SEUIL_TROP_TARD 15.0f
 #define MAX_DURATION 8.0f
+#define BPM_MEDIAN 125
 
 #define RECORDING_MODE YES
 
@@ -30,6 +33,7 @@
     BOOL _lastActionSuccess;
     int _jaugeSucces;
     int _jaugeEchecs;
+    BOOL _shouldSendDrugToOpponent;
 }
 
 
@@ -291,6 +295,24 @@
         _lastActionSuccess = YES;
     }
     
+    int jaugeStatut=0;
+    if (_jaugeSucces > 0 && _jaugeSucces < 3) {
+        jaugeStatut = 1;
+    } else if (_jaugeSucces < 6) {
+        jaugeStatut = 2;
+    }else {
+        if (_shouldSendDrugToOpponent) {
+            [self.gameScene sendDrug:item.type];
+            jaugeStatut = 0;
+            _jaugeSucces = 0;
+            _shouldSendDrugToOpponent = NO;
+        } else {
+            jaugeStatut = 3;
+            _shouldSendDrugToOpponent = YES;
+        }
+    }
+    
+    [self.gameScene updateJaugeWith:jaugeStatut];
     
     [self.activeItems removeObject:item];
     [self removeChild:item cleanup:YES];
@@ -308,6 +330,12 @@
         _jaugeEchecs = 0;
         _lastActionSuccess = NO;
     }
+    
+    int penalty = bigMiss?2:1;
+    if ([self.gameScene getGameBPM] < BPM_MEDIAN) {
+        penalty = -penalty;
+    }
+    [self.gameScene incrementBPM:penalty];
 }
 
 @end

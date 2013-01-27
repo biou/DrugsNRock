@@ -243,6 +243,20 @@ static int gameMode;
 	[self setBPM:gameBPM+bpm];
 }
 
+-(int) getGameBPM {
+    return gameBPM;
+}
+
+-(void) updateJaugeWith:(int)statut {
+    NSLog(@"Update jauge with statut %d (0,1,2,3)", statut);
+    NSLog(@"--> Fix me baby one more time!");
+}
+
+-(void) sendDrug:(int)itemType {
+    NSLog(@"Envoi de drogue à l’autre connard: type %d",itemType);
+    NSLog(@"--> Fix me baby one more time!");
+}
+
 
 -(void) setBPM:(int)bpm {
 	gameBPM=bpm;

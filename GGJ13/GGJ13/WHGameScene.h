@@ -40,6 +40,9 @@
 -(void)showPauseLayer;
 -(void)hidePauseLayer;
 -(void) restartLevel;
+-(int) getGameBPM;
+-(void) updateJaugeWith:(int)statut;
+-(void) sendDrug:(int)itemType;
 
 +(WHGameScene *) scene:(int)m;
 
