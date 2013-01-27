@@ -13,7 +13,7 @@
 #import "WHBasicLayer.h"
 #import "WHItem.h"
 
-#define LEVEL_INITIAL 0
+#define LEVEL_INITIAL 1
 
 
 static int gameMode;
