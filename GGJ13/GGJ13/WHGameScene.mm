@@ -14,6 +14,9 @@
 
 #define LEVEL_INITIAL 1
 
+
+static int gameMode;
+
 @implementation WHGameScene
 
 //@synthesize controlLayer;
@@ -22,6 +25,18 @@
 @synthesize socket;
 @synthesize ziques;
 @synthesize headerLayer;
+
+
++(WHGameScene *) scene:(int) m
+{
+
+	gameMode = m;	
+	// 'scene' is an autorelease object.
+	WHGameScene *scene = [WHGameScene node];
+	
+	// return the scene
+	return scene;
+}
 
 - (id)init {
     self = [super init];
@@ -51,6 +66,14 @@
 		[socket writeData:jsonData withTimeout:-1 tag:1];
 		NSData *term = [@"\n" dataUsingEncoding:NSUTF8StringEncoding];
         [socket readDataToData:term withTimeout:-1 tag:1];
+		if (gameMode == MODE_SOLO) {
+			NSLog(@"mode solo");
+			NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:@"1", @"ready", nil];
+			NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+			[socket writeData:jsonData withTimeout:-1 tag:1];
+		} else {
+			NSLog(@"mode multi");
+		}
 		
 		CGSize s = [CCDirector sharedDirector].winSize;		
 		
@@ -112,7 +135,7 @@
 	[self ziqueUpdate:LEVEL_INITIAL];
 	[self.gameLayer newLevel:currentZique];
 	//[gameLayer setAudioManager:audioManager];
-	[self schedule:@selector(simulateBPM:) interval:10];
+	//[self schedule:@selector(simulateBPM:) interval:10];
 	
 	// add layer as a child to scene
 	//[self addChild: pauseLayer z:-15 tag:3];
@@ -184,8 +207,6 @@
 }
 
 
-
-
 -(void) ziqueUpdate:(int) zique {
     currentZique = zique;
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
@@ -218,13 +239,25 @@
      */
 }
 
+-(void) incrementBPM:(int)bpm {
+	[self setBPM:gameBPM+bpm];
+}
+
 
 -(void) setBPM:(int)bpm {
 	gameBPM=bpm;
-	NSError* error;
-	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",bpm], @"mybpm", nil];
-	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
-	[socket writeData:jsonData withTimeout:-1 tag:1];
+	if ((bpm > 220) || (bpm < 50)) {
+		NSError* error;
+		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:@"1", @"bye", nil];
+		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+		[socket writeData:jsonData withTimeout:-1 tag:1];
+		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
+	} else {
+		NSError* error;
+		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",bpm], @"mybpm", nil];
+		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+		[socket writeData:jsonData withTimeout:-1 tag:1];
+	}
 }
 
 -(void) simulateBPM:(ccTime) dt {

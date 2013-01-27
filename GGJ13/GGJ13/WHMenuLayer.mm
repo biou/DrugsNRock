@@ -7,6 +7,7 @@
 //
 
 #import "WHMenuLayer.h"
+#import "WHGameScene.h"
 
 
 //JNPAudioManager * audioManager;
@@ -64,21 +65,20 @@ CCMenu * myMenu;
 
 	CGSize winsize = [[CCDirector sharedDirector] winSize];
 
-	CCMenuItemImage *menuItem1 = [CCMenuItemImage itemWithNormalImage:@"play-off.png"
-														selectedImage: @"play-on.png"
+	CCMenuItemImage *menuItem1 = [CCMenuItemImage itemWithNormalImage:@"solo-off.png"
+														selectedImage: @"solo-on.png"
 															   target:self
 															 selector:@selector(menu1)];
+	CCMenuItemImage *menuItem4 = [CCMenuItemImage itemWithNormalImage:@"battle-off.png"
+														selectedImage: @"battle-on.png"
+															   target:self
+															 selector:@selector(menu4)];
 	CCMenuItemImage *menuItem2 = [CCMenuItemImage itemWithNormalImage:@"credits-off.png"
 														selectedImage: @"credits-on.png"
 															   target:self
 															 selector:@selector(menu2)];
-	/*
-	CCMenuItemImage *menuItem4 = [CCMenuItemImage itemWithNormalImage:@"scores.png"
-														selectedImage: @"scores-over.png"
-															   target:self
-															 selector:@selector(menu4)];
+
 	
-	*/
 	myMenu = [CCMenu menuWithItems:menuItem1, nil];
 	/*
 	BOOL userAuth = [[GCHelper sharedInstance] isUserAuthenticated];
@@ -87,12 +87,14 @@ CCMenu * myMenu;
 		[myMenu addChild:menuItem4];
 	}
 	*/
+	[myMenu addChild:menuItem4];
 	[myMenu addChild:menuItem2];
 	
 	// Arrange the menu items vertically
 	[myMenu alignItemsVertically];
+	[myMenu alignItemsVerticallyWithPadding:1];
 	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-		myMenu.position = ccp(winsize.width/2, 100);
+		myMenu.position = ccp(winsize.width/2, 120);
 	} else {
 		myMenu.position = ccp(winsize.width/2, 280);
 	}
@@ -103,7 +105,7 @@ CCMenu * myMenu;
 
 -(void)menu1 {
 	[self startMenuAction];
-	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHGameScene node]]];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHGameScene scene:MODE_SOLO]]];
     
 }
 
@@ -121,6 +123,7 @@ CCMenu * myMenu;
 
 -(void)menu4 {
 	[self startMenuAction];
+	[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHGameScene scene:MODE_MULTI]]];
 	//[[GCHelper sharedInstance] displayLeaderboard];
 }
 

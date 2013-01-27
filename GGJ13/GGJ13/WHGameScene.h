@@ -18,7 +18,8 @@
 #import "OALAudioTrack.h"
 
 
-
+#define MODE_SOLO 0
+#define MODE_MULTI 1
 
 @interface WHGameScene : CCScene {	
 	int currentZique;
@@ -35,10 +36,12 @@
 @property (strong) NSMutableArray * ziques;
 
 
-
+-(void) incrementBPM:(int)bpm;
 -(void)showPauseLayer;
 -(void)hidePauseLayer;
 -(void) restartLevel;
+
++(WHGameScene *) scene:(int)m;
 
 
 @end
