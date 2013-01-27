@@ -60,17 +60,12 @@ static int gameMode;
 		}
 		
 		#ifdef whNetworking
-		NSError* error;
-		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:@"biou", @"wiener", nil];
-		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
-		[socket writeData:jsonData withTimeout:-1 tag:1];
+		[self sendSocketWithKey:@"wiener" andValue:@"biou"];
 		NSData *term = [@"\n" dataUsingEncoding:NSUTF8StringEncoding];
         [socket readDataToData:term withTimeout:-1 tag:1];
 		if (gameMode == MODE_SOLO) {
 			NSLog(@"mode solo");
-			NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:@"1", @"ready", nil];
-			NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
-			[socket writeData:jsonData withTimeout:-1 tag:1];
+			[self sendSocketWithKey:@"ready" andValue:@"1"];
 		} else {
 			NSLog(@"mode multi");
 		}
@@ -262,27 +257,32 @@ static int gameMode;
 
 -(void) sendDrug:(int)itemType {
     NSLog(@"Envoi de drogue à l’autre connard: type %d",itemType);
-	NSError* error;
-	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",itemType], @"faitmanger", nil];
-	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
-	[socket writeData:jsonData withTimeout:-1 tag:1];
+	[self sendSocketWithKey:@"faitmanger" andValue:[NSString stringWithFormat:@"%d",itemType]];
 }
 
 
 -(void) setBPM:(int)bpm {
 	gameBPM=bpm;
 	if ((bpm > 220) || (bpm < 50)) {
-		NSError* error;
-		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:@"1", @"bye", nil];
-		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
-		[socket writeData:jsonData withTimeout:-1 tag:1];
+		[self sendSocketWithKey:@"bye" andValue:@"1"];
 		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
 	} else {
-		NSError* error;
-		NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%d",bpm], @"mybpm", nil];
-		NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
-		[socket writeData:jsonData withTimeout:-1 tag:1];
+		[self sendSocketWithKey:@"mybpm" andValue:[NSString stringWithFormat:@"%d",bpm]];
 	}
+}
+
+-(void) sendSocketWithKey:(NSString *)key andValue:(NSString *)val {
+	NSError* error;
+	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:val, key, nil];
+	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:Nil error:&error];
+	NSString* str = @"\n\n";
+	NSData* fin=[str dataUsingEncoding: [NSString defaultCStringEncoding] ];
+
+	NSMutableData *msgData = [NSMutableData data];
+	[msgData appendData:jsonData];
+	[msgData appendData:fin];
+	
+	[socket writeData:msgData withTimeout:-1 tag:1];
 }
 
 -(void) simulateBPM:(ccTime) dt {
