@@ -101,6 +101,9 @@ CCMenu * myMenu;
 
 	// add the menu to your scene
 	[self addChild:myMenu];
+    BBAudioManager *am = [BBAudioManager sharedAM];
+	// play a sound here
+	[ am playBGMWithIntro:@"MenuIntro.aifc" andLoop:@"MenuDev.aifc"];
 }
 
 -(void)menu1 {
@@ -132,6 +135,8 @@ CCMenu * myMenu;
 	[self unscheduleUpdate];
 	BBAudioManager *audioManager = [BBAudioManager sharedAM];
 	// play a sound
+	[audioManager stopBGM];
+	
 }
 
 /*

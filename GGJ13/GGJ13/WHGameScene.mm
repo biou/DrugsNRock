@@ -135,7 +135,7 @@ static int gameMode;
 	[self ziqueUpdate:LEVEL_INITIAL];
 	[self.gameLayer newLevel:currentZique];
 	//[gameLayer setAudioManager:audioManager];
-	//[self schedule:@selector(simulateBPM:) interval:10];
+	[self schedule:@selector(simulateBPM:) interval:10];
 	
 	// add layer as a child to scene
 	//[self addChild: pauseLayer z:-15 tag:3];
@@ -287,6 +287,11 @@ static int gameMode;
 	int newZique = [self ziqueWithBPM:gameBPM];
 	if (newZique != currentZique) {
 			NSLog(@"changeZique %d", newZique);
+		if (newZique > currentZique) {
+			[self displayMessage:1];
+		} else {
+			[self displayMessage:0];
+		}
 		[self ziqueUpdate:newZique];
 		[self.gameLayer newLevel:newZique];
 	}
@@ -329,6 +334,44 @@ static int gameMode;
 		[label setColor:ccc3(181, 216, 19)];
 		[label setPosition: ccp(60, winsize.height-34)];
 		[headerLayer addChild: label z:1 tag:12];
+}
+
+-(void) displayMessage:(int)m {
+		[headerLayer removeChildByTag:13 cleanup:true];
+		CGSize winsize = [CCDirector sharedDirector].winSize;
+	NSString * image;
+	NSString * son;
+	switch (m) {
+		case 0:
+			image = @"slowdown.png";
+			son = @"";
+		break;
+		case 1:
+			image = @"speedup.png";
+			son = @"";
+		break;
+		case 2:
+			image = @"lsd.png";
+			son = @"";
+		break;
+		case 3:
+			image = @"ghb.png";
+			son = @"";
+		break;
+		default:
+		break;
+	}
+	CCSprite * bgpic = [CCSprite spriteWithFile:image];
+	
+	bgpic.position = ccp(winsize.width/2 , winsize.height/2 );
+	[headerLayer addChild:bgpic z:1 tag:13];
+	BBAudioManager *audioManager = [BBAudioManager sharedAM];
+	[audioManager playSFX:son];
+	[self scheduleOnce:@selector(removeMessage:) delay:2.0];
+}
+
+- (void) removeMessage:(ccTime) dt {
+	[headerLayer removeChildByTag:13 cleanup:true];
 }
 
 

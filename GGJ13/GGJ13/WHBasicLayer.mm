@@ -64,7 +64,7 @@ static int mode;
 		}
 		
 		CGSize winsize = [[CCDirector sharedDirector] winSize];
-		CCSprite * bgpic = [CCSprite spriteWithFile:image];;
+		CCSprite * bgpic = [CCSprite spriteWithFile:image];
 
 		
         bgpic.position = ccp(winsize.width/2 , winsize.height/2 );

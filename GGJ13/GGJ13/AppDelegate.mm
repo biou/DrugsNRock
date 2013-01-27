@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "WHMenuLayer.h"
+#import "WHIntroLayer.h"
 
 @implementation AppController
 
@@ -75,8 +75,8 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-	//[director_ pushScene: [WHIntroLayer scene]];
-	[director_ pushScene: [WHMenuLayer scene]];
+	[director_ pushScene: [WHIntroLayer scene]];
+	//[director_ pushScene: [WHMenuLayer scene]];
 
 	
 	// Create a Navigation Controller with the Director

@@ -9,6 +9,7 @@
 
 // Import the interfaces
 #import "WHIntroLayer.h"
+#import "WHMenuLayer.h"
 
 
 
@@ -50,7 +51,7 @@
 	[super onEnter];
 
 	// logo qui va s'animer
-	CCSprite *logo = [CCSprite spriteWithFile:@"Default.png"];
+	CCSprite *logo = [CCSprite spriteWithFile:@"winnersdontusedrugs.png"];
 	CGSize winsize = [[CCDirector sharedDirector] winSize];
 	
 	// fond d'écran
@@ -63,17 +64,17 @@
 	// Aussi, on unload le son dans la méthode dealloc (j'imagine
 	// à noter également qu'il faut éviter les sons en wav et qu'il est facile de convertir en .caf… j'amènerai un script pour faire cette
 	// conversion tt seule
-	[self scheduleOnce:@selector(introSound:) delay:0.65];
+
+	//[self scheduleOnce:@selector(introSound:) delay:0.65];
 	[self scheduleOnce:@selector(toNextScene:) delay:3.8];
 }
 
 - (void) toNextScene:(ccTime) dt {
-    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.75f scene:[WHGameScene node]]];
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.75f scene:[WHMenuLayer scene]]];
 }
 
 - (void) introSound:(ccTime) dt {
-    BBAudioManager *am = [BBAudioManager sharedAM];
-	// play a sound here
+
 }
 
 
