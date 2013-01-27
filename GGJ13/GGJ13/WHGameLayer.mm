@@ -27,6 +27,9 @@
     float _elapsedTime;
     int _currentMusicBPM;
     BOOL flip;
+    BOOL _lastActionSuccess;
+    int _jaugeSucces;
+    int _jaugeEchecs;
 }
 
 
@@ -49,6 +52,8 @@
 		
         // init des variables
         self.activeItems = [NSMutableArray new];
+        _jaugeEchecs = 0;
+        _jaugeSucces= 0;
         
 		// initialisation de textures
 		[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"spritesheet.plist"];
@@ -116,9 +121,12 @@
         for (WHItem *i in self.activeItems) {
             if(i.position.y<SEUIL_TROP_TARD) {
                 [gc addObject:i];
-                if (i.specialPeer != nil) {
-                    [gc addObject:i.specialPeer];
+                if (i.type == ItemTypeNormal) {
+                    [self itemMissed:NO];
                 }
+//                if (i.specialPeer != nil) {
+//                    [gc addObject:i.specialPeer];
+//                }
             }
         }
         for (WHItem *i in gc) {
@@ -198,13 +206,13 @@
     }
 
     if(hit) {
-        NSLog(@"Hit!: %d", n);
+        // NSLog(@"Hit!: %d", n);
         [self itemTapped:hittedItem];
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-yes.png"]];
-		NSLog(@"%@", self.boutons);
+		// NSLog(@"%@", self.boutons);
     } else {
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-no.png"]];
-        NSLog(@"Miss");
+        [self itemMissed:YES];
     }
 }
 
@@ -276,11 +284,29 @@
 -(void)itemTapped:(WHItem *)item {
     NSLog(@"HIT! Appliquer effet %d",[item effect]);
     
+    if (_lastActionSuccess) {
+        _jaugeSucces++;
+    } else {
+        _jaugeSucces = 0;
+        _lastActionSuccess = YES;
+    }
+    
+    
     [self.activeItems removeObject:item];
     [self removeChild:item cleanup:YES];
     if (item.specialPeer != nil) {
         [self.activeItems removeObject:item.specialPeer];
         [self removeChild:item.specialPeer cleanup:YES];
+    }
+}
+
+-(void)itemMissed:(BOOL)bigMiss {
+    NSLog(@"%@ miss",bigMiss?@"Gros":@"Petit");
+    if (!_lastActionSuccess) {
+        _jaugeEchecs ++;
+    } else {
+        _jaugeEchecs = 0;
+        _lastActionSuccess = NO;
     }
 }
 
