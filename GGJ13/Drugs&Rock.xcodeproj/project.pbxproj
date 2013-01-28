@@ -51,8 +51,6 @@
 		3294D82F16B4508200E8A2DC /* ElectroIntro-128bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D82D16B4508200E8A2DC /* ElectroIntro-128bpm.aifc */; };
 		3294D83116B453CE00E8A2DC /* HipHop-90bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 3294D83016B453CE00E8A2DC /* HipHop-90bpm.aifc */; };
 		329D369216B56936001BDACA /* OrchestreFBI.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 329D369116B56936001BDACA /* OrchestreFBI.aifc */; };
-		329D369516B56D55001BDACA /* ECGFast.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 329D369316B56D55001BDACA /* ECGFast.aifc */; };
-		329D369616B56D55001BDACA /* ECGSlow.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 329D369416B56D55001BDACA /* ECGSlow.aifc */; };
 		32A1C0E216B424D600B4DEF3 /* bouton-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DD16B424D600B4DEF3 /* bouton-off.png */; };
 		32A1C0E316B424D600B4DEF3 /* bouton-on-no.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DE16B424D600B4DEF3 /* bouton-on-no.png */; };
 		32A1C0E416B424D600B4DEF3 /* bouton-on-yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0DF16B424D600B4DEF3 /* bouton-on-yes.png */; };
@@ -88,6 +86,8 @@
 		32A1C13616B42F0D00B4DEF3 /* spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */; };
 		32A1C15016B4452900B4DEF3 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C14F16B4452900B4DEF3 /* header.png */; };
 		32CF5D0416B5790500619251 /* Win.caf in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0316B5790500619251 /* Win.caf */; };
+		32CF5D0716B6A9E800619251 /* credits-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0516B6A9E800619251 /* credits-off.png */; };
+		32CF5D0816B6A9E800619251 /* credits-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0616B6A9E800619251 /* credits-on.png */; };
 		32FB54F516B4A86100F1CB4E /* WHMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3242594A168DF21E0050EDD1 /* WHMenuLayer.mm */; };
 		32FB54F616B4A86600F1CB4E /* WHBasicLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3243308216B1E0F60052534D /* WHBasicLayer.mm */; };
 		32FB551F16B5174B00F1CB4E /* battle-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FB551B16B5174B00F1CB4E /* battle-off.png */; };
@@ -405,8 +405,6 @@
 		3294D82D16B4508200E8A2DC /* ElectroIntro-128bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ElectroIntro-128bpm.aifc"; path = "Resources/ElectroIntro-128bpm.aifc"; sourceTree = "<group>"; };
 		3294D83016B453CE00E8A2DC /* HipHop-90bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HipHop-90bpm.aifc"; path = "Resources/HipHop-90bpm.aifc"; sourceTree = "<group>"; };
 		329D369116B56936001BDACA /* OrchestreFBI.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = OrchestreFBI.aifc; path = Resources/OrchestreFBI.aifc; sourceTree = "<group>"; };
-		329D369316B56D55001BDACA /* ECGFast.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = ECGFast.aifc; path = Resources/ECGFast.aifc; sourceTree = "<group>"; };
-		329D369416B56D55001BDACA /* ECGSlow.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = ECGSlow.aifc; path = Resources/ECGSlow.aifc; sourceTree = "<group>"; };
 		32A1C0DD16B424D600B4DEF3 /* bouton-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-off.png"; path = "Resources/bouton-off.png"; sourceTree = "<group>"; };
 		32A1C0DE16B424D600B4DEF3 /* bouton-on-no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-on-no.png"; path = "Resources/bouton-on-no.png"; sourceTree = "<group>"; };
 		32A1C0DF16B424D600B4DEF3 /* bouton-on-yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bouton-on-yes.png"; path = "Resources/bouton-on-yes.png"; sourceTree = "<group>"; };
@@ -442,6 +440,8 @@
 		32A1C13416B42F0D00B4DEF3 /* spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = spritesheet.plist; path = Resources/spritesheet.plist; sourceTree = "<group>"; };
 		32A1C14F16B4452900B4DEF3 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = header.png; path = Resources/header.png; sourceTree = "<group>"; };
 		32CF5D0316B5790500619251 /* Win.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Win.caf; path = Resources/Win.caf; sourceTree = "<group>"; };
+		32CF5D0516B6A9E800619251 /* credits-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-off.png"; path = "Resources/credits-off.png"; sourceTree = "<group>"; };
+		32CF5D0616B6A9E800619251 /* credits-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-on.png"; path = "Resources/credits-on.png"; sourceTree = "<group>"; };
 		32FB551B16B5174B00F1CB4E /* battle-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battle-off.png"; path = "Resources/battle-off.png"; sourceTree = "<group>"; };
 		32FB551C16B5174B00F1CB4E /* battle-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battle-on.png"; path = "Resources/battle-on.png"; sourceTree = "<group>"; };
 		32FB551D16B5174B00F1CB4E /* solo-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "solo-off.png"; path = "Resources/solo-off.png"; sourceTree = "<group>"; };
@@ -647,8 +647,6 @@
 			children = (
 				32CF5D0316B5790500619251 /* Win.caf */,
 				B5CEAE1C16B573FB006AFA22 /* blank.png */,
-				329D369316B56D55001BDACA /* ECGFast.aifc */,
-				329D369416B56D55001BDACA /* ECGSlow.aifc */,
 				329D369116B56936001BDACA /* OrchestreFBI.aifc */,
 				32FB553716B5538900F1CB4E /* buzz.caf */,
 				32FB553816B5538900F1CB4E /* Click.caf */,
@@ -706,6 +704,8 @@
 				32A1C0F816B424F600B4DEF3 /* rival-jauge-2.png */,
 				32A1C0F916B424F600B4DEF3 /* rival-jauge-3.png */,
 				B5D8FE1E16B5115D005C0702 /* pleasewait.png */,
+				32CF5D0516B6A9E800619251 /* credits-off.png */,
+				32CF5D0616B6A9E800619251 /* credits-on.png */,
 				32A1C0FA16B424F600B4DEF3 /* team.png */,
 				B5F0349C16B40AB7008BCBC0 /* track0.plist */,
 				B5F034B616B41ADE008BCBC0 /* track1.plist */,
@@ -1355,9 +1355,9 @@
 				B5CEAE1B16B570C5006AFA22 /* win.png in Resources */,
 				B5CEAE1D16B573FB006AFA22 /* blank.png in Resources */,
 				329D369216B56936001BDACA /* OrchestreFBI.aifc in Resources */,
-				329D369516B56D55001BDACA /* ECGFast.aifc in Resources */,
-				329D369616B56D55001BDACA /* ECGSlow.aifc in Resources */,
 				32CF5D0416B5790500619251 /* Win.caf in Resources */,
+				32CF5D0716B6A9E800619251 /* credits-off.png in Resources */,
+				32CF5D0816B6A9E800619251 /* credits-on.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

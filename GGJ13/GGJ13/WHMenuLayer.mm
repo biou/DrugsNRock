@@ -79,7 +79,7 @@ CCMenu * myMenu;
 															 selector:@selector(menu2)];
 
 	
-	myMenu = [CCMenu menuWithItems:menuItem1, nil];
+	myMenu = [CCMenu menuWithItems:menuItem1, menuItem4, menuItem2, nil];
 	/*
 	BOOL userAuth = [[GCHelper sharedInstance] isUserAuthenticated];
 	if (userAuth) {
@@ -87,11 +87,11 @@ CCMenu * myMenu;
 		[myMenu addChild:menuItem4];
 	}
 	*/
-	[myMenu addChild:menuItem4];
-	[myMenu addChild:menuItem2];
+	//[myMenu addChild:menuItem4];
+	//[myMenu addChild:menuItem2];
 	
 	// Arrange the menu items vertically
-	[myMenu alignItemsVertically];
+	//[myMenu alignItemsVertically];
 	[myMenu alignItemsVerticallyWithPadding:1];
 
 	myMenu.position = ccp(winsize.width/2, 120);

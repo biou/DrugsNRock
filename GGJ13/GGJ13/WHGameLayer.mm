@@ -249,6 +249,7 @@
     } else {
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-no.png"]];
 		BBAudioManager * am = [BBAudioManager sharedAM];
+		[self.gameScene incrementScore:-5];
 		[am playSFX:@"buzz.caf"];
 		[self itemMissed:YES];
     }
@@ -354,6 +355,9 @@
     
     [self.gameScene updateJaugeWith:jaugeStatut];
     
+	if(item.type == ItemTypeNormal) {
+		[self.gameScene incrementScore:10];
+	}
     
     
     if(item.type != ItemTypeNormal && !itemSent) {

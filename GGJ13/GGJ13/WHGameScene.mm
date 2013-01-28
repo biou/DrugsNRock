@@ -56,7 +56,7 @@ static int gameMode;
 		
 		socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
 		NSError *err = nil;
-		if (![socket connectToHost:@"10.45.18.197" onPort:1337 error:&err]) // Asynchronous!
+		if (![socket connectToHost:@"192.168.0.4" onPort:1337 error:&err]) // Asynchronous!
 		//if (![socket connectToHost:@"10.45.18.157" onPort:1337 error:&err]) // Asynchronous!
 		{
 			NSLog(@"I goofed: %@", err);
@@ -130,7 +130,7 @@ static int gameMode;
 	jaugeRival.position = ccp(s.width-50, s.height-60);
 	[headerLayer addChild: jaugeRival z:11 tag:15];
 	
-	
+	gameBPM = 80;
 	[self setBPM: 80];
 
 	score = 0;
@@ -283,6 +283,7 @@ static int gameMode;
 
 
 -(void) setBPM:(int)bpm {
+	oldGameBPM = gameBPM;
 	gameBPM=bpm;
 	[self updateHeaderBPM];
 	[self updateMusicBPM];
@@ -316,21 +317,50 @@ static int gameMode;
 }
 
 -(int) ziqueWithBPM:(int) bpm {
+	if (bpm == oldGameBPM) {
+		return currentZique;
+	}
+	if (bpm > oldGameBPM) {
+		NSLog(@"bpm: %d, old: %d", bpm, oldGameBPM);
+		return [self ziqueWithBPMUp:bpm];
+	} else {
+		NSLog(@"bpm: %d, old: %d", bpm, oldGameBPM);		
+		return [self ziqueWithBPMDown:bpm];
+	}
+}
+-(int) ziqueWithBPMUp:(int) bpm {
 	int val = 0;
-	if (bpm< 70) {
+	if (bpm< 75) {
 		val = 0;
-	} else if (bpm < 105){
+	} else if (bpm < 110){
 		val = 1;
-	} else if (bpm < 135) {
+	} else if (bpm < 140) {
 		val = 2;
-	} else if (bpm < 158) {
+	} else if (bpm < 162) {
 		val = 3;
-	} else if (bpm < 176) {
+	} else if (bpm < 181) {
 		val = 4;
 	} else {
         val = 5;
     }
-	NSLog(@"ziqueWithBPM: %d %d", bpm, val);
+	return val;
+}
+
+-(int) ziqueWithBPMDown:(int) bpm {
+	int val = 0;
+	if (bpm< 65) {
+		val = 0;
+	} else if (bpm < 100){
+		val = 1;
+	} else if (bpm < 130) {
+		val = 2;
+	} else if (bpm < 152) {
+		val = 3;
+	} else if (bpm < 171) {
+		val = 4;
+	} else {
+        val = 5;
+    }
 	return val;
 }
 
@@ -383,6 +413,18 @@ static int gameMode;
 	}
 }
 
+-(void) setScore:(int)s {
+	score = s;
+	[self updateHeaderScore];
+}
+
+-(void) incrementScore:(int)i {
+	if (score+i < 0) {
+		[self setScore:0];
+	}
+	[self setScore:score+i];
+}
+
 -(void) updateHeaderScore {
 		[headerLayer removeChildByTag:12 cleanup:true];
 		CGSize winsize = [CCDirector sharedDirector].winSize;
@@ -428,6 +470,7 @@ static int gameMode;
 		case 3:
 			image = @"ghb.png";
 			son = @"Swoosh2.caf";
+			score = 0;
 		break;
 		default:
 		break;

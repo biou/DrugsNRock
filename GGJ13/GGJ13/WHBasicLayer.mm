@@ -38,7 +38,7 @@ static int mode;
 		switch (mode) {
 			case whGameover:
 				image = @"gameover.png";
-				son = @"ECGFast.aifc";
+				son = @"ECGFast.caf";
 				break;
 			case whCredits:
 				image = @"credits.png";

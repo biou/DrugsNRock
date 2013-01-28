@@ -25,6 +25,7 @@
 	int currentZique;
 	int musicBPM;
 	int gameBPM;
+	int oldGameBPM;
 	int rivalBPM;
 	int score;
 	bool started;
@@ -48,6 +49,7 @@
 -(void) sendDrug:(int)itemType;
 -(void) displayMessage:(int)m;
 -(void) executeNewZique;
+-(void) incrementScore:(int)i;
 
 +(WHGameScene *) scene:(int)m;
 
