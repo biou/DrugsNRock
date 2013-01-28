@@ -16,6 +16,7 @@ Links
 * [Project Website](http://globalgamejam.org/2013-6)
 * [Project Source](https://github.com/biou/DrugsNRock)
 * [Demo on Youtube](http://youtu.be/BcsKIuzFHMI)
+* [Soundtrack on SoundCloud](https://soundcloud.com/b1ou/sets/3-drugs-and-rocknroll)
 
 
 License
