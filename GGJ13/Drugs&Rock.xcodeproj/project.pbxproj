@@ -88,6 +88,7 @@
 		32CF5D0416B5790500619251 /* Win.caf in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0316B5790500619251 /* Win.caf */; };
 		32CF5D0716B6A9E800619251 /* credits-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0516B6A9E800619251 /* credits-off.png */; };
 		32CF5D0816B6A9E800619251 /* credits-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0616B6A9E800619251 /* credits-on.png */; };
+		32CF5D3A16B7179300619251 /* server.txt in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D3916B7179300619251 /* server.txt */; };
 		32FB54F516B4A86100F1CB4E /* WHMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3242594A168DF21E0050EDD1 /* WHMenuLayer.mm */; };
 		32FB54F616B4A86600F1CB4E /* WHBasicLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3243308216B1E0F60052534D /* WHBasicLayer.mm */; };
 		32FB551F16B5174B00F1CB4E /* battle-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FB551B16B5174B00F1CB4E /* battle-off.png */; };
@@ -442,6 +443,7 @@
 		32CF5D0316B5790500619251 /* Win.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Win.caf; path = Resources/Win.caf; sourceTree = "<group>"; };
 		32CF5D0516B6A9E800619251 /* credits-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-off.png"; path = "Resources/credits-off.png"; sourceTree = "<group>"; };
 		32CF5D0616B6A9E800619251 /* credits-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-on.png"; path = "Resources/credits-on.png"; sourceTree = "<group>"; };
+		32CF5D3916B7179300619251 /* server.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = server.txt; path = Resources/server.txt; sourceTree = "<group>"; };
 		32FB551B16B5174B00F1CB4E /* battle-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battle-off.png"; path = "Resources/battle-off.png"; sourceTree = "<group>"; };
 		32FB551C16B5174B00F1CB4E /* battle-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battle-on.png"; path = "Resources/battle-on.png"; sourceTree = "<group>"; };
 		32FB551D16B5174B00F1CB4E /* solo-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "solo-off.png"; path = "Resources/solo-off.png"; sourceTree = "<group>"; };
@@ -645,6 +647,7 @@
 		324254BC168DDFB40050EDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32CF5D3916B7179300619251 /* server.txt */,
 				32CF5D0316B5790500619251 /* Win.caf */,
 				B5CEAE1C16B573FB006AFA22 /* blank.png */,
 				329D369116B56936001BDACA /* OrchestreFBI.aifc */,
@@ -1358,6 +1361,7 @@
 				32CF5D0416B5790500619251 /* Win.caf in Resources */,
 				32CF5D0716B6A9E800619251 /* credits-off.png in Resources */,
 				32CF5D0816B6A9E800619251 /* credits-on.png in Resources */,
+				32CF5D3A16B7179300619251 /* server.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

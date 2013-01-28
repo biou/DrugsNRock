@@ -50,14 +50,13 @@ static int gameMode;
 		//pauseLayer = [JNPPauseLayer node];
 		gameLayer = [WHGameLayer node];
         gameLayer.gameScene = self;
-		//controlLayer = [JNPControlLayer node];
-		//[controlLayer assignGameLayer:gameLayer];
 
 		
 		socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
 		NSError *err = nil;
-		if (![socket connectToHost:@"192.168.0.4" onPort:1337 error:&err]) // Asynchronous!
-		//if (![socket connectToHost:@"10.45.18.157" onPort:1337 error:&err]) // Asynchronous!
+		NSString * host = [self getServerAddress];
+
+		if (![socket connectToHost:host onPort:1337 error:&err])
 		{
 			NSLog(@"I goofed: %@", err);
 		}
@@ -146,6 +145,16 @@ static int gameMode;
 	//[self addChild: pauseLayer z:-15 tag:3];
 	[self addChild: gameLayer z:5 tag:1];
 	//[self addChild: controlLayer z:10 tag:2];
+}
+
+
+-(NSString *)getServerAddress {
+	NSError *error;
+	NSString * file = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"txt"];
+	NSString * s = [NSString stringWithContentsOfFile:file encoding:[NSString defaultCStringEncoding] error:&error];
+    NSLog(@"server: %@", s);
+	s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+	return s;
 }
 
 - (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
