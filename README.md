@@ -15,7 +15,7 @@ Links
 
 * [Project Website](http://globalgamejam.org/2013-6)
 * [Project Source](https://github.com/biou/DrugsNRock)
-* [Demo on Youtube]()
+* [Demo on Youtube](http://youtu.be/BcsKIuzFHMI)
 
 
 License
