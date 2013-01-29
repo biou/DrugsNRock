@@ -76,7 +76,6 @@
 		32A1C10C16B424F600B4DEF3 /* rival-jauge-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0F816B424F600B4DEF3 /* rival-jauge-2.png */; };
 		32A1C10D16B424F600B4DEF3 /* rival-jauge-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0F916B424F600B4DEF3 /* rival-jauge-3.png */; };
 		32A1C10E16B424F600B4DEF3 /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C0FA16B424F600B4DEF3 /* team.png */; };
-		32A1C11C16B425DE00B4DEF3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C11B16B425DE00B4DEF3 /* Default.png */; };
 		32A1C11E16B425F600B4DEF3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C11D16B425F600B4DEF3 /* Default@2x.png */; };
 		32A1C12116B427B400B4DEF3 /* TechnoDev-187bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C11F16B427B400B4DEF3 /* TechnoDev-187bpm.aifc */; };
 		32A1C12216B427B400B4DEF3 /* TechnoIntro-187bpm.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 32A1C12016B427B400B4DEF3 /* TechnoIntro-187bpm.aifc */; };
@@ -89,6 +88,7 @@
 		32CF5D0716B6A9E800619251 /* credits-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0516B6A9E800619251 /* credits-off.png */; };
 		32CF5D0816B6A9E800619251 /* credits-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D0616B6A9E800619251 /* credits-on.png */; };
 		32CF5D3A16B7179300619251 /* server.txt in Resources */ = {isa = PBXBuildFile; fileRef = 32CF5D3916B7179300619251 /* server.txt */; };
+		32E778B316B77C2D008D2CAB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 32E778B216B77C2D008D2CAB /* Default.png */; };
 		32FB54F516B4A86100F1CB4E /* WHMenuLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3242594A168DF21E0050EDD1 /* WHMenuLayer.mm */; };
 		32FB54F616B4A86600F1CB4E /* WHBasicLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3243308216B1E0F60052534D /* WHBasicLayer.mm */; };
 		32FB551F16B5174B00F1CB4E /* battle-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 32FB551B16B5174B00F1CB4E /* battle-off.png */; };
@@ -143,7 +143,7 @@
 		B5D8FDD916B48B47005C0702 /* mach_timing.c in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDB616B48B47005C0702 /* mach_timing.c */; };
 		B5D8FDDA16B48B47005C0702 /* NSMutableArray+WeakReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDB916B48B47005C0702 /* NSMutableArray+WeakReferences.m */; };
 		B5D8FDDB16B48B47005C0702 /* NSMutableDictionary+WeakReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDBB16B48B47005C0702 /* NSMutableDictionary+WeakReferences.m */; };
-		B5D8FDDC16B48B47005C0702 /* OALAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDBD16B48B47005C0702 /* OALAudioFile.m */; };
+		B5D8FDDC16B48B47005C0702 /* OALAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDBD16B48B47005C0702 /* OALAudioFile.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		B5D8FDDD16B48B47005C0702 /* OALTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D8FDC016B48B47005C0702 /* OALTools.m */; };
 		B5D8FE1F16B5115D005C0702 /* pleasewait.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D8FE1E16B5115D005C0702 /* pleasewait.png */; };
 		B5F0349D16B40AB7008BCBC0 /* track0.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5F0349C16B40AB7008BCBC0 /* track0.plist */; };
@@ -431,7 +431,6 @@
 		32A1C0F816B424F600B4DEF3 /* rival-jauge-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rival-jauge-2.png"; path = "Resources/rival-jauge-2.png"; sourceTree = "<group>"; };
 		32A1C0F916B424F600B4DEF3 /* rival-jauge-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rival-jauge-3.png"; path = "Resources/rival-jauge-3.png"; sourceTree = "<group>"; };
 		32A1C0FA16B424F600B4DEF3 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = team.png; path = Resources/team.png; sourceTree = "<group>"; };
-		32A1C11B16B425DE00B4DEF3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		32A1C11D16B425F600B4DEF3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		32A1C11F16B427B400B4DEF3 /* TechnoDev-187bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TechnoDev-187bpm.aifc"; path = "Resources/TechnoDev-187bpm.aifc"; sourceTree = "<group>"; };
 		32A1C12016B427B400B4DEF3 /* TechnoIntro-187bpm.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TechnoIntro-187bpm.aifc"; path = "Resources/TechnoIntro-187bpm.aifc"; sourceTree = "<group>"; };
@@ -444,6 +443,7 @@
 		32CF5D0516B6A9E800619251 /* credits-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-off.png"; path = "Resources/credits-off.png"; sourceTree = "<group>"; };
 		32CF5D0616B6A9E800619251 /* credits-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "credits-on.png"; path = "Resources/credits-on.png"; sourceTree = "<group>"; };
 		32CF5D3916B7179300619251 /* server.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = server.txt; path = Resources/server.txt; sourceTree = "<group>"; };
+		32E778B216B77C2D008D2CAB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		32FB551B16B5174B00F1CB4E /* battle-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battle-off.png"; path = "Resources/battle-off.png"; sourceTree = "<group>"; };
 		32FB551C16B5174B00F1CB4E /* battle-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "battle-on.png"; path = "Resources/battle-on.png"; sourceTree = "<group>"; };
 		32FB551D16B5174B00F1CB4E /* solo-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "solo-off.png"; path = "Resources/solo-off.png"; sourceTree = "<group>"; };
@@ -572,7 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				32A1C11D16B425F600B4DEF3 /* Default@2x.png */,
-				32A1C11B16B425DE00B4DEF3 /* Default.png */,
+				32E778B216B77C2D008D2CAB /* Default.png */,
 				32425645168DE1240050EDD1 /* cocos2d_box2d_arc.xcodeproj */,
 				324254BB168DDFB40050EDD1 /* GGJ13 */,
 				324254A8168DDFB40050EDD1 /* Frameworks */,
@@ -1220,7 +1220,7 @@
 		3242549C168DDFB40050EDD1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 3242549F168DDFB40050EDD1 /* Build configuration list for PBXProject "Drugs&Rock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1319,7 +1319,6 @@
 				32A1C10C16B424F600B4DEF3 /* rival-jauge-2.png in Resources */,
 				32A1C10D16B424F600B4DEF3 /* rival-jauge-3.png in Resources */,
 				32A1C10E16B424F600B4DEF3 /* team.png in Resources */,
-				32A1C11C16B425DE00B4DEF3 /* Default.png in Resources */,
 				32A1C11E16B425F600B4DEF3 /* Default@2x.png in Resources */,
 				32A1C12116B427B400B4DEF3 /* TechnoDev-187bpm.aifc in Resources */,
 				32A1C12216B427B400B4DEF3 /* TechnoIntro-187bpm.aifc in Resources */,
@@ -1362,6 +1361,7 @@
 				32CF5D0716B6A9E800619251 /* credits-off.png in Resources */,
 				32CF5D0816B6A9E800619251 /* credits-on.png in Resources */,
 				32CF5D3A16B7179300619251 /* server.txt in Resources */,
+				32E778B316B77C2D008D2CAB /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1420,6 +1420,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1430,6 +1434,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -1441,6 +1446,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1449,6 +1458,7 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;

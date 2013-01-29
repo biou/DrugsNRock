@@ -33,7 +33,7 @@
 -(void)touchBouton:(int)boutonNb;
 -(void)newLevel:(int)gameBPM;
 -(void)restoreBouton:(int)btn;
--(void)restartLevel;
+//-(void)restartLevel;
 -(void)initRecording;
 -(void)itemTapped:(WHItem *)item;
 
