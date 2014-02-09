@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "CCMenu.h"
 #import "BBAudioManager.h"
-#import "BBGCHelper.h"
+//#import "BBGCHelper.h"
 #import "WHGameScene.h"
 #import "WHBasicLayer.h"
 

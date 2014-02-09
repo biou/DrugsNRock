@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "WHIntroLayer.h"
+#import "GCHelper.h"
 
 @implementation AppController
 
@@ -75,6 +76,7 @@
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
+	[[GCHelper sharedInstance] authenticateLocalUser];
 	[director_ pushScene: [WHIntroLayer scene]];
 	//[director_ pushScene: [WHMenuLayer scene]];
 

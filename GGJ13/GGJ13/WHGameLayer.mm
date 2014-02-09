@@ -46,7 +46,7 @@
 -(id) init
 {
 	if( (self=[super init]) ) {
-		gcdQueue = dispatch_queue_create("com.foo.samplequeue", NULL);
+		gcdQueue = dispatch_queue_create("org.sous-anneau.dnrqueue", NULL);
 //		// create and initialize a Label
 //		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
 //

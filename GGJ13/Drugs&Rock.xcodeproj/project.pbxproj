@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322FB31D18A6CAA6004287FF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322FB31C18A6CAA6004287FF /* Default-568h@2x.png */; };
+		322FB32018A6CB23004287FF /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 322FB31F18A6CB23004287FF /* GCHelper.m */; };
 		324254AA168DDFB40050EDD1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324254A9168DDFB40050EDD1 /* QuartzCore.framework */; };
 		324254AC168DDFB40050EDD1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324254AB168DDFB40050EDD1 /* OpenGLES.framework */; };
 		324254AE168DDFB40050EDD1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324254AD168DDFB40050EDD1 /* OpenAL.framework */; };
@@ -16,8 +18,6 @@
 		324254B6168DDFB40050EDD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324254B5168DDFB40050EDD1 /* Foundation.framework */; };
 		324254B8168DDFB40050EDD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324254B7168DDFB40050EDD1 /* CoreGraphics.framework */; };
 		324254BA168DDFB40050EDD1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 324254B9168DDFB40050EDD1 /* GameKit.framework */; };
-		324254BE168DDFB40050EDD1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 324254BD168DDFB40050EDD1 /* Default.png */; };
-		324254C0168DDFB40050EDD1 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 324254BF168DDFB40050EDD1 /* Default-Landscape~ipad.png */; };
 		324254C2168DDFB40050EDD1 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 324254C1168DDFB40050EDD1 /* fps_images.png */; };
 		324254C4168DDFB40050EDD1 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 324254C3168DDFB40050EDD1 /* fps_images-hd.png */; };
 		324254C6168DDFB40050EDD1 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 324254C5168DDFB40050EDD1 /* fps_images-ipadhd.png */; };
@@ -172,6 +172,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		322FB31C18A6CAA6004287FF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		322FB31E18A6CB23004287FF /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
+		322FB31F18A6CB23004287FF /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
 		324254A5168DDFB40050EDD1 /* Drugs&Rock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drugs&Rock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		324254A9168DDFB40050EDD1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		324254AB168DDFB40050EDD1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -380,12 +383,10 @@
 		32425917168DE59F0050EDD1 /* LICENSE_cocos2d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_cocos2d.txt; sourceTree = "<group>"; };
 		32425918168DE59F0050EDD1 /* LICENSE_CocosDenshion.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_CocosDenshion.txt; sourceTree = "<group>"; };
 		32425919168DE59F0050EDD1 /* LICENSE_Kazmath.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_Kazmath.txt; sourceTree = "<group>"; };
-		32425942168DF21E0050EDD1 /* BBGCHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBGCHelper.h; sourceTree = "<group>"; };
 		32425943168DF21E0050EDD1 /* WHGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHGameScene.h; sourceTree = "<group>"; };
 		32425944168DF21E0050EDD1 /* WHIntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHIntroLayer.h; sourceTree = "<group>"; };
 		32425945168DF21E0050EDD1 /* WHMenuLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHMenuLayer.h; sourceTree = "<group>"; };
 		32425946168DF21E0050EDD1 /* WHPauseLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHPauseLayer.h; sourceTree = "<group>"; };
-		32425947168DF21E0050EDD1 /* BBGCHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BBGCHelper.mm; sourceTree = "<group>"; };
 		32425948168DF21E0050EDD1 /* WHGameScene.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WHGameScene.mm; sourceTree = "<group>"; };
 		32425949168DF21E0050EDD1 /* WHIntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WHIntroLayer.mm; sourceTree = "<group>"; };
 		3242594A168DF21E0050EDD1 /* WHMenuLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WHMenuLayer.mm; sourceTree = "<group>"; };
@@ -571,6 +572,7 @@
 		3242549A168DDFB40050EDD1 = {
 			isa = PBXGroup;
 			children = (
+				322FB31C18A6CAA6004287FF /* Default-568h@2x.png */,
 				32A1C11D16B425F600B4DEF3 /* Default@2x.png */,
 				32E778B216B77C2D008D2CAB /* Default.png */,
 				32425645168DE1240050EDD1 /* cocos2d_box2d_arc.xcodeproj */,
@@ -609,6 +611,8 @@
 		324254BB168DDFB40050EDD1 /* GGJ13 */ = {
 			isa = PBXGroup;
 			children = (
+				322FB31E18A6CB23004287FF /* GCHelper.h */,
+				322FB31F18A6CB23004287FF /* GCHelper.m */,
 				32425636168DDFBC0050EDD1 /* WHGameLayer.h */,
 				32425637168DDFBC0050EDD1 /* WHGameLayer.mm */,
 				B541435116B3E601000E45B8 /* WHControlLayer.h */,
@@ -634,8 +638,6 @@
 				3242594C168DF33D0050EDD1 /* BBAudioManager.h */,
 				3242594D168DF33D0050EDD1 /* BBAudioManager.mm */,
 				3242594E168DF3550050EDD1 /* BBGCDSingleton.h */,
-				32425942168DF21E0050EDD1 /* BBGCHelper.h */,
-				32425947168DF21E0050EDD1 /* BBGCHelper.mm */,
 				B5D8FD7F16B48B47005C0702 /* ObjectAL */,
 				32425855168DE59F0050EDD1 /* libs */,
 				324254BC168DDFB40050EDD1 /* Resources */,
@@ -1221,6 +1223,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0460;
+				TargetAttributes = {
+					324254A4168DDFB40050EDD1 = {
+						DevelopmentTeam = GVE25YUPZ4;
+					};
+				};
 			};
 			buildConfigurationList = 3242549F168DDFB40050EDD1 /* Build configuration list for PBXProject "Drugs&Rock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1271,8 +1278,6 @@
 				32742F7B16B3FED900BB1992 /* MetalDev-150bpm.aifc in Resources */,
 				32742F7C16B3FED900BB1992 /* MetalIntro-150bpm.aifc in Resources */,
 				32742F7D16B3FED900BB1992 /* ReggaeDev-70bpm.aifc in Resources */,
-				324254BE168DDFB40050EDD1 /* Default.png in Resources */,
-				324254C0168DDFB40050EDD1 /* Default-Landscape~ipad.png in Resources */,
 				324254C2168DDFB40050EDD1 /* fps_images.png in Resources */,
 				324254C4168DDFB40050EDD1 /* fps_images-hd.png in Resources */,
 				324254C6168DDFB40050EDD1 /* fps_images-ipadhd.png in Resources */,
@@ -1298,6 +1303,7 @@
 				32A1C0E316B424D600B4DEF3 /* bouton-on-no.png in Resources */,
 				32A1C0E416B424D600B4DEF3 /* bouton-on-yes.png in Resources */,
 				32A1C0E516B424D600B4DEF3 /* ch-1-ghb.png in Resources */,
+				322FB31D18A6CAA6004287FF /* Default-568h@2x.png in Resources */,
 				32A1C0E616B424D600B4DEF3 /* ch-2-lsd.png in Resources */,
 				32A1C0FB16B424F600B4DEF3 /* jauge-0.png in Resources */,
 				32A1C0FC16B424F600B4DEF3 /* jauge-1.png in Resources */,
@@ -1402,6 +1408,7 @@
 				B5D8FDD316B48B47005C0702 /* ALSource.m in Sources */,
 				B5D8FDD416B48B47005C0702 /* ALWrapper.m in Sources */,
 				B5D8FDD516B48B47005C0702 /* OpenALManager.m in Sources */,
+				322FB32018A6CB23004287FF /* GCHelper.m in Sources */,
 				B5D8FDD616B48B47005C0702 /* OALAudioSession.m in Sources */,
 				B5D8FDD716B48B47005C0702 /* OALSuspendHandler.m in Sources */,
 				B5D8FDD816B48B47005C0702 /* IOSVersion.m in Sources */,

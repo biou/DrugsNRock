@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BBAudioManager.h"
-#import "BBGCHelper.h"
+//#import "BBGCHelper.h"
 //#import "WHScore.h"
 #import "WHMenuLayer.h"
 #import "WHGameScene.h"
