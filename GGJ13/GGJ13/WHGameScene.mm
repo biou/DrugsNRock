@@ -58,6 +58,7 @@ static int gameMode;
 		if (gameMode == MODE_SOLO) {
 			NSLog(@"mode solo");
 			[self initGame];
+			[self schedule:@selector(updateTime) interval:1.0];
 		} else {
 			NSLog(@"mode multi");
 			AppController * delegate = (AppController *) [UIApplication sharedApplication].delegate;
@@ -151,7 +152,10 @@ static int gameMode;
 	[self setBPM: 80];
 
 	score = 0;
+	scoreFactor = 1;
+	secondsSinceStart = 0;
 	[self updateHeaderScore];
+	[self updateHeaderTime];
 	
 	
 	[self ziqueUpdate:LEVEL_INITIAL];
@@ -243,6 +247,12 @@ static int gameMode;
             [self setBPM: gameBPM + [WHItem effectForType:(ItemType)m]];
             break;
     }
+}
+
+-(void)updateTime
+{
+	secondsSinceStart++;
+	[self updateHeaderTime];
 }
 
 -(void)showPauseLayer
@@ -456,6 +466,7 @@ static int gameMode;
 }
 
 -(void) incrementScore:(int)i {
+	i *= scoreFactor;
 	if (score+i < 0) {
 		[self setScore:0];
 	} else {
@@ -473,7 +484,20 @@ static int gameMode;
 		[headerLayer addChild: label z:1 tag:12];
 }
 
+-(void) updateHeaderTime {
+	[headerLayer removeChildByTag:13 cleanup:true];
+	CGSize winsize = [CCDirector sharedDirector].winSize;
+	int fontSize = 16;
+	CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d:%02d", secondsSinceStart/60, secondsSinceStart % 60] fontName:@"DBLCDTempBlack" fontSize:fontSize];
+	[label setColor:ccc3(181, 216, 19)];
+	[label setPosition: ccp(winsize.width-60, winsize.height-34)];
+	[headerLayer addChild: label z:1 tag:13];
+}
+
 -(void) updateJaugeWith:(int)statut {
+	scoreFactor = 0x1<<statut;
+	NSLog(@"scoreFactor %d", scoreFactor);
+	
 	if (statut>=0 && statut <4) {
 		[jauge setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jauge-%d.png",statut]]];
 	}

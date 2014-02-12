@@ -89,6 +89,8 @@ typedef enum {
 	int oldGameBPM;
 	int rivalBPM;
 	int score;
+	int scoreFactor;
+	int secondsSinceStart;
 	bool started;
 	
     BOOL isPlayer1;
