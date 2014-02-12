@@ -23,7 +23,7 @@
 #define MAX_DURATION 8.0f
 #define BPM_MEDIAN 125
 
-#define RECORDING_MODE YES
+#define RECORDING_MODE NO
 
 
 // HelloWorldLayer implementation

@@ -458,8 +458,9 @@ static int gameMode;
 -(void) incrementScore:(int)i {
 	if (score+i < 0) {
 		[self setScore:0];
+	} else {
+		[self setScore:score+i];
 	}
-	[self setScore:score+i];
 }
 
 -(void) updateHeaderScore {
@@ -581,19 +582,22 @@ static int gameMode;
 
 - (void)sendRandomNumber {
     
-    MessageRandomNumber message;
-    message.message.messageType = kMessageTypeRandomNumber;
-    message.randomNumber = ourRandom;
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageRandomNumber)];
-    [self sendData:data];
+    if (gameMode != MODE_SOLO) {
+		MessageRandomNumber message;
+		message.message.messageType = kMessageTypeRandomNumber;
+		message.randomNumber = ourRandom;
+		NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageRandomNumber)];
+		[self sendData:data];
+	}
 }
 
 - (void)sendGameBegin {
-    
-    MessageGameBegin message;
-    message.message.messageType = kMessageTypeGameBegin;
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageGameBegin)];
-    [self sendData:data];
+    if (gameMode != MODE_SOLO) {
+		MessageGameBegin message;
+		message.message.messageType = kMessageTypeGameBegin;
+		NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageGameBegin)];
+		[self sendData:data];
+	}
     
 }
 
@@ -609,39 +613,45 @@ static int gameMode;
 */
 
 - (void)sendBPM:(uint32_t) val {
-    
-    MessageBPM message;
-    message.message.messageType = kMessageTypeBPM;
-	message.number = val;
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageBPM)];
-    [self sendData:data];
+	if (gameMode != MODE_SOLO) {
+		MessageBPM message;
+		message.message.messageType = kMessageTypeBPM;
+		message.number = val;
+		NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageBPM)];
+		[self sendData:data];
+	}
     
 }
 
 - (void)sendJauge:(uint32_t) val {
-    MessageJauge message;
-    message.message.messageType = kMessageTypeJauge;
-	message.number = val;
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageJauge)];
-    [self sendData:data];
+	if (gameMode != MODE_SOLO) {
+		MessageJauge message;
+		message.message.messageType = kMessageTypeJauge;
+		message.number = val;
+		NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageJauge)];
+		[self sendData:data];
+	}
 }
 
 - (void)sendMange:(uint32_t) val {
-    MessageMange message;
-    message.message.messageType = kMessageTypeMange;
-	message.number = val;
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageMange)];
-    [self sendData:data];
+	if (gameMode != MODE_SOLO) {
+		MessageMange message;
+		message.message.messageType = kMessageTypeMange;
+		message.number = val;
+		NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageMange)];
+		[self sendData:data];
+	}
 }
 
 
 - (void)sendGameOver:(BOOL)player1Won {
-    
-    MessageGameOver message;
-    message.message.messageType = kMessageTypeGameOver;
-    message.player1Won = player1Won;
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageGameOver)];
-    [self sendData:data];
+	if (gameMode != MODE_SOLO) {
+		MessageGameOver message;
+		message.message.messageType = kMessageTypeGameOver;
+		message.player1Won = player1Won;
+		NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageGameOver)];
+		[self sendData:data];
+	}
     
 }
 #pragma mark GCHelperDelegate
