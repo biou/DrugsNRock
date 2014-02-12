@@ -249,6 +249,7 @@
     } else {
 		[[self.boutons objectAtIndex:n] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"bouton-on-no.png"]];
 		BBAudioManager * am = [BBAudioManager sharedAM];
+		
 		[self.gameScene incrementScore:-5];
 		[am playSFX:@"buzz.caf"];
 		[self itemMissed:YES];
@@ -394,6 +395,9 @@
     [self.gameScene updateJaugeWith:0];
     
     int penalty = bigMiss?2:1;
+	int time = [self.gameScene getTime];
+
+	penalty = ((time/60)+1) * penalty;
     if ([self.gameScene getGameBPM] < BPM_MEDIAN) {
         penalty = -penalty;
     }

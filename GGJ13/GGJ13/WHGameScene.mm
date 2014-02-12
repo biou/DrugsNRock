@@ -234,8 +234,7 @@ static int gameMode;
 -(void)mange:(int)m {
     switch (m) {
         case ItemTypeGHB:
-            [self displayMessage:2];
-            NSLog(@"TODO Score à zéro pour cause de GHB");
+            [self displayMessage:3];
             break;
             
         case ItemTypeLSD:
@@ -466,12 +465,18 @@ static int gameMode;
 }
 
 -(void) incrementScore:(int)i {
+
 	i *= scoreFactor;
 	if (score+i < 0) {
 		[self setScore:0];
 	} else {
 		[self setScore:score+i];
 	}
+}
+
+-(int) getTime
+{
+	return secondsSinceStart;
 }
 
 -(void) updateHeaderScore {
@@ -485,13 +490,13 @@ static int gameMode;
 }
 
 -(void) updateHeaderTime {
-	[headerLayer removeChildByTag:13 cleanup:true];
+	[headerLayer removeChildByTag:16 cleanup:true];
 	CGSize winsize = [CCDirector sharedDirector].winSize;
 	int fontSize = 16;
 	CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%02d:%02d", secondsSinceStart/60, secondsSinceStart % 60] fontName:@"DBLCDTempBlack" fontSize:fontSize];
 	[label setColor:ccc3(181, 216, 19)];
 	[label setPosition: ccp(winsize.width-60, winsize.height-34)];
-	[headerLayer addChild: label z:1 tag:13];
+	[headerLayer addChild: label z:1 tag:16];
 }
 
 -(void) updateJaugeWith:(int)statut {
@@ -821,14 +826,14 @@ static int gameMode;
     }
 	if (endReason == kEndReasonWin) {
 		NSLog(@"win");
-		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whWin]]];
+		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whWin withScore:score andTime:secondsSinceStart]]];
 	} else if (endReason == kEndReasonLose) {
 		NSLog(@"lose");
-		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
+		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover withScore:score andTime:secondsSinceStart]]];
 	} else if (endReason == kEndReasonDisconnect) {
 		NSLog(@"disconnect");
 		// FIXME disconnect screen
-		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
+		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whDisconnect]]];
 	}
 	
 }

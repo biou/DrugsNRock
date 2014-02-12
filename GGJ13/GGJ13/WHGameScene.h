@@ -120,6 +120,7 @@ typedef enum {
 -(void) displayMessage:(int)m;
 -(void) executeNewZique;
 -(void) incrementScore:(int)i;
+-(int) getTime;
 
 +(WHGameScene *) scene:(int)m;
 

@@ -20,6 +20,7 @@
 #define whCredits 1
 #define whWin 2
 #define whNewLevel 2
+#define whDisconnect 3
 //#define whHelp 3
 
 @interface WHBasicLayer : CCLayer {
@@ -28,5 +29,6 @@
 
 // returns a CCScene that contains the WHBasicLayer layer as the only child
 +(CCScene *) scene:(int)m;
++(CCScene *) scene:(int) m withScore:(int) s andTime:(int)t;
 
 @end

@@ -10,6 +10,8 @@
 
 
 static int mode;
+static int score;
+static int timeBonus;
 
 @implementation WHBasicLayer
 
@@ -20,6 +22,23 @@ static int mode;
 	
 	// 'layer' is an autorelease object.
 	mode = m;
+	WHBasicLayer * baseLayer = [[WHBasicLayer alloc] init];
+	
+	[scene addChild: baseLayer];
+	
+	// return the scene
+	return scene;
+}
+
++(CCScene *) scene:(int) m withScore:(int) s andTime:(int)t
+{
+	// 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+	
+	// 'layer' is an autorelease object.
+	mode = m;
+	score = s;
+	timeBonus = t;
 	WHBasicLayer * baseLayer = [[WHBasicLayer alloc] init];
 	
 	[scene addChild: baseLayer];
@@ -69,65 +88,24 @@ static int mode;
 		
         bgpic.position = ccp(winsize.width/2 , winsize.height/2 );
 		[self addChild:bgpic];
-		
-		/*
 		if (mode == whGameover) {
-			//WHScore * s = [WHScore sharedInstance];
-			//int t = [s getScore];
-			//s.vomis = [NSMutableArray array];
-			//[[GCHelper sharedInstance] reportScore:t forCategory:@"WHScore1"];
+			int total = score + timeBonus * 10;
+			CGSize winsize = [CCDirector sharedDirector].winSize;
+			int fontSize = 16;
+			CCLabelTTF *sLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Points: %d", score] fontName:@"DBLCDTempBlack" fontSize:fontSize];
+			[sLabel setColor:ccc3(181, 216, 19)];
+			[sLabel setPosition: ccp(winsize.width/2, 60)];
+			[self addChild: sLabel];
+			CCLabelTTF *tLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Time: %ds x 10", timeBonus] fontName:@"DBLCDTempBlack" fontSize:fontSize];
+			[tLabel setColor:ccc3(181, 216, 19)];
+			[tLabel setPosition: ccp(winsize.width/2, 40)];
+			[self addChild: tLabel];
+			CCLabelTTF *fLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Total: %d", total] fontName:@"DBLCDTempBlack" fontSize:fontSize];
+			[fLabel setColor:ccc3(181, 216, 19)];
+			[fLabel setPosition: ccp(winsize.width/2, 20)];
+			[self addChild: fLabel];
 		}
-
-		if (mode != whCredits && mode != whHelp)
-		{
-			WHScore * s = [WHScore sharedInstance];
-			int newScore = [s getScore] + [s getTime]*100;
-			NSString * str = nil;
-			int fontSize = 0;
-			CGPoint labelPos;
-			
-			if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-				fontSize = 21;
-				labelPos = ccp(winsize.width/2, winsize.height-20);
-			} else {
-				fontSize = 42;
-				labelPos = ccp(winsize.width/2, winsize.height-50);
-			}
-			
-			if (mode == whGameover) {
-				str = [NSString stringWithFormat:@"Score: %d", [s getScore]];
-			} else {
-				str = [NSString stringWithFormat:@"Score: %d + %d x 100 = %d", [s getScore], [s getTime], newScore];
-				[s setScore:newScore];
-			}
-			CCLabelTTF *label = [CCLabelTTF labelWithString:str fontName:@"Chalkduster" fontSize:fontSize];
-			[label setPosition: labelPos];
-			[self addChild: label];
-		}
-		
-		if (mode == whNewLevel)
-		{
-			WHScore * s = [WHScore sharedInstance];
-			[s incrementLevel];
-			int t = [s getLevel];
-			[s setTime:90];
-			int fontSize = 0;
-			CGPoint labelPos;
-			
-			if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ) {
-				fontSize = 32;
-				labelPos = ccp(winsize.width/2, 20);
-			} else {
-				fontSize = 64;
-				labelPos = ccp(winsize.width/2, 50);
-			}
-			NSString * str = [NSString stringWithFormat:@"Level %d", t];
-			CCLabelTTF *label = [CCLabelTTF labelWithString:str fontName:@"Chalkduster" fontSize:fontSize];
-			[label setPosition: labelPos];
-			[self addChild: label];
-		}
-		*/
-		
+				
 		
         BBAudioManager *audioManager = [BBAudioManager sharedAM];
         [audioManager stopBGM];
@@ -174,14 +152,6 @@ static int mode;
 		case whWin:
 			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHMenuLayer scene]]];
 			break;
-		/*
-		case whHelp:
-            [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHGameScene node]]];
-			break;
-		case whNewLevel:
-			[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene:[WHGameScene node]]];
-			break;
-		*/
 		default:
 			break;
 	}
