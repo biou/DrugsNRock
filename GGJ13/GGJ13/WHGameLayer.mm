@@ -47,17 +47,6 @@
 {
 	if( (self=[super init]) ) {
 		gcdQueue = dispatch_queue_create("org.sous-anneau.dnrqueue", NULL);
-//		// create and initialize a Label
-//		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-//
-//		// ask director for the window size
-//		CGSize size = [[CCDirector sharedDirector] winSize];
-//	
-//		// position the label on the center of the screen
-//		label.position =  ccp( size.width /2 , size.height/2 );
-//		
-//		// add the label as a child to this Layer
-//		[self addChild: label];
 		
         // init des variables
         self.activeItems = [NSMutableArray new];
@@ -74,7 +63,8 @@
         
         _currentMusicBPM = 0;
         _elapsedTime = 0.0;
-        // [self startPartitionWithBPM:_currentMusicBPM];
+		_reverse = NO;
+
         
         // éléments utiles uniquement pour enregistrer une partoche
 #ifdef RECORDING_MODE
@@ -356,22 +346,7 @@
     
     [self.gameScene updateJaugeWith:jaugeStatut];
     
-	if(item.type == ItemTypeNormal) {
-		[self.gameScene incrementScore:10];
-	}
-    
-    
-    if(item.type != ItemTypeNormal && !itemSent) {
-        // il faut appliquer l’item à notre propre face
-        [self.gameScene incrementBPM:[item effect]];
-        
-        if (item.type == ItemTypeGHB) {
-            [self.gameScene displayMessage:3];
-            NSLog(@" todo effet ghb : score à zéro");
-        } else if (item.type == ItemTypeLSD) {
-            [self.gameScene displayMessage:2];
-        }
-    }
+	[self.gameScene mange:item withSent:itemSent];
     
     [self.activeItems removeObject:item];
     [self removeChild:item cleanup:YES];
@@ -380,6 +355,8 @@
         [self removeChild:item.specialPeer cleanup:YES];
     }
 }
+
+
 
 -(void)itemMissed:(BOOL)bigMiss {
     NSLog(@"%@ miss",bigMiss?@"Gros":@"Petit");

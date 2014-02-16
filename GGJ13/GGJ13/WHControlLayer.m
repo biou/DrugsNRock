@@ -29,15 +29,27 @@
         
         if (location.y < 150)
         {
-            if (location.x < 80) {
-                [self.gameLayer touchBouton:0];
-            } else if (location.x < 160) {
-                [self.gameLayer touchBouton:1];
-            } else if (location.x < 240) {
-                [self.gameLayer touchBouton:2];
-            } else {
-                [self.gameLayer touchBouton:3];
-            }
+			if (!self.gameLayer.reverse) {
+				if (location.x < 80) {
+					[self.gameLayer touchBouton:0];
+				} else if (location.x < 160) {
+					[self.gameLayer touchBouton:1];
+				} else if (location.x < 240) {
+					[self.gameLayer touchBouton:2];
+				} else {
+					[self.gameLayer touchBouton:3];
+				}
+			} else {
+				if (location.x < 80) {
+					[self.gameLayer touchBouton:3];
+				} else if (location.x < 160) {
+					[self.gameLayer touchBouton:2];
+				} else if (location.x < 240) {
+					[self.gameLayer touchBouton:1];
+				} else {
+					[self.gameLayer touchBouton:0];
+				}
+			}
         } else if (location.y > 300) {
             NSLog(@"### Sauvegarde de la partition ###");
             [self.gameLayer.recPartition saveDataForTrack:5];
@@ -52,18 +64,11 @@
         CGPoint location = [touch locationInView: [touch view]];
         location = [[CCDirector sharedDirector] convertToGL: location];
         
-        if (location.y < 150)
-        {
-            if (location.x < 80) {
-                [self.gameLayer restoreBouton:0];
-            } else if (location.x < 160) {
-                [self.gameLayer restoreBouton:1];
-            } else if (location.x < 240) {
-                [self.gameLayer restoreBouton:2];
-            } else {
-                [self.gameLayer restoreBouton:3];
-            }
-        } 
+		[self.gameLayer restoreBouton:0];
+		[self.gameLayer restoreBouton:1];
+		[self.gameLayer restoreBouton:2];
+		[self.gameLayer restoreBouton:3];
+		
     }
 	
 }

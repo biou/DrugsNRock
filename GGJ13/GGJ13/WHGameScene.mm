@@ -68,47 +68,12 @@ static int gameMode;
 			ourRandom = arc4random();
 			[self setGameState:kGameStateWaitingForMatch];
 		}
-		/*
-		socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-		NSError *err = nil;
-		NSString * host = [self getServerAddress];
-
-		if (![socket connectToHost:host onPort:1337 error:&err])
-		{
-			NSLog(@"I goofed: %@", err);
-		}
-		
-		#ifdef whNetworking
-		[self sendSocketWithKey:@"wiener" andValue:@"biou"];
-		NSData *term = [@"\n" dataUsingEncoding:NSUTF8StringEncoding];
-        [socket readDataToData:term withTimeout:-1 tag:1];
-		if (gameMode == MODE_SOLO) {
-			NSLog(@"mode solo");
-			[self sendSocketWithKey:@"ready" andValue:@"1"];
-		} else {
-			NSLog(@"mode multi");
-		}
-		
-		CGSize s = [CCDirector sharedDirector].winSize;		
-		
-		CCLayer *tmpLayer = [CCLayer node];
-		CCSprite *bgpic2 = [CCSprite spriteWithFile:@"pleasewait.png"];
-		bgpic2.position = ccp(s.width/2.0, s.height/2);
-		[tmpLayer addChild:bgpic2];
-		[self addChild:tmpLayer z:1 tag:1];
-		#endif
-		#ifndef whNetworking
-		[self initGame];
-		#endif
-		 */
 		 
     }
     return self;
 }
 
--(void)initGame {	
-	//[gameLayer setGameScene:self];
-	//[controlLayer setGameScene:self];
+-(void)initGame {
 	//[pauseLayer setControlLayer:controlLayer];
 	currentZique = LEVEL_INITIAL;
 	ziques = [NSMutableArray arrayWithCapacity:2];
@@ -160,93 +125,12 @@ static int gameMode;
 	
 	[self ziqueUpdate:LEVEL_INITIAL];
 	[self.gameLayer newLevel:currentZique];
-	//[gameLayer setAudioManager:audioManager];
-	//[self schedule:@selector(simulateBPM:) interval:10];
 	
 	// add layer as a child to scene
 	//[self addChild: pauseLayer z:-15 tag:3];
 	[self addChild: gameLayer z:5 tag:1];
-	//[self addChild: controlLayer z:10 tag:2];
 }
 
-/*
--(NSString *)getServerAddress {
-	NSError *error;
-	NSString * file = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"txt"];
-	NSString * s = [NSString stringWithContentsOfFile:file encoding:[NSString defaultCStringEncoding] error:&error];
-    NSLog(@"server: %@", s);
-	s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-	return s;
-}
-
-- (void)socket:(GCDAsyncSocket *)sender didConnectToHost:(NSString *)host port:(UInt16)port
-{
-    NSLog(@"Connected");
-}
-
-- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag
-{
-    if (tag == 1)
-        NSLog(@"login request sent");
-    else if (tag == 2)
-        NSLog(@"Second request sent");
-}
-
-- (void)socket:(GCDAsyncSocket *)sender didReadData:(NSData *)data withTag:(long)tag
-{
-		NSLog(@"tag: %ld", tag);
-		//NSString* s = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-		NSError* error;
-		NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-		NSLog(@"data: %@", json);
-		NSData *term = [@"\n" dataUsingEncoding:NSUTF8StringEncoding];
-		[socket readDataToData:term withTimeout:-1 tag:1];
-		if ([json objectForKey:@"welcome"] != Nil) {
-			NSLog(@"welcome");
-		} else if ([json objectForKey:@"start"] != Nil) {
-			NSLog(@"start");
-			[self removeChildByTag:1 cleanup:true];
-			[self initGame];
-		} else if ([json objectForKey:@"bpm"] != Nil) {
-			rivalBPM = [[json objectForKey:@"bpm"] intValue];
-			[self updateHeaderRivalBPM];
-		} else if ([json objectForKey:@"totalplayers"] != Nil) {
-			NSLog(@"totalplayers %@", [json objectForKey:@"totalplayers"]);
-		} else if ([json objectForKey:@"end"] != Nil) {
-			if ([[json objectForKey:@"end"] intValue] == 1) {
-				NSLog(@"win");
-				[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whWin]]];
-			} else {
-				NSLog(@"lose");
-				[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
-			}
-			NSLog(@"end");
-		} else if ([json objectForKey:@"mange"] != Nil) {
-			[self mange:[[json objectForKey:@"mange"] intValue]];
-		} else if ([json objectForKey:@"jauge"] != Nil) {
-			[self updateRivalJauge:[[json objectForKey:@"jauge"] intValue]];
-			
-		}
-}
-
- */
- 
--(void)mange:(int)m {
-    switch (m) {
-        case ItemTypeGHB:
-            [self displayMessage:3];
-            break;
-            
-        case ItemTypeLSD:
-            [self displayMessage:2];
-            break;
-            
-        default:
-            
-            [self setBPM: gameBPM + [WHItem effectForType:(ItemType)m]];
-            break;
-    }
-}
 
 -(void)updateTime
 {
@@ -285,25 +169,6 @@ static int gameMode;
     
     musicBPM = [[bob objectForKey:@"bpm"] intValue];
 
-    
-    /*
-	currentZique = zique;
-	BBAudioManager *audioManager = [BBAudioManager sharedAM];
-	[audioManager stopBGM];
-	[self unschedule:@selector(bgmUpdate:)]; // synchroniser
-	
-	NSDictionary * bob = [ziques objectAtIndex:zique];
-	if ([[bob objectForKey:@"introLen"] floatValue] > 0.1) {
-		[audioManager nextBGMWithName:[bob objectForKey:@"loop"]];
-		[audioManager playBGMWithName: [bob objectForKey:@"intro"]];
-		[self schedule:@selector(bgmUpdate:) interval:[[bob objectForKey:@"loopLen"] floatValue] repeat:-1 delay:[[bob objectForKey:@"introLen"] floatValue]];
-	} else {
-		[audioManager nextBGMWithName:[bob objectForKey:@"loop"]];
-		[audioManager playBGMWithName: [bob objectForKey:@"loop"]];
-		[self schedule:@selector(bgmUpdate:) interval:[[bob objectForKey:@"loopLen"] floatValue]];
-	}
-	musicBPM = [[bob objectForKey:@"bpm"] intValue];
-     */
 }
 
 -(void) incrementBPM:(int)bpm {
@@ -315,10 +180,8 @@ static int gameMode;
 }
 
 -(void) sendDrug:(int)itemType {
-    // NSLog(@"Envoi de drogue à l’autre connard: type %d",itemType);
 
 	[self sendMange:itemType];
-	//[self sendSocketWithKey:@"faitmanger" andValue:[NSString stringWithFormat:@"%d",itemType]];
 }
 
 
@@ -327,33 +190,12 @@ static int gameMode;
 	gameBPM=bpm;
 	[self updateHeaderBPM];
 	[self updateMusicBPM];
-	if ((bpm > 220) || (bpm < 50)) {
+	if ((bpm >= 220) || (bpm <= 50)) {
 		[self endScene:kEndReasonLose];
-		/*
-		[self sendSocketWithKey:@"bye" andValue:@"1"];
-		[[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [WHBasicLayer scene:whGameover]]];
-		 */
 	} else {
 		[self sendBPM:bpm];
-		//[self sendSocketWithKey:@"mybpm" andValue:[NSString stringWithFormat:@"%d",bpm]];
 	}
 }
-
-/*
--(void) sendSocketWithKey:(NSString *)key andValue:(NSString *)val {
-	NSError* error;
-	NSDictionary * data = [NSDictionary dictionaryWithObjectsAndKeys:val, key, nil];
-	NSData* jsonData = [NSJSONSerialization dataWithJSONObject:data options:Nil error:&error];
-	NSString* str = @"\n\n";
-	NSData* fin=[str dataUsingEncoding: [NSString defaultCStringEncoding] ];
-
-	NSMutableData *msgData = [NSMutableData data];
-	[msgData appendData:jsonData];
-	[msgData appendData:fin];
-	
-	[socket writeData:msgData withTimeout:-1 tag:1];
-}
- */
 
 -(void) simulateBPM:(ccTime) dt {
 	[self setBPM: (gameBPM+10)];
@@ -507,7 +349,6 @@ static int gameMode;
 		[jauge setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"jauge-%d.png",statut]]];
 	}
 	[self sendJauge:statut];
-	//[self sendSocketWithKey:@"jauge" andValue:[NSString stringWithFormat:@"%d",statut]];
 }
 
 -(void) updateRivalJauge:(int)i {
@@ -629,17 +470,6 @@ static int gameMode;
 	}
     
 }
-
-/*
-- (void)sendMove {
-    
-    MessageMove message;
-    message.message.messageType = kMessageTypeMove;
-    NSData *data = [NSData dataWithBytes:&message length:sizeof(MessageMove)];
-    [self sendData:data];
-    
-}
-*/
 
 - (void)sendBPM:(uint32_t) val {
 	if (gameMode != MODE_SOLO) {
@@ -764,7 +594,7 @@ static int gameMode;
 		
 	} else if (message->messageType == kMessageTypeMange) {
 		MessageMange * messageMange = (MessageMange *)[data bytes];
-		[self mange:messageMange->number];
+		[self mangeWithType:messageMange->number];
 		
 	} else if (message->messageType == kMessageTypeJauge) {
 		MessageJauge * messageJauge = (MessageJauge *) [data bytes];
@@ -775,18 +605,6 @@ static int gameMode;
 		rivalBPM = messageBPM->number;
 		[self updateHeaderRivalBPM];
 
-/*
-    } else if (message->messageType == kMessageTypeMove) {
-        
-        CCLOG(@"Received move");
-        
-        if (isPlayer1) {
-            [player2 moveForward];
-        } else {
-            [player1 moveForward];
-        }
- 
- */
     } else if (message->messageType == kMessageTypeGameOver) {
         
         MessageGameOver * messageGameOver = (MessageGameOver *) [data bytes];
@@ -799,6 +617,44 @@ static int gameMode;
         }
         
     }
+}
+
+-(void)mangeWithType:(int)m
+{
+	[self mangeWithType:m withSent:NO];
+}
+
+-(void)mange:(WHItem*)item withSent:(BOOL)itemSent
+{
+	[self mangeWithType:item.type withSent:itemSent];
+	
+}
+
+-(void)mangeWithType:(int)m withSent:(BOOL)itemSent {
+	if(m == ItemTypeNormal) {
+		[self incrementScore:10];
+	}
+    
+    
+    if(m != ItemTypeNormal && !itemSent) {
+        // il faut appliquer l’item à notre propre face
+        [self incrementBPM:[WHItem effectForType:(ItemType)m]];
+        
+        if (m == ItemTypeGHB) {
+            [self displayMessage:3];
+			[self setScore:0];
+			
+        } else if (m == ItemTypeLSD) {
+			[self toggleReverseMode];
+			[self scheduleOnce:@selector(toggleReverseMode) delay:5.0];
+            [self displayMessage:2];
+        }
+    }
+}
+
+-(void)toggleReverseMode {
+	self.gameLayer.reverse = !(self.gameLayer.reverse);
+	NSLog(@"Reverse Mode");
 }
 
 - (void)tryStartGame {
@@ -839,27 +695,28 @@ static int gameMode;
 }
 
 - (void)setupStringsWithOtherPlayerId:(NSString *)playerID {
-    
+    /*
     if (isPlayer1) {
-        /*
+        
         player1Label = [CCLabelBMFont labelWithString:[GKLocalPlayer localPlayer].alias fntFile:@"Arial.fnt"];
         [self addChild:player1Label];
         
         GKPlayer *player = [[GCHelper sharedInstance].playersDict objectForKey:playerID];
         player2Label = [CCLabelBMFont labelWithString:player.alias fntFile:@"Arial.fnt"];
         [self addChild:player2Label];
-		 */
+		 
         
     } else {
-        /*
+        
         player2Label = [CCLabelBMFont labelWithString:[GKLocalPlayer localPlayer].alias fntFile:@"Arial.fnt"];
         [self addChild:player2Label];
         
         GKPlayer *player = [[GCHelper sharedInstance].playersDict objectForKey:playerID];
         player1Label = [CCLabelBMFont labelWithString:player.alias fntFile:@"Arial.fnt"];
         [self addChild:player1Label];
-        */
+        
     }
+	*/
     
 }
 

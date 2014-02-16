@@ -121,6 +121,11 @@ typedef enum {
 -(void) executeNewZique;
 -(void) incrementScore:(int)i;
 -(int) getTime;
+-(void) setScore:(int)s;
+
+-(void)mangeWithType:(int)m;
+-(void)mange:(WHItem*)item withSent:(BOOL)itemSent;
+-(void)mangeWithType:(int)m withSent:(BOOL)itemSent;
 
 +(WHGameScene *) scene:(int)m;
 

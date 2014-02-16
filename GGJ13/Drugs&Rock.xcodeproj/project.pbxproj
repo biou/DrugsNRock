@@ -612,8 +612,8 @@
 			isa = PBXGroup;
 			children = (
 				322FB31E18A6CB23004287FF /* GCHelper.h */,
-				322FB31F18A6CB23004287FF /* GCHelper.m */,
 				32425636168DDFBC0050EDD1 /* WHGameLayer.h */,
+				322FB31F18A6CB23004287FF /* GCHelper.m */,
 				32425637168DDFBC0050EDD1 /* WHGameLayer.mm */,
 				B541435116B3E601000E45B8 /* WHControlLayer.h */,
 				B541435216B3E601000E45B8 /* WHControlLayer.m */,

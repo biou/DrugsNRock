@@ -29,6 +29,7 @@
 @property (strong) NSMutableArray *boutons;
 @property (weak) WHGameScene *gameScene;
 @property (strong) dispatch_queue_t gcdQueue;
+@property BOOL reverse;
 
 -(void)touchBouton:(int)boutonNb;
 -(void)newLevel:(int)gameBPM;
